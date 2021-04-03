@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { getMockSkills } from 'src/app/mock/skill.mock.spec';
 
 @Component({
   selector: 'mcv-work-experience',
@@ -6,11 +7,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./work-experience.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WorkExperienceComponent implements OnInit {
+export class WorkExperienceComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  public skills= getMockSkills();
 
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BootstrapColorEnum } from 'src/app/model/color.enum';
-import { Skill, SkillLevelEnum } from 'src/app/model/skill';
+import { Skill } from 'src/app/model/skill';
 
 @Component({
   selector: 'mcv-skill-list',

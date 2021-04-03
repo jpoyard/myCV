@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center">
+  <i
+    *ngIf="icon"
+    [ngClass]="'bg-' + color + ' ' + icon"
+    class="fa fa-1x mr-2 rounded border text-secondary p-1"
+  >
+  </i>
+  <a target="_blank" [href]="url" [ngClass]="'text-' + color">
+    {{ label }}
+  </a>
+</div>

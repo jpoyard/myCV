@@ -13,6 +13,7 @@ import { PrimaryComponent } from './components/primary/primary.component';
 import { SecondaryComponent } from './components/secondary/secondary.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { SkillWithLevelComponent } from './components/skill-with-level/skill-with-level.component';
+import { LinkComponent } from './components/link/link.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SkillWithLevelComponent } from './components/skill-with-level/skill-wit
     PrimaryComponent,
     SecondaryComponent,
     BadgeComponent,
-    SkillWithLevelComponent
+    SkillWithLevelComponent,
+    LinkComponent
   ],
   imports: [
     BrowserModule,
