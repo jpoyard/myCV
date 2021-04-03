@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  - "14.16.0"
+
+sudo: required
+dist: trusty
+
+addons:
+  chrome: stable
+
+branches:
+  only:
+    - main
+
+before_install:
+ - export CHROME_BIN=/usr/bin/google-chrome
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - sudo apt-get update
+ - sudo apt-get install -y libappindicator1 fonts-liberation
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - npm run test:ci
+  - ng build --prod
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change
