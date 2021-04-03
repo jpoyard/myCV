@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getMockSkills } from './mock/skill.mock.spec';
 
 @Component({
   selector: 'mcv-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myCV';
+
+  public skills = getMockSkills();
 }

@@ -1,71 +1,53 @@
-<header></header>
-<article>
-  <div class="mx-auto bg-white shadow-lg">
+<header class="d-print-none"></header>
+<main>
+  <div class="mx-auto bg-white">
     <header>
-      <div class="media flex-row">
+      <div class="media flex-row bg-secondary">
         <mcv-thumbnail></mcv-thumbnail>
-        <div class="media-body d-flex flex-row p-4">
-          <div class="primary-info">
+        <address class="media-body d-flex flex-column p-4 m-0 text-light">
+          <div>
             <h1 class="name mt-0 mb-1 text-white text-uppercase text-uppercase">
-              Steve Doe
+              Julien Poyard
             </h1>
-            <div class="title mb-3">Full Stack Developer</div>
-            <ul class="list-unstyled">
-              <li class="mb-2">
-                <a href="#" class="d-flex align-items-center">
-                  <i class="fa fa-envelope fa-1x mr-2"></i>Steve.Doe@website.com
-                </a>
-              </li>
-              <li>
-                <a href="#" class="d-flex align-items-center">
-                  <i class="fa fa-mobile fa-2x mr-2"></i>0123 456 78900
-                </a>
-              </li>
-            </ul>
+            <h4 class="title mb-3">Font-end Developer</h4>
           </div>
-
-          <div class="secondary-info ml-md-auto mt-2">
-            <ul class="resume-social list-unstyled">
-              <li class="mb-3">
-                <a href="#" class="d-flex align-items-center">
-                  <i class="fa fa-linkedin-square fa-1x mr-2"></i>linkedin.com/in/stevedoe
-                </a>
-              </li>
-              <li class="mb-3">
-                <a href="#" class="fa-container text-center">
-                  <i class="fa fa-github-alt fa-1x mr-2"></i>github.com/username
-                </a>
-              </li>
-            </ul>
+          <div class="media-body d-flex flex-row justify-content-between">
+            <mcv-primary></mcv-primary>
+            <mcv-secondary></mcv-secondary>
           </div>
-        </div>
+        </address>
       </div>
     </header>
-  </div>
-</article>
-<footer></footer>
-
-<!--
-<div class="vh-100 d-flex flex-column">
-  <div class="d-flex flex-fill flex-row">
-    <div class="col-3 pt-3 bg-secondary">
-      <mcv-thumbnail></mcv-thumbnail>
-      <div class="text-light mt-3">
-        <h6 class="text-uppercase font-weight-bold">contact</h6>
+    <div class="px-5 py-4">
+      <mcv-section title="career summary">
         <p>
-          <span class="text-capitalize font-weight-bolder">adress</span>
+          For writers, a random sentence can help them get their creative juices
+          flowing. Since the topic of the sentence is completely unknown, it
+          forces the writer to be creative when the sentence appears. There are
+          a number of different ways a writer can use the random sentence for
+          creativity. The most common way to use the sentence is to begin a
+          story. Another option is to include it somewhere in the story. A much
+          more difficult challenge is to use it to end a story. In any of these
+          cases, it forces the writer to think creatively since they have no
+          idea what sentence will appear from the tool.
         </p>
+      </mcv-section>
+      <div class="row">
+        <div class="col-9">
+          <mcv-work-experience-list></mcv-work-experience-list>
+        </div>
+        <div class="col-3">
+          <mcv-section title="skills & tools">
+            <mcv-skill-list class="mb-4" title="front-end" [skills]="skills" [withLevel]="true"></mcv-skill-list>
+            <mcv-skill-list title="others" [skills]="skills"></mcv-skill-list>
+          </mcv-section>
+
+          <mcv-section title="education"> </mcv-section>
+
+          <mcv-section title="language"> </mcv-section>
+        </div>
       </div>
     </div>
-    <div class="col-9">
-
-      <i class="fa fa-map-marker"></i>
-      <i class="fa fa-phone"></i>
-      <i class="fa fa-envelope"></i>
-
-
-test
-    </div>
   </div>
-</div>
--->
+</main>
+<footer class="d-print-none"></footer>

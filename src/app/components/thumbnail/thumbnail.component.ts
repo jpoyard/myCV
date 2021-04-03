@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'mcv-thumbnail',
   template: `
-    <img src="assets/thumbnail.png" class="img-fluid rounded border">
+    <img src="https://avatars.githubusercontent.com/u/10052221?s=300&u=c7f0a14b253da712b9c86661bbc148281bb220d1&v=4" class="img-fluid">
   `,
   styles: [
     `:host {
@@ -11,11 +11,4 @@ import { Component, OnInit } from '@angular/core';
     }`
   ]
 })
-export class ThumbnailComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class ThumbnailComponent {}

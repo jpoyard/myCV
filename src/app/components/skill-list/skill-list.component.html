@@ -1,0 +1,19 @@
+<h5 *ngIf="title" class="font-weight-bold text-capitalize">{{ title }}</h5>
+<ng-container *ngIf="withLevel; else badgeTpl">
+  <ul class="list-unstyled">
+    <ng-container *ngFor="let skill of skills; last as isLast">
+      <li [class.mb-2]="!isLast">
+        <mcv-skill-with-level [skill]="skill"></mcv-skill-with-level>
+      </li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #badgeTpl>
+  <ul class="list-inline">
+    <ng-container *ngFor="let skill of skills">
+      <li class="list-inline-item">
+        <mcv-badge [name]="skill.name"></mcv-badge>
+      </li>
+    </ng-container>
+  </ul>
+</ng-template>

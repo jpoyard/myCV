@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:ci": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:chrome": "ng test --watch --browsers=Chrome",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -29,6 +31,7 @@
     "@angular/compiler-cli": "~11.2.7",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "bootstrap": "^4.6.0",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
