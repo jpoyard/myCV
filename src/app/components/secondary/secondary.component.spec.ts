@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LinkComponent } from '../link/link.component';
 
 import { SecondaryComponent } from './secondary.component';
 
@@ -8,7 +9,7 @@ describe('SecondaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondaryComponent ]
+      declarations: [ SecondaryComponent, LinkComponent ]
     })
     .compileComponents();
   });
