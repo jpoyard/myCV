@@ -1,37 +1,39 @@
-<article class="position-relative">
+<article class="position-relative" *ngIf="workExperience">
   <div class="header mb-2">
     <div class="d-flex flex-column flex-md-row">
       <h5 class="resume-position-title font-weight-bold mb-1">
-        Lead Developer
+        {{ workExperience.jobTitle }}
       </h5>
-      <div class="resume-company-name ml-auto">Startup Hub</div>
+      <div class="resume-company-name ml-auto">
+        {{ workExperience.company }}
+      </div>
     </div>
-    <div class="resume-position-time text-muted">2018 - Present</div>
+    <div class="resume-position-time text-muted" *ngIf="languageService.currentLang$|async as currentLang">
+      {{ workExperience.period.start | date:'MMMM y':undefined:currentLang }} -
+      <ng-container *ngIf="workExperience.period.end; else presentTpl"
+        >{{ workExperience.period.end | date:'MMMM y':undefined:currentLang }}
+      </ng-container>
+      <ng-template #presentTpl>
+        {{ "present" | translate }}
+      </ng-template>
+    </div>
   </div>
   <div class="description">
-    <p>
-      Role description goes here ipsum dolor sit amet, consectetuer adipiscing
-      elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-      penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-      quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede
-      justo, fringilla vel.
-    </p>
-    <h6 class="description-heading font-weight-bold text-capitalize">
-      {{ "title.achievements" | translate }}
-    </h6>
-    <p>
-      Praesentium voluptatum deleniti atque corrupti quos dolores et quas
-      molestias excepturi sint occaecati cupiditate non provident.
-    </p>
-    <ul>
-      <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-      <li>At vero eos et accusamus et iusto odio dignissimos.</li>
-      <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
-      <li>Maecenas tempus tellus eget.</li>
-    </ul>
-    <h6 class="description-heading font-weight-bold text-capitalize">
-      {{ "title.technologies-used" | translate }}
-    </h6>
-    <mcv-skill-list [skills]="skills"></mcv-skill-list>
+    <p>{{ workExperience.description }}</p>
+    <ng-container *ngIf="workExperience.achievements as achievements">
+      <h6 class="description-heading font-weight-bold text-capitalize">
+        {{ "title.achievements" | translate }}
+      </h6>
+      <p>{{ achievements.description }}</p>
+      <ul>
+        <ng-container *ngFor="let item of achievements.items">
+          <li>{{ item }}</li>
+        </ng-container>
+      </ul>
+      <h6 class="description-heading font-weight-bold text-capitalize">
+        {{ "title.technologies-used" | translate }}
+      </h6>
+      <mcv-skill-list [skills]="workExperience.skills"></mcv-skill-list>
+    </ng-container>
   </div>
 </article>

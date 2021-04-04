@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mcv-thumbnail',
@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
     `:host {
       display: contents;
     }`
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThumbnailComponent {}

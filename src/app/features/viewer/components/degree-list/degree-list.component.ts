@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { getMockDegrees } from '../../mock/degree.mock.spec';
 import { Degree } from '../../model/degree';
 
 @Component({
   selector: 'mcv-degree-list',
-  templateUrl: './degree-list.component.html'
+  templateUrl: './degree-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DegreeListComponent {
 

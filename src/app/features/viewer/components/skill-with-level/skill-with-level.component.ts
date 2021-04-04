@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Skill } from 'src/app/features/viewer/model/skill';
 
 @Component({
@@ -8,6 +8,7 @@ import { Skill } from 'src/app/features/viewer/model/skill';
   <div class="skill-name">{{ skill.name }}</div>
   <mcv-progress *ngIf="skill.level" [value]="skill.level"></mcv-progress>
 </ng-container>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillWithLevelComponent {
   @Input() public skill?: Skill;

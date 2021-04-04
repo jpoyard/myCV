@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mcv-section',
   templateUrl: './section.component.html',
-  styleUrls: ['./section.component.css']
+  styleUrls: ['./section.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionComponent  {
   @Input() public title: string = 'no-title';

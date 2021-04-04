@@ -1,12 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { getMockLanguages } from '../../mock/language.mock.spec';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 @Component({
   selector: 'mcv-language-list',
   templateUrl: './language-list.component.html',
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LanguageListComponent {
 

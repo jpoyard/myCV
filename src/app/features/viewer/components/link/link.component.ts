@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
 
 @Component({
   selector: 'mcv-link',
   templateUrl: './link.component.html',
-  })
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class LinkComponent {
   @Input() public url: string = '#';
   @Input() public label: string = 'none';

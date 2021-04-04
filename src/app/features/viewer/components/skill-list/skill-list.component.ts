@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
 import { Skill } from 'src/app/features/viewer/model/skill';
 
 @Component({
   selector: 'mcv-skill-list',
-  templateUrl: './skill-list.component.html'
+  templateUrl: './skill-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillListComponent implements OnInit {
 

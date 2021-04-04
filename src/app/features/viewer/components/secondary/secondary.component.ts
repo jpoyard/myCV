@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mcv-secondary',
   templateUrl: './secondary.component.html',
-  styleUrls: ['./secondary.component.css']
+  styleUrls: ['./secondary.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SecondaryComponent {
 
