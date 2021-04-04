@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { getMockSkills } from 'src/app/mock/skill.mock.spec';
+import { getMockSkills } from 'src/app/features/viewer/mock/skill.mock.spec';
 import { BadgeComponent } from '../badge/badge.component';
 import { ProgressComponent } from '../progress/progress.component';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';

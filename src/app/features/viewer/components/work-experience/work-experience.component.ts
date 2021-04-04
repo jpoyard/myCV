@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { getMockSkills } from 'src/app/mock/skill.mock.spec';
+import { getMockSkills } from 'src/app/features/viewer/mock/skill.mock.spec';
 
 @Component({
   selector: 'mcv-work-experience',

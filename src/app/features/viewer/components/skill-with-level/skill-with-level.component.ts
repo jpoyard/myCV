@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Skill } from 'src/app/model/skill';
+import { Skill } from 'src/app/features/viewer/model/skill';
 
 @Component({
   selector: 'mcv-skill-with-level',

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { SkillLevelEnum } from 'src/app/model/skill';
+import { SkillLevelEnum } from 'src/app/features/viewer/model/skill';
 import { ProgressComponent } from '../progress/progress.component';
 
 import { SkillWithLevelComponent } from './skill-with-level.component';
