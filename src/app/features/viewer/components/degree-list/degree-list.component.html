@@ -1,0 +1,9 @@
+<ul class="list-unstyled">
+  <ng-container *ngFor="let degree of orderedDegrees; last as isLast">
+    <li [class.mb-2]="!isLast">
+      <h6 class="degree font-weight-bold">{{ degree.name }}</h6>
+      <div class="degree-school">{{ degree.school }}</div>
+      <div class="degree-years text-muted">{{ degree.start }} - {{ degree.end }}</div>
+    </li>
+  </ng-container>
+</ul>

@@ -14,6 +14,8 @@ import { SecondaryComponent } from './components/secondary/secondary.component';
 import { BadgeComponent } from './components/badge/badge.component';
 import { SkillWithLevelComponent } from './components/skill-with-level/skill-with-level.component';
 import { LinkComponent } from './components/link/link.component';
+import { DegreeListComponent } from './components/degree-list/degree-list.component';
+import { LanguageListComponent } from './components/language-list/language-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { LinkComponent } from './components/link/link.component';
     SecondaryComponent,
     BadgeComponent,
     SkillWithLevelComponent,
-    LinkComponent
+    LinkComponent,
+    DegreeListComponent,
+    LanguageListComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,12 @@
+<ul class="list-unstyled">
+  <ng-container *ngFor="let language of orderedLanguages; last as isLast">
+    <li [class.mb-2]="!isLast">
+      <h6 class="language font-weight-bold text-capitalize mr-1">
+        {{ language.name }}
+      </h6>
+      <div class="language-level text-muted font-weight-normal text-capitalize">
+        ({{ language.level }})
+      </div>
+    </li>
+  </ng-container>
+</ul>
