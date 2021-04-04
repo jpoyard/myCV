@@ -17,34 +17,41 @@
     </div>
   </header>
   <div class="px-5 py-4">
-    <mcv-section title="career summary">
+    <mcv-section title="title.career-summary">
       <p>
         For writers, a random sentence can help them get their creative juices
         flowing. Since the topic of the sentence is completely unknown, it
-        forces the writer to be creative when the sentence appears. There are
-        a number of different ways a writer can use the random sentence for
-        creativity. The most common way to use the sentence is to begin a
-        story. Another option is to include it somewhere in the story. A much
-        more difficult challenge is to use it to end a story. In any of these
-        cases, it forces the writer to think creatively since they have no
-        idea what sentence will appear from the tool.
+        forces the writer to be creative when the sentence appears. There are a
+        number of different ways a writer can use the random sentence for
+        creativity. The most common way to use the sentence is to begin a story.
+        Another option is to include it somewhere in the story. A much more
+        difficult challenge is to use it to end a story. In any of these cases,
+        it forces the writer to think creatively since they have no idea what
+        sentence will appear from the tool.
       </p>
     </mcv-section>
     <div class="row">
       <div class="col-9">
-        <mcv-work-experience-list></mcv-work-experience-list>
+        <mcv-section title="title.work-experience">
+          <mcv-work-experience-list></mcv-work-experience-list>
+        </mcv-section>
       </div>
       <div class="col-3">
-        <mcv-section title="skills & tools">
-          <mcv-skill-list class="mb-4" title="front-end" [skills]="skills" [withLevel]="true"></mcv-skill-list>
+        <mcv-section title="title.skills-tools">
+          <mcv-skill-list
+            class="mb-4"
+            title="front-end"
+            [skills]="skills"
+            [withLevel]="true"
+          ></mcv-skill-list>
           <mcv-skill-list title="others" [skills]="skills"></mcv-skill-list>
         </mcv-section>
 
-        <mcv-section title="education">
+        <mcv-section title="title.education">
           <mcv-degree-list [degrees]="degrees"></mcv-degree-list>
         </mcv-section>
 
-        <mcv-section title="language">
+        <mcv-section title="title.language">
           <mcv-language-list [languages]="languages"></mcv-language-list>
         </mcv-section>
       </div>
