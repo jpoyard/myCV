@@ -1,4 +1,4 @@
-<article class="position-relative pb-2">
+<article class="position-relative">
   <div class="header mb-2">
     <div class="d-flex flex-column flex-md-row">
       <h5 class="resume-position-title font-weight-bold mb-1">
@@ -16,8 +16,8 @@
       quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede
       justo, fringilla vel.
     </p>
-    <h6 class="description-heading font-weight-bold">
-      Achievements:
+    <h6 class="description-heading font-weight-bold text-capitalize">
+      {{ "title.achievements" | translate }}
     </h6>
     <p>
       Praesentium voluptatum deleniti atque corrupti quos dolores et quas
@@ -29,8 +29,8 @@
       <li>Blanditiis praesentium voluptatum deleniti atque corrupti.</li>
       <li>Maecenas tempus tellus eget.</li>
     </ul>
-    <h6 class="description-heading font-weight-bold">
-      Technologies used:
+    <h6 class="description-heading font-weight-bold text-capitalize">
+      {{ "title.technologies-used" | translate }}
     </h6>
     <mcv-skill-list [skills]="skills"></mcv-skill-list>
   </div>
