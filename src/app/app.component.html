@@ -1,11 +1,15 @@
 <header class="d-print-none bg-secondary border-bottom sticky-top navbar navbar-expand d-flex flex-row justify-content-end align-items-center">
+  <ul class="navbar-nav flex-row flex-wrap">
+    <li class="nav-item clickable" (click)="openPDF(pdf)">
+      <i class="fa fa-file-pdf-o fa-1x mr-2 rounded border text-center text-muted bg-white p-1"></i>
+    </li>
+  </ul>
   <mcv-language-select class="col-2"></mcv-language-select>
 </header>
-<main>
+<main class="px-2" #pdf>
   <router-outlet></router-outlet>
 </main>
 <footer class="d-print-none bg-light border-top sticky-bottom">
   <div class="container">
-
   </div>
 </footer>
