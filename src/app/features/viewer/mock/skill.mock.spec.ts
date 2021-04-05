@@ -7,7 +7,8 @@ const MOCK_SKILLS: Skill[] = [
   { name: 'JavaScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
   { name: 'Node.js', keys: ['back', 'language', 'library'], level: SkillLevelEnum.advanced },
   { name: 'HTML/CSS/SASS/LESS', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
-  { name: 'Java', keys: ['back', 'language'] }
+  { name: 'Java', keys: ['back', 'language'] },
+  { name: 'VSCode', keys: ['ide'] }
 
 ];
 

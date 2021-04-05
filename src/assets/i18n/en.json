@@ -6,7 +6,19 @@
     "education": "education",
     "language": "language",
     "achievements": "achievements",
-    "technologies-used": "Technologies used"
+    "technologies-used": "Technologies used",
+    "front-end": "front-end",
+    "back-end": "back-end",
+    "others": "others"
   },
-  "present": "present"
+  "present": "present",
+  "language": {
+    "french": "french",
+    "english": "english",
+    "spanish": "spanish",
+    "level": {
+      "native": "(native)",
+      "professional": "(professional)"
+    }
+  }
 }

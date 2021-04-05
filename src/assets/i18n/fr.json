@@ -6,7 +6,19 @@
     "education": "diplômes",
     "language": "langues",
     "achievements": "réalisations",
-    "technologies-used": "Technologies utilisées"
+    "technologies-used": "Technologies utilisées",
+    "front-end": "front-end",
+    "back-end": "back-end",
+    "others": "autres"
   },
-  "present": "aujourd'hui"
+  "present": "aujourd'hui",
+  "language": {
+    "french": "français",
+    "english": "anglais",
+    "spanish": "espagnol",
+    "level": {
+      "native": "",
+      "professional": "(technique)"
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { SupportedLanguageEnum } from 'src/app/model/language';
@@ -24,7 +25,8 @@ describe(LanguageSelectComponent.name, () => {
       providers: [
         { provide: LanguageService, useValue: spyObjLanguageService },
         { provide: TranslateService, useValue: spyObjTranslateService }
-      ]
+      ],
+      imports: [ReactiveFormsModule]
     }).compileComponents();
   });
 

@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { getMockPersonalData } from '../mock/personal-data.mock.spec';
 import { Link } from '../model/link';
 import { PersonalData, WebsiteEnum } from '../model/personal-data';
+import { SkillLevelEnum } from '../model/skill';
 
 import { CurriculumVitaeDataService } from './cv-data.service';
 
@@ -64,29 +65,37 @@ describe(CurriculumVitaeDataService.name, () => {
   });
 
   describe('getWebsiteLinks()', () => {
-
-    /*
-{ website: WebsiteEnum.linkedin, account: "jpoyard" },
-    { website: WebsiteEnum.github, account: "jpoyard" },
-    { website: WebsiteEnum.twitter, account: "@jpoyard" },
-    { website: WebsiteEnum.codepen, account: "jpoyard" }
-
-    { icon: "fa-github", label: "github.com/jpoyard", url: "https://github.com/jpoyard" },
-  { icon: "fa-twitter", label: "@jpoyard", url: "https://twitter.com/jpoyard" },
-  { icon: "fa-codepen", label: "codepen.io/jpoyard", url: "https://codepen.io/jpoyard" }
-
-    */
-
     [
       {
         when: [],
         then: []
       }, {
-        when: [{ website: WebsiteEnum.linkedin, account: "jpoyard" },],
+        when: [{ website: WebsiteEnum.linkedin, account: "jpoyard" }],
         then: [{ icon: "fa-linkedin", label: "linkedin.com/in/jpoyard", url: "http://www.linkedin.com/in/jpoyard" }]
+      }, {
+        when: [{ website: WebsiteEnum.linkedin, account: "gishin01" }],
+        then: [{ icon: "fa-linkedin", label: "linkedin.com/in/gishin01", url: "http://www.linkedin.com/in/gishin01" }]
+      }, {
+        when: [{ website: WebsiteEnum.github, account: "jpoyard" }],
+        then: [{ icon: "fa-github", label: "github.com/jpoyard", url: "https://github.com/jpoyard" }]
+      }, {
+        when: [{ website: WebsiteEnum.github, account: "gishin01" }],
+        then: [{ icon: "fa-github", label: "github.com/gishin01", url: "https://github.com/gishin01" }]
+      }, {
+        when: [{ website: WebsiteEnum.twitter, account: "jpoyard" }],
+        then: [{ icon: "fa-twitter", label: "@jpoyard", url: "https://twitter.com/jpoyard" }]
+      }, {
+        when: [{ website: WebsiteEnum.twitter, account: "gishin01" }],
+        then: [{ icon: "fa-twitter", label: "@gishin01", url: "https://twitter.com/gishin01" }]
+      }, {
+        when: [{ website: WebsiteEnum.codepen, account: "jpoyard" }],
+        then: [{ icon: "fa-codepen", label: "codepen.io/jpoyard", url: "https://codepen.io/jpoyard" }]
+      }, {
+        when: [{ website: WebsiteEnum.codepen, account: "gishin01" }],
+        then: [{ icon: "fa-codepen", label: "codepen.io/gishin01", url: "https://codepen.io/gishin01" }]
       }
     ].forEach(scenario => {
-      it(`should return array with ${JSON.stringify(scenario.then)}, when accounts=${JSON.stringify(scenario.when)}`, () => {
+      it(`should return ${JSON.stringify(scenario.then)}, when accounts=${JSON.stringify(scenario.when)}`, () => {
         // Given
 
         // When
@@ -97,4 +106,65 @@ describe(CurriculumVitaeDataService.name, () => {
       });
     });
   });
+
+  describe('getSkillGroups', () => {
+    [
+      {
+        when: [],
+        then: []
+      },
+      {
+        when: [{ name: 'Angular', keys: ['front', 'framework'], level: SkillLevelEnum.expert }],
+        then: [{ title: 'front-end', skills: [{ name: 'Angular', keys: ['front', 'framework'], level: 100 }] }]
+      },
+      {
+        when: [{ name: 'Java', keys: ['back', 'language'], level: SkillLevelEnum.intermediate }],
+        then: [{ title: 'back-end', skills: [{ name: 'Java', keys: ['back', 'language'], level: SkillLevelEnum.intermediate }] }]
+      },
+      {
+        when: [{ name: 'VSCode', keys: ['ide'] }],
+        then: [{ title: 'others', skills: [{ name: 'VSCode', keys: ['ide'] }] }]
+      },
+      {
+        when: [
+          { name: 'Angular', keys: ['front', 'framework'], level: SkillLevelEnum.expert },
+          { name: 'jquery', keys: ['front', 'library'] },
+          { name: 'JavaScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
+          { name: 'Java', keys: ['back', 'language'] },
+          { name: 'Node.js', keys: ['back', 'language', 'library'], level: SkillLevelEnum.advanced },
+          { name: 'VSCode', keys: ['ide'] }
+        ],
+        then: [
+          {
+            title: 'front-end', skills: [
+              { name: 'Angular', keys: ['front', 'framework'], level: 100 },
+              { name: 'JavaScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced }
+            ]
+          },
+          {
+            title: 'back-end', skills: [
+              { name: 'Node.js', keys: ['back', 'language', 'library'], level: SkillLevelEnum.advanced }
+            ]
+          },
+          {
+            title: 'others', skills: [
+              { name: 'jquery', keys: ['front', 'library'] },
+              { name: 'Java', keys: ['back', 'language'] },
+              { name: 'VSCode', keys: ['ide'] }
+            ]
+          }
+        ]
+      }
+    ].forEach(scenario => {
+      it(`should return ${JSON.stringify(scenario.then)}, when skills=${JSON.stringify(scenario.when)}`, () => {
+        // Given
+
+        // When
+        const actual = service.getSkillGroups(scenario.when);
+
+        // Then
+        expect(actual).toEqual(scenario.then);
+      });
+    });
+  })
 });

@@ -19,7 +19,7 @@ export class SkillListComponent implements OnInit {
 
   ngOnInit(): void {
     this.orderedSkills = (this.withLevel)
-      ? this.skills.sort((a, b) => (a.level || 0) - (b.level || 0))
+      ? this.skills.sort((a, b) => (b.level || 0) - (a.level || 0))
       : this.skills.sort((a, b) => a.name.localeCompare(b.name));
   }
 }

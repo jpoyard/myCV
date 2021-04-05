@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 import { getMockLanguages } from '../../mock/language.mock.spec';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
@@ -11,7 +12,8 @@ describe(LanguageListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LanguageListComponent]
+      declarations: [LanguageListComponent],
+      imports: [TranslateModule.forRoot()]
     })
       .compileComponents();
   });

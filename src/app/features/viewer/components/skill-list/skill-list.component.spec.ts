@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 import { getMockSkills } from 'src/app/features/viewer/mock/skill.mock.spec';
 import { BadgeComponent } from '../badge/badge.component';
 import { ProgressComponent } from '../progress/progress.component';
@@ -12,7 +13,8 @@ describe(SkillListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillWithLevelComponent, SkillListComponent, BadgeComponent, ProgressComponent]
+      declarations: [SkillWithLevelComponent, SkillListComponent, BadgeComponent, ProgressComponent],
+      imports: [TranslateModule.forRoot()]
     })
       .compileComponents();
   });
@@ -34,7 +36,7 @@ describe(SkillListComponent.name, () => {
     [
       'front-end', 'back-end'
     ].forEach(title => {
-      it(`should display '${title}' title when title='${title}'`, () => {
+      it(`should display '${title}' title when title='title.${title}'`, () => {
         // Given
         component.title = title;
         // When
@@ -42,7 +44,7 @@ describe(SkillListComponent.name, () => {
         // Then
         expect(component).toBeTruthy();
         const titleElt = fixture.debugElement.query(By.css('h5')).nativeElement;
-        expect(titleElt.textContent).toBe(title)
+        expect(titleElt.textContent).toBe(`title.${title}`)
       });
     });
   });
@@ -63,7 +65,7 @@ describe(SkillListComponent.name, () => {
     it('should display ordered (by level) skills with progress when component.skills is defined and component.withLevel=true', () => {
       // Given
       const skills = getMockSkills();
-      const expected = skills.sort((a, b) => (a.level || 0) - (b.level || 0)).map(a => a.name);
+      const expected = skills.sort((a, b) => (b.level || 0) - (a.level || 0)).map(a => a.name);
       component.title = title;
       component.skills = skills;
       component.withLevel = true;

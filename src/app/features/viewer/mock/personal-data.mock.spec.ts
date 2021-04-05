@@ -11,7 +11,7 @@ const MOCK_PERSONAL_DATA: PersonalData = {
   accounts: [
     { website: WebsiteEnum.linkedin, account: "jpoyard" },
     { website: WebsiteEnum.github, account: "jpoyard" },
-    { website: WebsiteEnum.twitter, account: "@jpoyard" },
+    { website: WebsiteEnum.twitter, account: "jpoyard" },
     { website: WebsiteEnum.codepen, account: "jpoyard" }
   ]
 }

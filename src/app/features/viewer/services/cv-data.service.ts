@@ -5,6 +5,7 @@ import { getMockPrimaryLinks, getMockSecondaryLinks } from '../mock/link.mock.sp
 import { CurriculumVitaeData, PreparedCurriculumVitaeData, SkillGroup } from '../model/cv-data';
 import { Link } from '../model/link';
 import { PersonalData, WebsiteAccount, WebsiteEnum } from '../model/personal-data';
+import { Skill } from '../model/skill';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class CurriculumVitaeDataService {
       websiteLinks: this.getWebsiteLinks(data.personalData.accounts),
       careerSummary: data.careerSummary,
       workExperiences: data.workExperiences,
-      skillGroups: this.getSkillGroups(data),
+      skillGroups: this.getSkillGroups(data.skills),
       degrees: data.degrees,
       languages: data.languages
     });
@@ -43,23 +44,38 @@ export class CurriculumVitaeDataService {
 
   public getWebsiteLinks(accounts: WebsiteAccount[]): Link[] {
     return accounts.map(account => {
-      let result: Link;
-      switch (account.website) {
-        case WebsiteEnum.linkedin:
-        default:
-          result = { icon: "fa-linkedin", label: "linkedin.com/in/jpoyard", url: "http://www.linkedin.com/in/jpoyard" }
-          break;
-      }
-      return result;
+      return this.getWebsiteLink(account);
     });
   }
 
-  private getSkillGroups(data: CurriculumVitaeData): SkillGroup[] {
-    return [
-      { title: 'front-end', skills: data.skills },
-      { title: 'back-end', skills: data.skills },
-      { title: 'other', skills: data.skills }
-    ];
+  public getSkillGroups(skills: Skill[]): SkillGroup[] {
+    const frontSkillGroup = { title: 'front-end', skills: skills.filter(s => s.keys.includes('front') && s.level) };
+    const backSkillGroup = { title: 'back-end', skills: skills.filter(s => s.keys.includes('back') && s.level) };
+    const otherSkillGroup = {
+      title: 'others', skills: skills
+        .filter(skill => !frontSkillGroup.skills.find(s => s.name === skill.name) && !backSkillGroup.skills.find(s => s.name === skill.name))
+    };
+    return [frontSkillGroup, backSkillGroup, otherSkillGroup].filter(sg => sg.skills.length > 0);
+  }
+
+  private getWebsiteLink(account: WebsiteAccount) {
+    let result: Link;
+    switch (account.website) {
+      case WebsiteEnum.linkedin:
+        result = { icon: "fa-linkedin", label: `linkedin.com/in/${account.account}`, url: `http://www.linkedin.com/in/${account.account}` };
+        break;
+      case WebsiteEnum.github:
+        result = { icon: "fa-github", label: `github.com/${account.account}`, url: `https://github.com/${account.account}` };
+        break;
+      case WebsiteEnum.twitter:
+        result = { icon: "fa-twitter", label: `@${account.account}`, url: `https://twitter.com/${account.account}` };
+        break;
+      case WebsiteEnum.codepen:
+      default:
+        result = { icon: "fa-codepen", label: `codepen.io/${account.account}`, url: `https://codepen.io/${account.account}` };
+        break;
+    }
+    return result;
   }
 
   private getPhoneNumberLink(phoneNumber?: string): Link[] {
