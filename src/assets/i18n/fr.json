@@ -1,0 +1,24 @@
+{
+  "title": {
+    "career-summary": "résumé de carrière",
+    "work-experience": "expérience professionnelle",
+    "skills-tools": "compétences",
+    "education": "diplômes",
+    "language": "langues",
+    "achievements": "réalisations",
+    "technologies-used": "Technologies utilisées",
+    "front-end": "front-end",
+    "back-end": "back-end",
+    "others": "autres"
+  },
+  "present": "aujourd'hui",
+  "language": {
+    "french": "français",
+    "english": "anglais",
+    "spanish": "espagnol",
+    "level": {
+      "native": "",
+      "professional": "(technique)"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "personalData": {
+    "thumbnailUrl": "https://avatars.githubusercontent.com/u/10052221?s=300&u=c7f0a14b253da712b9c86661bbc148281bb220d1&v=4",
+    "firstName": "Julien",
+    "lastName": "Poyard",
+    "jobTitle": "Font-end Developer",
+    "address": "2, rue des Monts Chauvet Poissy France",
+    "phoneNumber": "(+33) 6 60 75 40 32",
+    "email": "julien.poyard@gmail.com",
+    "accounts": [
+      { "website": "linkedin", "account": "jpoyard" },
+      { "website": "github", "account": "jpoyard" },
+      { "website": "twitter", "account": "jpoyard" },
+      { "website": "codepen", "account": "jpoyard" }
+    ]
+  },
+  "careerSummary": "For writers, a random sentence can help them get their creative juices\nflowing. Since the topic of the sentence is completely unknown, it\nforces the writer to be creative when the sentence appears. There are a\nnumber of different ways a writer can use the random sentence for\ncreativity. The most common way to use the sentence is to begin a story.\nAnother option is to include it somewhere in the story. A much more\ndifficult challenge is to use it to end a story. In any of these cases,\nit forces the writer to think creatively since they have no idea what\nsentence will appear from the tool.",
+  "workExperiences": [
+    {
+      "jobTitle": "Tech Lead Developer",
+      "company": "Startup Hub",
+      "period": { "start": "2018-03-31T22:00:00.000Z" },
+      "description": "Role description goes here ipsum dolor sit amet, consectetuer adipiscing\n  elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec\n  quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede\n  justo, fringilla vel.",
+      "achievements": {
+        "description": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas\n    molestias excepturi sint occaecati cupiditate non provident.",
+        "items": [
+          "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.",
+          "At vero eos et accusamus et iusto odio dignissimos.",
+          "Blanditiis praesentium voluptatum deleniti atque corrupti.",
+          "Maecenas tempus tellus eget."
+        ]
+      },
+      "skills": [
+        { "name": "Angular", "keys": ["front", "framework"], "level": 100 },
+        {
+          "name": "AngularJS",
+          "keys": ["front", "framework"],
+          "level": 100,
+          "onlyForWorkExperience": true
+        },
+        { "name": "JSF", "keys": ["back", "framework"] },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 75 },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "Node.js",
+          "keys": ["back", "language", "library"],
+          "level": 75
+        },
+        {
+          "name": "HTML/CSS/SASS/LESS",
+          "keys": ["front", "language"],
+          "level": 75
+        },
+        { "name": "Java", "keys": ["back", "language"] },
+        { "name": "VSCode", "keys": ["ide"] }
+      ]
+    },
+    {
+      "jobTitle": "Lead Developer",
+      "company": "a company",
+      "serviceCompany": "a service company",
+      "period": {
+        "start": "2016-06-30T22:00:00.000Z",
+        "end": "2018-02-28T23:00:00.000Z"
+      },
+      "description": "Role description goes here ipsum dolor sit amet, consectetuer adipiscing\n  elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque\n  penatibus et magnis.",
+      "achievements": {
+        "description": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas\n    molestias excepturi sint occaecati cupiditate non provident.",
+        "items": [
+          "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.",
+          "Maecenas tempus tellus eget."
+        ]
+      },
+      "skills": [
+        { "name": "Angular", "keys": ["front", "framework"], "level": 100 },
+        {
+          "name": "AngularJS",
+          "keys": ["front", "framework"],
+          "level": 100,
+          "onlyForWorkExperience": true
+        },
+        { "name": "JSF", "keys": ["back", "framework"] },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 75 },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "Node.js",
+          "keys": ["back", "language", "library"],
+          "level": 75
+        },
+        {
+          "name": "HTML/CSS/SASS/LESS",
+          "keys": ["front", "language"],
+          "level": 75
+        },
+        { "name": "Java", "keys": ["back", "language"] },
+        { "name": "VSCode", "keys": ["ide"] }
+      ]
+    }
+  ],
+  "degrees": [
+    {
+      "name": "MSc in Computer Science",
+      "school": "University College London",
+      "start": 2010,
+      "end": 2011
+    },
+    {
+      "name": "BSc Maths and Physics",
+      "school": "Imperial College London",
+      "start": 2007,
+      "end": 2010
+    }
+  ],
+  "languages": [
+    { "name": "french", "level": "native" },
+    { "name": "english", "level": "professional" },
+    { "name": "spanish", "level": "professional" }
+  ]
+}
