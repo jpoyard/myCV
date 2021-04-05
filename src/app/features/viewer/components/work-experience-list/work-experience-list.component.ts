@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { getMockWorkExperiences } from '../../mock/work-experience.mock.spec';
 import { WorkExperience } from '../../model/work-experience';
 
 @Component({

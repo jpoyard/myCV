@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { getMockDegrees } from '../../mock/degree.mock.spec';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Degree } from '../../model/degree';
 
 @Component({

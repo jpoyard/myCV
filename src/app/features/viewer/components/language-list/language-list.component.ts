@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { getMockLanguages } from '../../mock/language.mock.spec';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 @Component({

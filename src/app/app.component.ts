@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { LanguageService } from './core/services/language.service';
-import { getMockSkills } from './features/viewer/mock/skill.mock.spec';
 import { SupportedLanguageEnum } from './model/language';
 
 @Component({
   selector: 'mcv-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   title = 'myCV';
