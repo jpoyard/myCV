@@ -9,14 +9,14 @@ import { Degree } from '../../model/degree';
 })
 export class DegreeListComponent {
 
-  private _degrees: Degree[] = [];
+  private pDegrees: Degree[] = [];
   @Input()
   public set degrees(value: Degree[]) {
-    this._degrees = value;
-    this.orderedDegrees = this.degrees.sort((a, b) => b.start - a.start)
+    this.pDegrees = value;
+    this.orderedDegrees = this.degrees.sort((a, b) => b.start - a.start);
   }
   public get degrees(): Degree[] {
-    return this._degrees;
+    return this.pDegrees;
   }
 
   public orderedDegrees: Degree[] = [];

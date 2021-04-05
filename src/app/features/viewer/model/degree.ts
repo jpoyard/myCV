@@ -3,4 +3,4 @@ export interface Degree {
   school: string;
   start: number;
   end: number;
-};
+}

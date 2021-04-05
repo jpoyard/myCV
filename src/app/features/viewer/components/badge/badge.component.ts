@@ -9,7 +9,7 @@ import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BadgeComponent {
-  @Input() public name: string = '';
+  @Input() public name = '';
   @Input() public hasBadgePill = true;
-  @Input() public color = BootstrapColorEnum.secondary
+  @Input() public color = BootstrapColorEnum.secondary;
 }

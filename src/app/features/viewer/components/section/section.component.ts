@@ -7,5 +7,5 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SectionComponent  {
-  @Input() public title: string = 'no-title';
+  @Input() public title = 'no-title';
 }

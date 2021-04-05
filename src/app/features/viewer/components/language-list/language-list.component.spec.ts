@@ -38,7 +38,7 @@ describe(LanguageListComponent.name, () => {
         { name: 'english', level: LanguageLevelEnum.professional },
         { name: 'german', level: LanguageLevelEnum.professional },
         { name: 'french', level: LanguageLevelEnum.native }
-      ]
+      ];
       const expected = [
         { name: 'french', level: LanguageLevelEnum.native },
         { name: 'english', level: LanguageLevelEnum.professional },
@@ -56,7 +56,7 @@ describe(LanguageListComponent.name, () => {
         expect(languageElt.query(By.css('.language')).nativeElement.textContent).toContain(expected[i].name);
         // level
         expect(languageElt.query(By.css('.language-level')).nativeElement.textContent).toContain(expected[i].level);
-      })
-    })
-  })
+      });
+    });
+  });
 });

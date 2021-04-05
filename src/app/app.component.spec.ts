@@ -52,6 +52,6 @@ describe(AppComponent.name, () => {
       expect(spyObjTranslateService.addLangs).toHaveBeenCalledWith(Object.values(SupportedLanguageEnum));
       expect(spyObjTranslateService.setDefaultLang).toHaveBeenCalledWith(SupportedLanguageEnum.english);
       expect(spyObjTranslateService.use).toHaveBeenCalledWith(SupportedLanguageEnum.english);
-    })
-  })
+    });
+  });
 });

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { BadgeComponent } from './components/badge/badge.component';
@@ -33,6 +34,7 @@ import { ViewerComponent } from './viewer.component';
   imports: [
     CommonModule,
     ViewerRoutingModule,
+    HttpClientModule,
     TranslateModule.forChild()
   ]
 })

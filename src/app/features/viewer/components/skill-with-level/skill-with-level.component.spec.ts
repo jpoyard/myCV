@@ -49,6 +49,6 @@ describe(SkillWithLevelComponent.name, () => {
       expect(fixture.debugElement.query(By.css('.skill-name')).nativeElement.textContent).toBe(name);
       expect(fixture.debugElement.query(By.css('mcv-progress'))).toBeDefined();
     });
-  })
+  });
 
 });

@@ -17,7 +17,8 @@ describe(LanguageSelectComponent.name, () => {
 
   beforeEach(async () => {
     mockCurrentLang$ = new BehaviorSubject<string>(currentLang);
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(LanguageService.name, [], { currentLang$: mockCurrentLang$.asObservable() });
+    spyObjLanguageService = jasmine.createSpyObj<LanguageService>
+      (LanguageService.name, [], { currentLang$: mockCurrentLang$.asObservable() });
     spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, ['use']);
 
     await TestBed.configureTestingModule({
@@ -41,7 +42,7 @@ describe(LanguageSelectComponent.name, () => {
     fixture.detectChanges();
     // Then
     expect(component).toBeTruthy();
-    expect(component.languageController.value).toBe(currentLang)
+    expect(component.languageController.value).toBe(currentLang);
   });
 
   describe('changeLanguage()', () => {
@@ -53,7 +54,7 @@ describe(LanguageSelectComponent.name, () => {
       component.changeLanguage({ target: { value: expected } });
       fixture.detectChanges();
       // Then
-      expect(spyObjTranslateService.use).toHaveBeenCalledWith(expected)
+      expect(spyObjTranslateService.use).toHaveBeenCalledWith(expected);
     });
-  })
+  });
 });

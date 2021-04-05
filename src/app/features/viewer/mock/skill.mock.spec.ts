@@ -1,8 +1,9 @@
-import { Skill, SkillLevelEnum } from "../model/skill";
+import { Skill, SkillLevelEnum } from '../model/skill';
 
 const MOCK_SKILLS: Skill[] = [
   { name: 'Angular', keys: ['front', 'framework'], level: SkillLevelEnum.expert },
-  { name: 'JSF', keys: ['back', 'framework']},
+  { name: 'AngularJS', keys: ['front', 'framework'], level: SkillLevelEnum.expert, onlyForWorkExperience: true },
+  { name: 'JSF', keys: ['back', 'framework'] },
   { name: 'TypeScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
   { name: 'JavaScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
   { name: 'Node.js', keys: ['back', 'language', 'library'], level: SkillLevelEnum.advanced },
@@ -13,6 +14,6 @@ const MOCK_SKILLS: Skill[] = [
 ];
 
 export function getMockSkills(): Skill[] {
-  return JSON.parse(JSON.stringify(MOCK_SKILLS))
+  return JSON.parse(JSON.stringify(MOCK_SKILLS));
 }
 

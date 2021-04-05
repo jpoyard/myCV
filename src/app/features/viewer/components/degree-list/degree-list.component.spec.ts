@@ -51,6 +51,6 @@ describe(DegreeListComponent.name, () => {
       // check years
       const degreeYearElts = fixture.debugElement.queryAll(By.css('.degree-years'));
       expect(degreeYearElts.map(d => d.nativeElement.textContent)).toEqual(expected.map(e => `${e.start} - ${e.end}`));
-    })
-  })
+    });
+  });
 });

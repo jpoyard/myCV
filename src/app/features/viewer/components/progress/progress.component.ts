@@ -8,7 +8,7 @@ import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProgressComponent {
-  @Input() public value: number = 0;
-  @Input() public content: string = '';
+  @Input() public value = 0;
+  @Input() public content = '';
   @Input() public color: BootstrapColorEnum = BootstrapColorEnum.secondary;
 }

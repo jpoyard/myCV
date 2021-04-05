@@ -5,9 +5,9 @@ import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
 import { LinkComponent } from './link.component';
 
 describe(LinkComponent.name, () => {
-  const label = "linkedin.com/in/jpoyard";
-  const url = "http://www.linkedin.com/in/jpoyard";
-  const icon = "fa-linkedin";
+  const label = 'linkedin.com/in/jpoyard';
+  const url = 'http://www.linkedin.com/in/jpoyard';
+  const icon = 'fa-linkedin';
   let component: LinkComponent;
   let fixture: ComponentFixture<LinkComponent>;
 

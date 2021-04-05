@@ -11,4 +11,4 @@ export interface DiplayedLanguage {
 export const SUPPORTED_LANGUAGES: DiplayedLanguage[] = [
   { language: SupportedLanguageEnum.french, label: 'français' },
   { language: SupportedLanguageEnum.english, label: 'english' }
-]
+];

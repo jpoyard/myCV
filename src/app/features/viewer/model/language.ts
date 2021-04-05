@@ -5,5 +5,5 @@ export enum LanguageLevelEnum {
 
 export interface Language {
   name: string;
-  level?: LanguageLevelEnum,
+  level?: LanguageLevelEnum;
 }

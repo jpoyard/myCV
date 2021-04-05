@@ -9,14 +9,14 @@ import { Language, LanguageLevelEnum } from '../../model/language';
 })
 export class LanguageListComponent {
 
-  private _languages: Language[] = [];
+  private pLanguages: Language[] = [];
   @Input()
   public set languages(value: Language[]) {
-    this._languages = value;
-    this.orderedLanguages = this.languages.sort((a, b) => LanguageListComponent.getLevelValue(b) - LanguageListComponent.getLevelValue(a))
+    this.pLanguages = value;
+    this.orderedLanguages = this.languages.sort((a, b) => LanguageListComponent.getLevelValue(b) - LanguageListComponent.getLevelValue(a));
   }
   public get languages(): Language[] {
-    return this._languages;
+    return this.pLanguages;
   }
 
   public orderedLanguages: Language[] = [];

@@ -7,8 +7,8 @@ import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinkComponent {
-  @Input() public url: string = '#';
-  @Input() public label: string = 'none';
+  @Input() public url = '#';
+  @Input() public label = 'none';
   @Input() public icon?: string;
   @Input() public color: BootstrapColorEnum = BootstrapColorEnum.light;
 }

@@ -11,10 +11,10 @@ import { SupportedLanguageEnum } from './model/language';
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 
-registerLocaleData(localeFr, SupportedLanguageEnum.french)
-registerLocaleData(localeEn, SupportedLanguageEnum.english)
+registerLocaleData(localeFr, SupportedLanguageEnum.french);
+registerLocaleData(localeEn, SupportedLanguageEnum.english);
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http);
 }
 

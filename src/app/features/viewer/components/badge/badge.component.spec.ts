@@ -72,7 +72,7 @@ when hasBadgePill='${hasBadgePill}'`, () => {
       it(`should display component with badge-pill and badge-${color} classes
 when color='${color}'`, () => {
         // Given
-        const expectedBadgeColor = `badge-${color}`
+        const expectedBadgeColor = `badge-${color}`;
         component.name = 'Angular';
         component.color = color;
         // When

@@ -9,5 +9,6 @@ export enum SkillLevelEnum {
 export interface Skill {
   name: string;
   keys: string[];
-  level?: SkillLevelEnum,
+  level?: SkillLevelEnum;
+  onlyForWorkExperience?: boolean;
 }

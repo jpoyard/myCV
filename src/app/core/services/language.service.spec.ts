@@ -16,7 +16,7 @@ describe(LanguageService.name, () => {
     spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, [], {
       onLangChange: mockLangChangeEvent,
       currentLang
-    })
+    });
     TestBed.configureTestingModule({
       providers: [
         LanguageService,
@@ -44,7 +44,6 @@ describe(LanguageService.name, () => {
       expected => {
         it(`should return '${expected}' when currentLang='${currentLang}' and onLangChange emit {lang: '${expected}'}`, fakeAsync(() => {
           // Given
-          const expected = SupportedLanguageEnum.french;
           let actual;
 
           mockLangChangeEvent.emit({ lang: expected } as LangChangeEvent);
@@ -58,6 +57,6 @@ describe(LanguageService.name, () => {
           expect(actual).toBeTruthy(expected);
         }));
       }
-    )
+    );
   });
 });

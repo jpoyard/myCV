@@ -44,7 +44,7 @@ describe(SkillListComponent.name, () => {
         // Then
         expect(component).toBeTruthy();
         const titleElt = fixture.debugElement.query(By.css('h5')).nativeElement;
-        expect(titleElt.textContent).toBe(`title.${title}`)
+        expect(titleElt.textContent).toBe(`title.${title}`);
       });
     });
   });
@@ -60,7 +60,7 @@ describe(SkillListComponent.name, () => {
       expect(component).toBeTruthy();
       expect(component.skills).toEqual([]);
       const skillElts = fixture.debugElement.queryAll(By.css('li'));
-      expect(skillElts.length).toBe(0)
+      expect(skillElts.length).toBe(0);
     });
     it('should display ordered (by level) skills with progress when component.skills is defined and component.withLevel=true', () => {
       // Given
@@ -92,5 +92,5 @@ describe(SkillListComponent.name, () => {
       expect(skillElts.length).toBe(skills.length);
       expect(skillElts.map(a => a.nativeElement.textContent)).toEqual(expected);
     });
-  })
+  });
 });

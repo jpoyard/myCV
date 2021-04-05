@@ -1,5 +1,5 @@
-import { Degree } from "../model/degree";
-import { Language, LanguageLevelEnum } from "../model/language";
+import { Degree } from '../model/degree';
+import { Language, LanguageLevelEnum } from '../model/language';
 
 const MOCK_LANGUAGES: Language[] = [
   {
@@ -17,5 +17,5 @@ const MOCK_LANGUAGES: Language[] = [
 ];
 
 export function getMockLanguages(): Language[] {
-  return JSON.parse(JSON.stringify(MOCK_LANGUAGES))
+  return JSON.parse(JSON.stringify(MOCK_LANGUAGES));
 }

@@ -1,4 +1,4 @@
-import { Degree } from "../model/degree";
+import { Degree } from '../model/degree';
 
 const MOCK_DEGREES: Degree[] = [
   {
@@ -13,8 +13,8 @@ const MOCK_DEGREES: Degree[] = [
     start: 2007,
     end: 2010
   },
-]
+];
 
 export function getMockDegrees(): Degree[] {
-  return JSON.parse(JSON.stringify(MOCK_DEGREES))
+  return JSON.parse(JSON.stringify(MOCK_DEGREES));
 }

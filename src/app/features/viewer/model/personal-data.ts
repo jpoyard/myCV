@@ -1,8 +1,8 @@
 export enum WebsiteEnum {
-  linkedin = "linkedin",
-  github = "github",
-  twitter = "twitter",
-  codepen = "codepen"
+  linkedin = 'linkedin',
+  github = 'github',
+  twitter = 'twitter',
+  codepen = 'codepen'
 }
 
 export interface WebsiteAccount {
@@ -11,12 +11,12 @@ export interface WebsiteAccount {
 }
 
 export interface PersonalData {
-  firstName: string,
-  lastName: string,
-  thumbnailUrl: string,
-  jobTitle: string,
-  address?: string,
-  phoneNumber?: string,
-  email?:string;
-  accounts: WebsiteAccount[]
+  firstName: string;
+  lastName: string;
+  thumbnailUrl: string;
+  jobTitle: string;
+  address?: string;
+  phoneNumber?: string;
+  email?: string;
+  accounts: WebsiteAccount[];
 }

@@ -27,7 +27,7 @@ export class LanguageSelectComponent implements OnDestroy {
     private translateService: TranslateService
   ) {
     this.subscription = languageService.currentLang$
-      .subscribe(lang => this.languageController.patchValue(lang))
+      .subscribe(lang => this.languageController.patchValue(lang));
   }
 
   ngOnDestroy(): void {
