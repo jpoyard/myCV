@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Skill } from 'src/app/features/viewer/model/skill';
+import { Skill } from '../../model/skill';
 
 @Component({
   selector: 'mcv-skill-with-level',

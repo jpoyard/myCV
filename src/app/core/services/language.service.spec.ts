@@ -1,7 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { SupportedLanguageEnum } from '../../model/language';
 
 import { LanguageService } from './language.service';
 

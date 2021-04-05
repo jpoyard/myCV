@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
+import { BootstrapColorEnum } from '../../model/color.enum';
 
 @Component({
   selector: 'mcv-link',

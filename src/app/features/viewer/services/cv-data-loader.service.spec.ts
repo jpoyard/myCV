@@ -1,9 +1,8 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { CvDataLoaderService } from './cv-data-loader.service';
+import { SupportedLanguageEnum } from '../../../model/language';
 import { getMockCurriculumVitaeData } from '../mock/cv-data.mock.spec';
-import { CurriculumVitaeData } from '../model/cv-data';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { CvDataLoaderService } from './cv-data-loader.service';
 
 describe(CvDataLoaderService.name, () => {
   let service: CvDataLoaderService;

@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { SUPPORTED_LANGUAGES } from 'src/app/model/language';
+import { SUPPORTED_LANGUAGES } from '../../../model/language';
 import { LanguageService } from '../../services/language.service';
 
 @Component({

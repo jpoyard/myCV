@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { SupportedLanguageEnum } from '../../../model/language';
 import { CurriculumVitaeData } from '../model/cv-data';
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
+import { BootstrapColorEnum } from '../../model/color.enum';
 
 import { LinkComponent } from './link.component';
 

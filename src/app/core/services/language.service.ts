@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { SupportedLanguageEnum } from 'src/app/model/language';
-import { startWith, map } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

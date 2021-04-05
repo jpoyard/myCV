@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { BootstrapColorEnum } from 'src/app/features/viewer/model/color.enum';
-import { Skill } from 'src/app/features/viewer/model/skill';
+import { BootstrapColorEnum } from '../../model/color.enum';
+import { Skill } from '../../model/skill';
 
 @Component({
   selector: 'mcv-skill-list',

@@ -2,8 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { of } from 'rxjs';
-import { LanguageService } from 'src/app/core/services/language.service';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { LanguageService } from '../../../../core/services/language.service';
+import { SupportedLanguageEnum } from '../../../../model/language';
 
 import { WorkExperienceComponent } from './work-experience.component';
 

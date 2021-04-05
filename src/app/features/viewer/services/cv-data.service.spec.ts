@@ -1,17 +1,16 @@
 import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
-import { BehaviorSubject, of, ReplaySubject } from 'rxjs';
-import { LanguageService } from 'src/app/core/services/language.service';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { BehaviorSubject, of } from 'rxjs';
+import { LanguageService } from '../../../core/services/language.service';
+import { SupportedLanguageEnum } from '../../../model/language';
 import { getMockCurriculumVitaeData, getMockPreparedCurriculumVitaeData } from '../mock/cv-data.mock.spec';
-import { getMockPersonalData } from '../mock/personal-data.mock.spec';
 import { getMockSkills } from '../mock/skill.mock.spec';
 import { Link } from '../model/link';
 import { PersonalData, WebsiteEnum } from '../model/personal-data';
 import { SkillLevelEnum } from '../model/skill';
 import { WorkExperience } from '../model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
-
 import { CurriculumVitaeDataService } from './cv-data.service';
+
 
 describe(CurriculumVitaeDataService.name, () => {
   let service: CurriculumVitaeDataService;

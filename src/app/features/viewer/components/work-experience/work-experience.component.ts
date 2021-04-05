@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { LanguageService } from 'src/app/core/services/language.service';
+import { LanguageService } from '../../../../core/services/language.service';
 import { WorkExperience } from '../../model/work-experience';
 
 @Component({

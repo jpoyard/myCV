@@ -1,8 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, ReplaySubject, Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { LanguageService } from 'src/app/core/services/language.service';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { LanguageService } from '../../../core/services/language.service';
+import { SupportedLanguageEnum } from '../../../model/language';
 import { CurriculumVitaeData, PreparedCurriculumVitaeData, SkillGroup } from '../model/cv-data';
 import { Link } from '../model/link';
 import { PersonalData, WebsiteAccount, WebsiteEnum } from '../model/personal-data';
