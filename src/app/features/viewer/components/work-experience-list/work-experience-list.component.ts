@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { getMockWorkExperiences } from '../../mock/work-experience.mock.spec';
+import { WorkExperience } from '../../model/work-experience';
 
 @Component({
   selector: 'mcv-work-experience-list',
@@ -8,5 +9,7 @@ import { getMockWorkExperiences } from '../../mock/work-experience.mock.spec';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkExperienceListComponent {
-  public workExperiences = getMockWorkExperiences()
+
+  @Input() public workExperiences: WorkExperience[] = [];
+
 }

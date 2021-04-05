@@ -32,7 +32,7 @@ describe(SkillWithLevelComponent.name, () => {
     it('should display only skill.name when skill.level is undefined', () => {
       // Given
       const name = 'Angular';
-      component.skill = { name };
+      component.skill = { name, keys: [] };
       // When
       fixture.detectChanges();
       // Then
@@ -42,7 +42,7 @@ describe(SkillWithLevelComponent.name, () => {
     it('should display skill when name and level are defined', () => {
       // Given
       const name = 'Angular';
-      component.skill = { name, level: SkillLevelEnum.advanced };
+      component.skill = { name, keys: [], level: SkillLevelEnum.advanced };
       // When
       fixture.detectChanges();
       // Then

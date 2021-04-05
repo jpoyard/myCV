@@ -1,13 +1,13 @@
 import { Skill, SkillLevelEnum } from "../model/skill";
 
 const MOCK_SKILLS: Skill[] = [
-  { name: 'Angular', level: SkillLevelEnum.expert },
-  { name: 'JSF'},
-  { name: 'TypeScript', level: SkillLevelEnum.advanced },
-  { name: 'JavaScript', level: SkillLevelEnum.advanced },
-  { name: 'Node.js', level: SkillLevelEnum.advanced },
-  { name: 'HTML/CSS/SASS/LESS', level: SkillLevelEnum.advanced },
-  { name: 'Java' }
+  { name: 'Angular', keys: ['front', 'framework'], level: SkillLevelEnum.expert },
+  { name: 'JSF', keys: ['back', 'framework']},
+  { name: 'TypeScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
+  { name: 'JavaScript', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
+  { name: 'Node.js', keys: ['back', 'language', 'library'], level: SkillLevelEnum.advanced },
+  { name: 'HTML/CSS/SASS/LESS', keys: ['front', 'language'], level: SkillLevelEnum.advanced },
+  { name: 'Java', keys: ['back', 'language'] }
 
 ];
 

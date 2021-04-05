@@ -1,8 +1,8 @@
 <div class="d-flex align-items-center">
   <i
-    *ngIf="icon"
+    *ngIf="icon" [style.width.px]="26"
     [ngClass]="'bg-' + color + ' ' + icon"
-    class="fa fa-1x mr-2 rounded border text-muted p-1"
+    class="fa fa-1x mr-2 rounded border text-center text-muted p-1"
   >
   </i>
   <a target="_blank" [href]="url" [ngClass]="'text-' + color">
