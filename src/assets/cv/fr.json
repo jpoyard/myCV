@@ -3,7 +3,7 @@
     "thumbnailUrl": "https://avatars.githubusercontent.com/u/10052221?s=300&u=c7f0a14b253da712b9c86661bbc148281bb220d1&v=4",
     "firstName": "Julien",
     "lastName": "Poyard",
-    "jobTitle": "Font-end Developer",
+    "jobTitle": "Développeur/Formateur Font-end",
     "address": "2, rue des Monts Chauvet Poissy France",
     "phoneNumber": "(+33) 6 60 75 40 32",
     "email": "julien.poyard@gmail.com",
@@ -14,61 +14,132 @@
       { "website": "codepen", "account": "jpoyard" }
     ]
   },
-  "careerSummary": "For writers, a random sentence can help them get their creative juices\nflowing. Since the topic of the sentence is completely unknown, it\nforces the writer to be creative when the sentence appears. There are a\nnumber of different ways a writer can use the random sentence for\ncreativity. The most common way to use the sentence is to begin a story.\nAnother option is to include it somewhere in the story. A much more\ndifficult challenge is to use it to end a story. In any of these cases,\nit forces the writer to think creatively since they have no idea what\nsentence will appear from the tool.",
   "workExperiences": [
     {
-      "jobTitle": "Tech Lead Developer",
-      "company": "Startup Hub",
-      "period": { "start": "2018-03-31T22:00:00.000Z" },
-      "description": "Role description goes here ipsum dolor sit amet, consectetuer adipiscing\n  elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque\n  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec\n  quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede\n  justo, fringilla vel.",
+      "jobTitle": "Développeur Front Angular",
+      "company": "Société Générale",
+      "serviceCompany": "OXiane",
+      "period": { "start": "2020-01-01T23:00:00.000Z" },
+      "description": "Dans le service GBSU/CLD/DIT, intervention dans le développement de l’application Global Cash, solution permettant la gestion de trésorerie et la saisie d’ordre de paiement et d’encaissement.",
       "achievements": {
-        "description": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas\n    molestias excepturi sint occaecati cupiditate non provident.",
         "items": [
-          "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.",
-          "At vero eos et accusamus et iusto odio dignissimos.",
-          "Blanditiis praesentium voluptatum deleniti atque corrupti.",
-          "Maecenas tempus tellus eget."
+          "Travail dans une Feature Team de plus de 8 personnes,",
+          "Participation active à l’élaboration de plusieurs modules dont celui permettant la saisie des ordres de paiement,",
+          "Implication forte dans l’amélioration de la rédaction des tests unitaires."
         ]
       },
       "skills": [
         { "name": "Angular", "keys": ["front", "framework"], "level": 100 },
         {
-          "name": "AngularJS",
-          "keys": ["front", "framework"],
-          "level": 100,
+          "name": "npm",
+          "keys": ["tools"],
+          "level": 75,
           "onlyForWorkExperience": true
         },
-        { "name": "JSF", "keys": ["back", "framework"] },
-        { "name": "TypeScript", "keys": ["front", "language"], "level": 75 },
-        { "name": "JavaScript", "keys": ["front", "language"], "level": 75 },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "RxJS", "keys": ["front", "library"], "level": 100 },
+        { "name": "REST", "keys": ["front", "methodology"], "level": 75 },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
         {
-          "name": "Node.js",
-          "keys": ["back", "language", "library"],
-          "level": 75
+          "name": "webpack",
+          "keys": ["front", "tools"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        { "name": "Node.js", "keys": ["back", "language"], "level": 75 },
+        {
+          "name": "Git",
+          "keys": ["tool"],
+          "level": 75,
+          "onlyForWorkExperience": true
         },
         {
-          "name": "HTML/CSS/SASS/LESS",
-          "keys": ["front", "language"],
-          "level": 75
+          "name": "Jira",
+          "keys": ["tool"],
+          "level": 75,
+          "onlyForWorkExperience": true
         },
-        { "name": "Java", "keys": ["back", "language"] },
-        { "name": "VSCode", "keys": ["ide"] }
+        {
+          "name": "Jenkins",
+          "keys": ["tools"],
+          "level": 75
+        }
       ]
     },
     {
-      "jobTitle": "Lead Developer",
-      "company": "a company",
-      "serviceCompany": "a service company",
+      "jobTitle": "Développeur Front Angular",
+      "company": "Société Générale",
+      "serviceCompany": "OXiane",
       "period": {
-        "start": "2016-06-30T22:00:00.000Z",
-        "end": "2018-02-28T23:00:00.000Z"
+        "start": "2019-02-01T23:00:00.000Z",
+        "end": "2019-12-30T23:00:00.000Z"
       },
-      "description": "Role description goes here ipsum dolor sit amet, consectetuer adipiscing\n  elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque\n  penatibus et magnis.",
+      "description": "Dans le service GBSU/EQD/VOL, au cœur de la salle de marché, mise en place d’une série d’application web à destination des traders, notamment un référentiel des indices/paniers.",
       "achievements": {
-        "description": "Praesentium voluptatum deleniti atque corrupti quos dolores et quas\n    molestias excepturi sint occaecati cupiditate non provident.",
         "items": [
-          "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.",
-          "Maecenas tempus tellus eget."
+          "Analyse du besoin auprès des utilisateur,",
+          "Mise en œuvre et maintenance des différentes applications,",
+          "Travail en mode « commando » avec les traders,",
+          "Mise en place d’un formulaire dynamique permettant de mettre à jour le référentiel."
+        ]
+      },
+      "skills": [
+        { "name": "Angular", "keys": ["front", "framework"], "level": 100 },
+        {
+          "name": "npm",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "RxJS", "keys": ["front", "library"], "level": 100 },
+        { "name": "REST", "keys": ["front", "methodology"], "level": 75 },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "webpack",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        { "name": "Node.js", "keys": ["back", "language"], "level": 75 },
+        {
+          "name": "Git",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Jira",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Jenkins",
+          "keys": ["tools"],
+          "level": 75
+        }
+      ]
+    },
+    {
+      "jobTitle": "Front-End Angular/AngularJS Developer",
+      "company": "Société Générale",
+      "serviceCompany": "OXiane",
+      "period": {
+        "start": "2017-03-31T22:00:00.000Z",
+        "end": "2019-01-30T23:00:00.000Z"
+      },
+      "description": "Dans le service GBSU/FTB/RPP, département Banque de Financement & d'Investissement, intervention sur la plate-forme 'One Financing'. Une application web permettant de restituer les données calculées ou intégrées à partir de sources internes et externes (ressources humaines, risque opérationnel, données financières du contrôle de gestion...) pour aider au pilotage de l'activité.",
+      "achievements": {
+        "items": [
+          "Travail dans une feature team de 8 personnes,",
+          "Responsable de la maintenance et des évolutions de la partie front-end,",
+          "Reprise et maintenance de l’application AngularJS/Angular,",
+          "Evolution et amélioration de l’architecture,",
+          "Migration d’une partie de l’application (AngularJS/Angular) vers une application Angular",
+          "Amélioration des Pulls Requests (github) en ajoutant la couverture de tests (job Jenkins)"
         ]
       },
       "skills": [
@@ -76,44 +147,306 @@
         {
           "name": "AngularJS",
           "keys": ["front", "framework"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "npm",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "REST", "keys": ["front", "methodology"], "level": 75 },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "webpack",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        { "name": "Node.js", "keys": ["back", "language"], "level": 75 },
+        {
+          "name": "Git",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Jira",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Jenkins",
+          "keys": ["tools"],
+          "level": 75
+        }
+      ]
+    },
+    {
+      "jobTitle": "Développeur Java/AngularJS",
+      "company": "APEC",
+      "serviceCompany": "OXiane",
+      "period": {
+        "start": "2016-08-31T22:00:00.000Z",
+        "end": "2017-03-30T22:00:00.000Z"
+      },
+      "description": "Intervention sur le site Web grand public Apec.fr ainsi que sur l’application mobile.",
+      "achievements": {
+        "items": [
+          "Dans le but de faciliter la création d'un compte, en simplifiant les formulaires existants, mise en place de composants AngularJS utilisés dans un site front-office CMS/Jahia,",
+          "Reprise et maintenance d'une application web back-office full AngularJS,",
+          "Reprise et maintenance d'une application mobile Android/iPhone développée avec Cordova/Ionic,",
+          "Création d'une application web full AngularJS (1.5.3), servant de support d'exercices pour des formations,",
+          "Responsabilité sur la maintenance des composants AngularJS,",
+          "Amélioration du process de build de l'application mobile avec Webpack."
+        ]
+      },
+      "skills": [
+        {
+          "name": "AngularJS",
+          "keys": ["front", "framework"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "npm",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "TypeScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "REST", "keys": ["front", "methodology"], "level": 75 },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "webpack",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        { "name": "Java", "keys": ["back", "language"], "level": 50 },
+        {
+          "name": "Git",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Jira",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Gulp",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Grunt",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Cordova/Ionic",
+          "keys": ["front", "library"],
+          "level": 25,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "Jenkins",
+          "keys": ["tools"],
+          "level": 75
+        }
+      ]
+    },
+    {
+      "jobTitle": "Développeur Front AngularJS",
+      "company": "Morpho",
+      "period": {
+        "start": "2015-04-30T22:00:00.000Z",
+        "end": "2016-08-30T22:00:00.000Z"
+      },
+      "description": "Maintenance et développement d'une application web front-office permettant la dématérialisation de documents (contrats de prêts bancaires, contrat d'assurances, etc.).",
+      "achievements": {
+        "description": "Mise en place d'une application web back-office pour aider les clients à personnaliser le thème (CSS/LESS) de leur application.",
+        "items": [
+          "Maintenance d'une application web en AngularJS,",
+          "Re-factoring avec la mise en place de directives AngularJS,",
+          "Amélioration de la couverture des tests unitaires (Karma),",
+          "Optimisation de l'environnement mocké,",
+          "Amélioration de la chaîne de compilation (Grunt, Bower, Less),",
+          "Étude sur la mise en place de tests End to End (Protactor)."
+        ]
+      },
+      "skills": [
+        {
+          "name": "AngularJS",
+          "keys": ["front", "framework"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "npm",
+          "keys": ["tools"],
+          "level": 75
+        },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        { "name": "REST", "keys": ["front", "methodology"], "level": 75 },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
+        {
+          "name": "LESS",
+          "keys": ["front", "language"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        {
+          "name": "SVN",
+          "keys": ["tool"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "Jira",
+          "keys": ["tool"],
+          "level": 75
+        },
+        {
+          "name": "Gulp",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Grunt",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Bower",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Jenkins",
+          "keys": ["tools"],
+          "level": 75
+        },
+        {
+          "name": "Cordova/Ionic",
+          "keys": ["front", "library"],
+          "level": 25,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "Protractor",
+          "keys": ["front", "library"],
+          "level": 25,
+          "onlyForWorkExperience": true
+        }
+      ]
+    },
+    {
+      "jobTitle": "Développeur JavaEE/JSF",
+      "company": "Morpho",
+      "period": {
+        "start": "2012-05-31T22:00:00.000Z",
+        "end": "2015-06-29T22:00:00.000Z"
+      },
+      "description": "Création d'un Framework IHM interne Morpho avec un thème CSS Morpho et une librairie de composants JSF/PrimeFaces utilisée par 3 projets de la société. Mise en place d'un processus BDD pour valider les composants créés (avec l'utilisation de Cucumber et Selenium WebDriver). Mise en pratique de la méthodologie Agile, avec des stand-up meetings, revues de démarrage et revues de fin de sprint.",
+      "achievements": {
+        "items": [
+          "Conception et développement d'une solution aidant les projets dans le développement des IHM de leurs applications web,",
+          "Choix techniques (pré processeurs CSS Less ; Responsive Web Design, etc),",
+          "Mise en place de l'intégration continue,",
+          "Automatisation des tests des composants graphiques développés,",
+          "Création d'un site web 'showcase' pour fournir une aide au développement."
+        ]
+      },
+      "skills": [
+        {
+          "name": "JavaEE",
+          "keys": ["back", "framework"],
+          "level": 50,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "JSF",
+          "keys": ["front", "framework"],
+          "level": 50,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "PrimeFaces",
+          "keys": ["front", "library"],
+          "level": 50,
+          "onlyForWorkExperience": true
+        },
+        { "name": "HTML", "keys": ["front", "language"], "level": 75 },
+        { "name": "CSS", "keys": ["front", "language"], "level": 75 },
+        { "name": "Java", "keys": ["back", "language"], "level": 50 },
+        {
+          "name": "LESS",
+          "keys": ["front", "language"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        },
+        { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
+        { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
+        {
+          "name": "JQuery",
+          "keys": ["front", "library"],
           "level": 100,
           "onlyForWorkExperience": true
         },
-        { "name": "JSF", "keys": ["back", "framework"] },
-        { "name": "TypeScript", "keys": ["front", "language"], "level": 75 },
-        { "name": "JavaScript", "keys": ["front", "language"], "level": 75 },
         {
-          "name": "Node.js",
-          "keys": ["back", "language", "library"],
+          "name": "Eclipse",
+          "keys": ["IDE"],
+          "level": 25,
+          "onlyForWorkExperience": true
+        },
+        {
+          "name": "maven",
+          "keys": ["tools"],
+          "level": 50
+        },
+        {
+          "name": "Jira",
+          "keys": ["tool"],
           "level": 75
         },
         {
-          "name": "HTML/CSS/SASS/LESS",
-          "keys": ["front", "language"],
-          "level": 75
+          "name": "SVN",
+          "keys": ["tool"],
+          "level": 75,
+          "onlyForWorkExperience": true
         },
-        { "name": "Java", "keys": ["back", "language"] },
-        { "name": "VSCode", "keys": ["ide"] }
+        {
+          "name": "Cucumber",
+          "keys": ["front", "back", "library"],
+          "level": 75,
+          "onlyForWorkExperience": true
+        }
       ]
     }
   ],
   "degrees": [
     {
-      "name": "MSc in Computer Science",
-      "school": "University College London",
-      "start": 2010,
-      "end": 2011
+      "name": "Engineer - Computer Engineering in Software and Knowledge Engineering ",
+      "school": "UTBM Sevenans",
+      "start": 1998,
+      "end": 2001
     },
     {
-      "name": "BSc Maths and Physics",
-      "school": "Imperial College London",
-      "start": 2007,
-      "end": 2010
+      "name": "DUT Computer Science in Analysis/Programming",
+      "school": "IUT Belfort Montbéliard",
+      "start": 1996,
+      "end": 1998
     }
   ],
   "languages": [
     { "name": "french", "level": "native" },
-    { "name": "english", "level": "professional" },
-    { "name": "spanish", "level": "professional" }
+    { "name": "english", "level": "professional" }
   ]
 }
