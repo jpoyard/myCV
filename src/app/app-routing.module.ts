@@ -6,6 +6,8 @@ const routes: Routes = [
     path: '', redirectTo: 'view', pathMatch: 'full'
   }, {
     path: 'view', loadChildren: () => import('./features/viewer/viewer.module').then(m => m.ViewerModule)
+  }, {
+    path: 'edit', loadChildren: () => import('./features/editor/editor.module').then(m => m.ViewerModule)
   }
 ];
 
