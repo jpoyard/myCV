@@ -1,4 +1,4 @@
-# MyCV
+# MyCV [![Build Status](https://travis-ci.com/jpoyard/myCV.svg?branch=main)](https://travis-ci.com/jpoyard/myCV)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
