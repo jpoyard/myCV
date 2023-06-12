@@ -54,9 +54,10 @@ describe(LanguageSelectComponent.name, () => {
     it('should change language when method is called', () => {
       // Given
       const expected = SupportedLanguageEnum.french;
+      const $event = { target: { value: expected } } as unknown as Event;
       fixture.detectChanges();
       // When
-      component.changeLanguage({ target: { value: expected } });
+      component.changeLanguage($event);
       fixture.detectChanges();
       // Then
       expect(spyObjTranslateService.use).toHaveBeenCalledWith(expected);

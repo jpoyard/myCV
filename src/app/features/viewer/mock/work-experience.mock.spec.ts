@@ -1,4 +1,3 @@
-import { WorkExperienceListComponent } from '../components/work-experience-list/work-experience-list.component';
 import { WorkExperience } from '../model/work-experience';
 import { getMockSkills } from './skill.mock.spec';
 

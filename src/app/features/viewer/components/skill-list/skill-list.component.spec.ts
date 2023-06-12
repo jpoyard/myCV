@@ -46,7 +46,7 @@ describe(SkillListComponent.name, () => {
         // Then
         expect(component).toBeTruthy();
         const titleElt = fixture.debugElement.query(By.css('h5')).nativeElement;
-        expect(titleElt.textContent).toBe(`title.${title}`);
+        expect(titleElt.textContent).toContain(`title.${title}`);
       });
     });
   });

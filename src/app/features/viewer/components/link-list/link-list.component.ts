@@ -13,7 +13,8 @@ import { LinkComponent } from '../link/link.component';
             [icon]="link.icon"
             [label]="link.label"
             [url]="link.url"
-          ></mcv-link>
+          >
+          </mcv-link>
         </li>
       </ng-container>
     </ul>

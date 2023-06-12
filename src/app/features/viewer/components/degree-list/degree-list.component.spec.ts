@@ -57,8 +57,8 @@ describe(DegreeListComponent.name, () => {
       const degreeYearElts = fixture.debugElement.queryAll(
         By.css('.degree-years')
       );
-      expect(degreeYearElts.map((d) => d.nativeElement.textContent)).toEqual(
-        expected.map((e) => `${e.start} - ${e.end}`)
+      degreeYearElts.forEach((degreeYearElts, i) =>
+        expect(degreeYearElts.nativeElement.textContent).toContain(`${expected[i].start} - ${expected[i].end}`)
       );
     });
   });

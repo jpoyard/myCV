@@ -1,4 +1,3 @@
-import { Degree } from '../model/degree';
 import { Language, LanguageLevelEnum } from '../model/language';
 
 const MOCK_LANGUAGES: Language[] = [
