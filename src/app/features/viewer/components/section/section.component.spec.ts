@@ -9,9 +9,8 @@ describe(SectionComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SectionComponent],
-      imports: [TranslateModule.forRoot()]
-    })
+    imports: [TranslateModule.forRoot(), SectionComponent]
+})
       .compileComponents();
   });
 

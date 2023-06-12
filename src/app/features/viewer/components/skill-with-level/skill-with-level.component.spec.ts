@@ -11,8 +11,8 @@ describe(SkillWithLevelComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillWithLevelComponent, ProgressComponent]
-    })
+    imports: [SkillWithLevelComponent, ProgressComponent]
+})
       .compileComponents();
   });
 

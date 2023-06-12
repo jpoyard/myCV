@@ -22,13 +22,12 @@ describe(LanguageSelectComponent.name, () => {
     spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, ['use']);
 
     await TestBed.configureTestingModule({
-      declarations: [LanguageSelectComponent],
-      providers: [
+    providers: [
         { provide: LanguageService, useValue: spyObjLanguageService },
         { provide: TranslateService, useValue: spyObjTranslateService }
-      ],
-      imports: [ReactiveFormsModule]
-    }).compileComponents();
+    ],
+    imports: [ReactiveFormsModule, LanguageSelectComponent]
+}).compileComponents();
   });
 
   beforeEach(() => {

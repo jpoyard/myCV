@@ -17,13 +17,12 @@ describe(WorkExperienceComponent.name, () => {
       { currentLang$: of(SupportedLanguageEnum.english) });
 
     await TestBed.configureTestingModule({
-      declarations: [WorkExperienceComponent],
-      imports: [TranslateModule.forRoot()],
-      providers: [
+    imports: [TranslateModule.forRoot(), WorkExperienceComponent],
+    providers: [
         { provide: LanguageService, useValue: spyObjLanguageService }
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
       .compileComponents();
   });
 

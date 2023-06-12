@@ -11,9 +11,9 @@ describe('WorkExperienceListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WorkExperienceListComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
+    imports: [WorkExperienceListComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
       .compileComponents();
   });
 

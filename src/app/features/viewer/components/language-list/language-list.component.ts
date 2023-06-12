@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Language, LanguageLevelEnum } from '../../model/language';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'mcv-language-list',
-  templateUrl: './language-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'mcv-language-list',
+    templateUrl: './language-list.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgFor, NgIf, TranslateModule]
 })
 export class LanguageListComponent {
 

@@ -1,11 +1,17 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { BootstrapColorEnum } from '../../model/color.enum';
 import { Skill } from '../../model/skill';
+import { TranslateModule } from '@ngx-translate/core';
+import { BadgeComponent } from '../badge/badge.component';
+import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'mcv-skill-list',
-  templateUrl: './skill-list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'mcv-skill-list',
+    templateUrl: './skill-list.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [NgIf, NgFor, SkillWithLevelComponent, BadgeComponent, TranslateModule]
 })
 export class SkillListComponent implements OnInit {
 

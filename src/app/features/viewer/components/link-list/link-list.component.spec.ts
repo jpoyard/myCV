@@ -8,8 +8,8 @@ describe('LinkListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LinkListComponent ]
-    })
+    imports: [LinkListComponent]
+})
     .compileComponents();
   });
 

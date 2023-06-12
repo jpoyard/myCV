@@ -12,9 +12,8 @@ describe(LanguageListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LanguageListComponent],
-      imports: [TranslateModule.forRoot()]
-    })
+    imports: [TranslateModule.forRoot(), LanguageListComponent]
+})
       .compileComponents();
   });
 

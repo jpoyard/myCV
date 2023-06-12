@@ -13,8 +13,8 @@ describe(LinkComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LinkComponent]
-    })
+    imports: [LinkComponent]
+})
       .compileComponents();
   });
 

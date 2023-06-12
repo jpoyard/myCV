@@ -17,25 +17,23 @@ import { ViewerRoutingModule } from './viewer-routing.module';
 import { ViewerComponent } from './viewer.component';
 
 @NgModule({
-  declarations: [
-    ViewerComponent,
-    WorkExperienceComponent,
-    WorkExperienceListComponent,
-    SectionComponent,
-    SkillListComponent,
-    ProgressComponent,
-    BadgeComponent,
-    SkillWithLevelComponent,
-    LinkComponent,
-    DegreeListComponent,
-    LanguageListComponent,
-    LinkListComponent
-  ],
-  imports: [
-    CommonModule,
-    ViewerRoutingModule,
-    HttpClientModule,
-    TranslateModule.forChild()
-  ]
+    imports: [
+        CommonModule,
+        ViewerRoutingModule,
+        HttpClientModule,
+        TranslateModule.forChild(),
+        ViewerComponent,
+        WorkExperienceComponent,
+        WorkExperienceListComponent,
+        SectionComponent,
+        SkillListComponent,
+        ProgressComponent,
+        BadgeComponent,
+        SkillWithLevelComponent,
+        LinkComponent,
+        DegreeListComponent,
+        LanguageListComponent,
+        LinkListComponent
+    ]
 })
 export class ViewerModule { }

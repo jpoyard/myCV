@@ -13,9 +13,8 @@ describe(SkillListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillWithLevelComponent, SkillListComponent, BadgeComponent, ProgressComponent],
-      imports: [TranslateModule.forRoot()]
-    })
+    imports: [TranslateModule.forRoot(), SkillWithLevelComponent, SkillListComponent, BadgeComponent, ProgressComponent]
+})
       .compileComponents();
   });
 

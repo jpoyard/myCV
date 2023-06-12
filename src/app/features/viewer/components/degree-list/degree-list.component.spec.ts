@@ -10,8 +10,8 @@ describe(DegreeListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DegreeListComponent]
-    })
+    imports: [DegreeListComponent]
+})
       .compileComponents();
   });
 

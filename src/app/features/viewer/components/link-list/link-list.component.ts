@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Link } from '../../model/link';
+import { LinkComponent } from '../link/link.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'mcv-link-list',
-  template: `
+    selector: 'mcv-link-list',
+    template: `
 <ul class="list-unstyled mb-0">
     <ng-container *ngFor="let link of links; last as isLast">
       <li [class.mb-2]="!isLast">
@@ -15,7 +17,9 @@ import { Link } from '../../model/link';
       </li>
     </ng-container>
 </ul>
-  `
+  `,
+    standalone: true,
+    imports: [NgFor, LinkComponent]
 })
 export class LinkListComponent {
   @Input() public links: Link[] = [];
