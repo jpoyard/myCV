@@ -40,5 +40,4 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        if: steps.cache-mycv.outputs.cache-hit != 'true'
         run: pnpm install

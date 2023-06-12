@@ -32,7 +32,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
@@ -53,8 +53,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Use local env
-        run: pnpm env:local
       - name: Build project
         run: pnpm build
 
