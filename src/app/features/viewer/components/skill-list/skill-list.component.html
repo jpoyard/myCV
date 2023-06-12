@@ -1,4 +1,6 @@
-<h5 *ngIf="title" class="font-weight-bold text-capitalize">{{ 'title.' + title | translate }}</h5>
+<h5 *ngIf="title" class="font-weight-bold text-capitalize">
+  {{ "title." + title | translate }}
+</h5>
 <ng-container *ngIf="withLevel; else badgeTpl">
   <ul class="list-unstyled">
     <ng-container *ngFor="let skill of skills; last as isLast">

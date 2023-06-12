@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
-import { getMockLanguages } from '../../mock/language.mock.spec';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 import { LanguageListComponent } from './language-list.component';
@@ -12,9 +11,8 @@ describe(LanguageListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [TranslateModule.forRoot(), LanguageListComponent]
-})
-      .compileComponents();
+      imports: [TranslateModule.forRoot(), LanguageListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -36,7 +34,7 @@ describe(LanguageListComponent.name, () => {
       const languages: Language[] = [
         { name: 'english', level: LanguageLevelEnum.professional },
         { name: 'german', level: LanguageLevelEnum.professional },
-        { name: 'french', level: LanguageLevelEnum.native }
+        { name: 'french', level: LanguageLevelEnum.native },
       ];
       const expected = [
         { name: 'french', level: LanguageLevelEnum.native },
@@ -52,9 +50,13 @@ describe(LanguageListComponent.name, () => {
       const languageElts = fixture.debugElement.queryAll(By.css('li'));
       languageElts.forEach((languageElt, i) => {
         // name
-        expect(languageElt.query(By.css('.language')).nativeElement.textContent).toContain(expected[i].name);
+        expect(
+          languageElt.query(By.css('.language')).nativeElement.textContent
+        ).toContain(expected[i].name);
         // level
-        expect(languageElt.query(By.css('.language-level')).nativeElement.textContent).toContain(expected[i].level);
+        expect(
+          languageElt.query(By.css('.language-level')).nativeElement.textContent
+        ).toContain(expected[i].level);
       });
     });
   });

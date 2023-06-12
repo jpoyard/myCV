@@ -2,7 +2,7 @@ export enum WebsiteEnum {
   linkedin = 'linkedin',
   github = 'github',
   twitter = 'twitter',
-  codepen = 'codepen'
+  codepen = 'codepen',
 }
 
 export interface WebsiteAccount {

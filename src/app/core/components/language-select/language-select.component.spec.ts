@@ -17,17 +17,23 @@ describe(LanguageSelectComponent.name, () => {
 
   beforeEach(async () => {
     mockCurrentLang$ = new BehaviorSubject<string>(currentLang);
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>
-      (LanguageService.name, [], { currentLang$: mockCurrentLang$.asObservable() });
-    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, ['use']);
+    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(
+      LanguageService.name,
+      [],
+      { currentLang$: mockCurrentLang$.asObservable() }
+    );
+    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(
+      TranslateService.name,
+      ['use']
+    );
 
     await TestBed.configureTestingModule({
-    providers: [
+      providers: [
         { provide: LanguageService, useValue: spyObjLanguageService },
-        { provide: TranslateService, useValue: spyObjTranslateService }
-    ],
-    imports: [ReactiveFormsModule, LanguageSelectComponent]
-}).compileComponents();
+        { provide: TranslateService, useValue: spyObjTranslateService },
+      ],
+      imports: [ReactiveFormsModule, LanguageSelectComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

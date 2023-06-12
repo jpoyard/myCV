@@ -17,5 +17,3 @@ registerLocaleData(localeEn, SupportedLanguageEnum.english);
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http);
 }
-
-

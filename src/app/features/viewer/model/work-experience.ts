@@ -5,13 +5,13 @@ export interface WorkExperience {
   company: string;
   serviceCompany?: string;
   period: {
-    start: Date,
-    end?: Date
+    start: Date;
+    end?: Date;
   };
   description: string;
   achievements: {
     description: string;
-    items: string[]
+    items: string[];
   };
   skills: Skill[];
 }

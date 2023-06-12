@@ -3,15 +3,23 @@ import { Observable, ReplaySubject, Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { LanguageService } from '../../../core/services/language.service';
 import { SupportedLanguageEnum } from '../../../model/language';
-import { CurriculumVitaeData, PreparedCurriculumVitaeData, SkillGroup } from '../model/cv-data';
+import {
+  CurriculumVitaeData,
+  PreparedCurriculumVitaeData,
+  SkillGroup,
+} from '../model/cv-data';
 import { Link } from '../model/link';
-import { PersonalData, WebsiteAccount, WebsiteEnum } from '../model/personal-data';
+import {
+  PersonalData,
+  WebsiteAccount,
+  WebsiteEnum,
+} from '../model/personal-data';
 import { Skill } from '../model/skill';
 import { WorkExperience } from '../model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CurriculumVitaeDataService implements OnDestroy {
   private subscription: Subscription;
@@ -24,10 +32,10 @@ export class CurriculumVitaeDataService implements OnDestroy {
   constructor(languageService: LanguageService, loader: CvDataLoaderService) {
     this.subscription = languageService.currentLang$
       .pipe(
-        map(lang => lang as SupportedLanguageEnum),
-        switchMap(lang => loader.getCV(lang))
+        map((lang) => lang as SupportedLanguageEnum),
+        switchMap((lang) => loader.getCV(lang))
       )
-      .subscribe(curriculumVitae => this.loadData(curriculumVitae));
+      .subscribe((curriculumVitae) => this.loadData(curriculumVitae));
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -42,18 +50,21 @@ export class CurriculumVitaeDataService implements OnDestroy {
       workExperiences: data.workExperiences,
       skillGroups: this.getSkillGroups(this.getSkills(data.workExperiences)),
       degrees: data.degrees,
-      languages: data.languages
+      languages: data.languages,
     });
   }
 
   public getSkills(workExperiences: WorkExperience[]): Skill[] {
     let result: Skill[] = [];
     let skillNames: string[] = [];
-    workExperiences.forEach(workExperience => {
-      result = [...result, ...workExperience.skills
-        .filter(s => !s.onlyForWorkExperience)
-        .filter(s => !skillNames.includes(s.name))];
-      skillNames = result.map(r => r.name);
+    workExperiences.forEach((workExperience) => {
+      result = [
+        ...result,
+        ...workExperience.skills
+          .filter((s) => !s.onlyForWorkExperience)
+          .filter((s) => !skillNames.includes(s.name)),
+      ];
+      skillNames = result.map((r) => r.name);
     });
     return result;
   }
@@ -67,37 +78,64 @@ export class CurriculumVitaeDataService implements OnDestroy {
   }
 
   public getWebsiteLinks(accounts: WebsiteAccount[]): Link[] {
-    return accounts.map(account => {
+    return accounts.map((account) => {
       return this.getWebsiteLink(account);
     });
   }
 
   public getSkillGroups(skills: Skill[]): SkillGroup[] {
-    const frontSkillGroup = { title: 'front-end', skills: skills.filter(s => s.keys.includes('front') && s.level) };
-    const backSkillGroup = { title: 'back-end', skills: skills.filter(s => s.keys.includes('back') && s.level) };
-    const otherSkillGroup = {
-      title: 'others', skills: skills
-        .filter(
-          skill => !frontSkillGroup.skills.find(s => s.name === skill.name) && !backSkillGroup.skills.find(s => s.name === skill.name))
+    const frontSkillGroup = {
+      title: 'front-end',
+      skills: skills.filter((s) => s.keys.includes('front') && s.level),
     };
-    return [frontSkillGroup, backSkillGroup, otherSkillGroup].filter(sg => sg.skills.length > 0);
+    const backSkillGroup = {
+      title: 'back-end',
+      skills: skills.filter((s) => s.keys.includes('back') && s.level),
+    };
+    const otherSkillGroup = {
+      title: 'others',
+      skills: skills.filter(
+        (skill) =>
+          !frontSkillGroup.skills.find((s) => s.name === skill.name) &&
+          !backSkillGroup.skills.find((s) => s.name === skill.name)
+      ),
+    };
+    return [frontSkillGroup, backSkillGroup, otherSkillGroup].filter(
+      (sg) => sg.skills.length > 0
+    );
   }
 
   private getWebsiteLink(account: WebsiteAccount): Link {
     let result: Link;
     switch (account.website) {
       case WebsiteEnum.linkedin:
-        result = { icon: 'fa-linkedin', label: `linkedin.com/in/${account.account}`, url: `http://www.linkedin.com/in/${account.account}` };
+        result = {
+          icon: 'fa-linkedin',
+          label: `linkedin.com/in/${account.account}`,
+          url: `http://www.linkedin.com/in/${account.account}`,
+        };
         break;
       case WebsiteEnum.github:
-        result = { icon: 'fa-github', label: `github.com/${account.account}`, url: `https://github.com/${account.account}` };
+        result = {
+          icon: 'fa-github',
+          label: `github.com/${account.account}`,
+          url: `https://github.com/${account.account}`,
+        };
         break;
       case WebsiteEnum.twitter:
-        result = { icon: 'fa-twitter', label: `@${account.account}`, url: `https://twitter.com/${account.account}` };
+        result = {
+          icon: 'fa-twitter',
+          label: `@${account.account}`,
+          url: `https://twitter.com/${account.account}`,
+        };
         break;
       case WebsiteEnum.codepen:
       default:
-        result = { icon: 'fa-codepen', label: `codepen.io/${account.account}`, url: `https://codepen.io/${account.account}` };
+        result = {
+          icon: 'fa-codepen',
+          label: `codepen.io/${account.account}`,
+          url: `https://codepen.io/${account.account}`,
+        };
         break;
     }
     return result;
@@ -105,11 +143,13 @@ export class CurriculumVitaeDataService implements OnDestroy {
 
   private getPhoneNumberLink(phoneNumber?: string): Link[] {
     return phoneNumber
-      ? [{
-        icon: 'fa-mobile',
-        label: phoneNumber,
-        url: `tel:${phoneNumber.replace(/[\s()]/gm, '')}`
-      }]
+      ? [
+          {
+            icon: 'fa-mobile',
+            label: phoneNumber,
+            url: `tel:${phoneNumber.replace(/[\s()]/gm, '')}`,
+          },
+        ]
       : [];
   }
 
@@ -121,10 +161,13 @@ export class CurriculumVitaeDataService implements OnDestroy {
 
   private getAdressLink(address?: string): Link[] {
     return address
-      ? [{
-        icon: 'fa-map-marker', label: address,
-        url: `https://www.google.fr/maps/place/${encodeURI(address)}`
-      }]
+      ? [
+          {
+            icon: 'fa-map-marker',
+            label: address,
+            url: `https://www.google.fr/maps/place/${encodeURI(address)}`,
+          },
+        ]
       : [];
   }
 }

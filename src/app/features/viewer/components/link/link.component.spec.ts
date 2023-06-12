@@ -13,9 +13,8 @@ describe(LinkComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [LinkComponent]
-})
-      .compileComponents();
+      imports: [LinkComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -30,7 +29,8 @@ describe(LinkComponent.name, () => {
       fixture.detectChanges();
       // Then
       expect(fixture.debugElement.query(By.css('i'))).toBeNull();
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain('none');
     });
     it('should display link and icon when icon is defined', () => {
@@ -41,7 +41,8 @@ describe(LinkComponent.name, () => {
       // Then
       const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
       expect(iconElt).toHaveClass(icon);
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain('none');
     });
   });
@@ -53,7 +54,8 @@ describe(LinkComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain('none');
     });
     it(`should display '${label}' when component.label is '${label}'`, () => {
@@ -63,7 +65,8 @@ describe(LinkComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain(label);
     });
   });
@@ -75,7 +78,8 @@ describe(LinkComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.href).toContain('#');
     });
     it(`should have href='${url}' when component.url is '${url}'`, () => {
@@ -86,7 +90,8 @@ describe(LinkComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain(label);
       expect(linkTagElt.href).toContain(url);
     });
@@ -104,12 +109,13 @@ describe(LinkComponent.name, () => {
       // Then
       const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
       expect(iconElt).toHaveClass('bg-' + defaultColor);
-      const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+      const linkTagElt = fixture.debugElement.query(By.css('a'))
+        .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain(label);
       expect(linkTagElt.href).toContain(url);
       expect(linkTagElt).toHaveClass('text-' + defaultColor);
     });
-    [BootstrapColorEnum.light, BootstrapColorEnum.white].forEach(color => {
+    [BootstrapColorEnum.light, BootstrapColorEnum.white].forEach((color) => {
       it(`should have color='${color}' when component.color is '${color}'`, () => {
         // Given
         component.icon = icon;
@@ -121,7 +127,8 @@ describe(LinkComponent.name, () => {
         // Then
         const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
         expect(iconElt).toHaveClass('bg-' + color);
-        const linkTagElt = fixture.debugElement.query(By.css('a')).nativeElement as HTMLLinkElement;
+        const linkTagElt = fixture.debugElement.query(By.css('a'))
+          .nativeElement as HTMLLinkElement;
         expect(linkTagElt.textContent).toContain(label);
         expect(linkTagElt.href).toContain(url);
         expect(linkTagElt).toHaveClass('text-' + color);

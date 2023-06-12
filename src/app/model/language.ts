@@ -1,6 +1,6 @@
 export enum SupportedLanguageEnum {
   french = 'fr',
-  english = 'en'
+  english = 'en',
 }
 
 export interface DiplayedLanguage {
@@ -10,5 +10,5 @@ export interface DiplayedLanguage {
 
 export const SUPPORTED_LANGUAGES: DiplayedLanguage[] = [
   { language: SupportedLanguageEnum.french, label: 'français' },
-  { language: SupportedLanguageEnum.english, label: 'english' }
+  { language: SupportedLanguageEnum.english, label: 'english' },
 ];

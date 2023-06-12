@@ -2,15 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LinkListComponent } from './link-list.component';
 
-describe('LinkListComponent', () => {
+describe(LinkListComponent.name, () => {
   let component: LinkListComponent;
   let fixture: ComponentFixture<LinkListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [LinkListComponent]
-})
-    .compileComponents();
+      imports: [LinkListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

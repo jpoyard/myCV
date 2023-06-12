@@ -11,9 +11,8 @@ describe(SkillWithLevelComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [SkillWithLevelComponent, ProgressComponent]
-})
-      .compileComponents();
+      imports: [SkillWithLevelComponent, ProgressComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -36,7 +35,10 @@ describe(SkillWithLevelComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      expect(fixture.debugElement.query(By.css('.skill-name')).nativeElement.textContent).toBe(name);
+      expect(
+        fixture.debugElement.query(By.css('.skill-name')).nativeElement
+          .textContent
+      ).toBe(name);
       expect(fixture.debugElement.query(By.css('mcv-progress'))).toBeNull();
     });
     it('should display skill when name and level are defined', () => {
@@ -46,9 +48,11 @@ describe(SkillWithLevelComponent.name, () => {
       // When
       fixture.detectChanges();
       // Then
-      expect(fixture.debugElement.query(By.css('.skill-name')).nativeElement.textContent).toBe(name);
+      expect(
+        fixture.debugElement.query(By.css('.skill-name')).nativeElement
+          .textContent
+      ).toBe(name);
       expect(fixture.debugElement.query(By.css('mcv-progress'))).toBeDefined();
     });
   });
-
 });

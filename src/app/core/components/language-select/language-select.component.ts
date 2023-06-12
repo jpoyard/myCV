@@ -7,16 +7,21 @@ import { LanguageService } from '../../services/language.service';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'mcv-language-select',
-    template: `
-    <select class="form-control" id="languageSelect" (change)="changeLanguage($event)" [formControl]="languageController">
+  selector: 'mcv-language-select',
+  template: `
+    <select
+      class="form-control"
+      id="languageSelect"
+      (change)="changeLanguage($event)"
+      [formControl]="languageController"
+    >
       <ng-container *ngFor="let language of supportedLanguages">
-        <option [value]="language.language">{{language.label}}</option>
+        <option [value]="language.language">{{ language.label }}</option>
       </ng-container>
     </select>
   `,
-    standalone: true,
-    imports: [ReactiveFormsModule, NgFor]
+  standalone: true,
+  imports: [ReactiveFormsModule, NgFor],
 })
 export class LanguageSelectComponent implements OnDestroy {
   private subscription: Subscription;
@@ -29,8 +34,9 @@ export class LanguageSelectComponent implements OnDestroy {
     languageService: LanguageService,
     private translateService: TranslateService
   ) {
-    this.subscription = languageService.currentLang$
-      .subscribe(lang => this.languageController.patchValue(lang));
+    this.subscription = languageService.currentLang$.subscribe((lang) =>
+      this.languageController.patchValue(lang)
+    );
   }
 
   ngOnDestroy(): void {
@@ -40,5 +46,4 @@ export class LanguageSelectComponent implements OnDestroy {
   public changeLanguage(event: any): void {
     this.translateService.use(event.target.value);
   }
-
 }

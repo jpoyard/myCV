@@ -10,9 +10,8 @@ describe(DegreeListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [DegreeListComponent]
-})
-      .compileComponents();
+      imports: [DegreeListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -44,13 +43,23 @@ describe(DegreeListComponent.name, () => {
       expect(component.orderedDegrees).toEqual(expected);
       // check names
       const degreeNameElts = fixture.debugElement.queryAll(By.css('.degree'));
-      expect(degreeNameElts.map(d => d.nativeElement.textContent)).toEqual(expected.map(e => e.name));
+      expect(degreeNameElts.map((d) => d.nativeElement.textContent)).toEqual(
+        expected.map((e) => e.name)
+      );
       // check schools
-      const degreeSchoolElts = fixture.debugElement.queryAll(By.css('.degree-school'));
-      expect(degreeSchoolElts.map(d => d.nativeElement.textContent)).toEqual(expected.map(e => e.school));
+      const degreeSchoolElts = fixture.debugElement.queryAll(
+        By.css('.degree-school')
+      );
+      expect(degreeSchoolElts.map((d) => d.nativeElement.textContent)).toEqual(
+        expected.map((e) => e.school)
+      );
       // check years
-      const degreeYearElts = fixture.debugElement.queryAll(By.css('.degree-years'));
-      expect(degreeYearElts.map(d => d.nativeElement.textContent)).toEqual(expected.map(e => `${e.start} - ${e.end}`));
+      const degreeYearElts = fixture.debugElement.queryAll(
+        By.css('.degree-years')
+      );
+      expect(degreeYearElts.map((d) => d.nativeElement.textContent)).toEqual(
+        expected.map((e) => `${e.start} - ${e.end}`)
+      );
     });
   });
 });

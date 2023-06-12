@@ -3,7 +3,7 @@ export enum SkillLevelEnum {
   elementary = 25,
   intermediate = 50,
   advanced = 75,
-  expert = 100
+  expert = 100,
 }
 
 export interface Skill {
