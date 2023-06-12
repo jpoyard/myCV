@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { SUPPORTED_LANGUAGES } from '../../../model/language';
@@ -20,7 +20,7 @@ export class LanguageSelectComponent implements OnDestroy {
 
   public supportedLanguages = SUPPORTED_LANGUAGES;
 
-  public languageController = new FormControl();
+  public languageController = new UntypedFormControl();
 
   constructor(
     languageService: LanguageService,
