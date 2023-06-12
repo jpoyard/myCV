@@ -1,0 +1,67 @@
+name: Goalkeeper-ui feature pipeline
+
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  init:
+    uses: ./.github/workflows/init-workflow.yml
+
+  tests:
+    uses: ./.github/workflows/tests-workflow.yml
+    needs: init
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: init
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        id: cache-goalkeeper-ui
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Use local env
+        run: pnpm env:local
+      - name: Build project
+        run: pnpm build
+
+      - name: Upload ./dist folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ runner.os }}-goalkeeper-ui
+          path: ./dist
+          if-no-files-found: error
+          retention-days: 1
