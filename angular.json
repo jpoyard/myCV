@@ -93,7 +93,6 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "configPath": "./src/config/jest/jest.config.ts",
             "assets": [
               "src/favicon.ico",
               "src/assets"
