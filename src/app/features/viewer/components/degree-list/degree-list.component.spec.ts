@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { getMockDegrees } from '../../mock/degree.mock.spec';
+import { getMockDegrees } from '../../mock/degree.mock';
 
 import { DegreeListComponent } from './degree-list.component';
 
@@ -58,7 +58,9 @@ describe(DegreeListComponent.name, () => {
         By.css('.degree-years')
       );
       degreeYearElts.forEach((degreeYearElts, i) =>
-        expect(degreeYearElts.nativeElement.textContent).toContain(`${expected[i].start} - ${expected[i].end}`)
+        expect(degreeYearElts.nativeElement.textContent).toContain(
+          `${expected[i].start} - ${expected[i].end}`
+        )
       );
     });
   });

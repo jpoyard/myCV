@@ -1,12 +1,13 @@
-import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
-import { BehaviorSubject, of } from 'rxjs';
+import { TestBed } from '@angular/core/testing';
+import { BehaviorSubject, firstValueFrom, Observable, of, Subject } from 'rxjs';
 import { LanguageService } from '../../../core/services/language.service';
 import { SupportedLanguageEnum } from '../../../model/language';
 import {
   getMockCurriculumVitaeData,
   getMockPreparedCurriculumVitaeData,
-} from '../mock/cv-data.mock.spec';
-import { getMockSkills } from '../mock/skill.mock.spec';
+} from '../mock/cv-data.mock';
+import { getMockSkills } from '../mock/skill.mock';
+import { CurriculumVitaeData } from '../model/cv-data';
 import { Link } from '../model/link';
 import { PersonalData, WebsiteEnum } from '../model/personal-data';
 import { SkillLevelEnum } from '../model/skill';
@@ -16,31 +17,26 @@ import { CurriculumVitaeDataService } from './cv-data.service';
 
 describe(CurriculumVitaeDataService.name, () => {
   let service: CurriculumVitaeDataService;
-  let mockCurrentLang$: BehaviorSubject<SupportedLanguageEnum>;
-  let spyObjLanguageService: jasmine.SpyObj<LanguageService>;
-  let spyObjCvDataLoaderService: jasmine.SpyObj<CvDataLoaderService>;
+  let mockCurrentLang$: Subject<SupportedLanguageEnum>;
+  let mockLanguageService: { currentLang$: Observable<SupportedLanguageEnum> };
+  let mockCvDataLoaderService: {
+    getCV(lang: SupportedLanguageEnum): Observable<CurriculumVitaeData>;
+  };
 
   beforeEach(() => {
     mockCurrentLang$ = new BehaviorSubject<SupportedLanguageEnum>(
       SupportedLanguageEnum.english
     );
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(
-      LanguageService.name,
-      [],
-      { currentLang$: mockCurrentLang$ }
-    );
-    spyObjCvDataLoaderService = jasmine.createSpyObj<CvDataLoaderService>(
-      CvDataLoaderService.name,
-      ['getCV']
-    );
-    spyObjCvDataLoaderService.getCV.and.returnValue(
-      of(getMockCurriculumVitaeData())
-    );
+    mockLanguageService = { currentLang$: mockCurrentLang$ };
+    mockCvDataLoaderService = { getCV: jest.fn() };
+    jest
+      .spyOn(mockCvDataLoaderService, 'getCV')
+      .mockImplementationOnce(() => of(getMockCurriculumVitaeData()));
 
     TestBed.configureTestingModule({
       providers: [
-        { provide: LanguageService, useValue: spyObjLanguageService },
-        { provide: CvDataLoaderService, useValue: spyObjCvDataLoaderService },
+        { provide: LanguageService, useValue: mockLanguageService },
+        { provide: CvDataLoaderService, useValue: mockCvDataLoaderService },
         CurriculumVitaeDataService,
       ],
     });
@@ -51,20 +47,18 @@ describe(CurriculumVitaeDataService.name, () => {
 
   describe('data$', () => {
     Object.values(SupportedLanguageEnum).forEach((lang) => {
-      it(`should retrieve ${lang} CV when selected lang is ${lang}`, fakeAsync(() => {
+      it(`should retrieve ${lang} CV when selected lang is ${lang}`, async () => {
         // Given
 
         // When
         mockCurrentLang$.next(lang);
-        const subscription = service.data$.subscribe((actual) =>
-          expect(actual).toEqual(getMockPreparedCurriculumVitaeData())
-        );
-        flushMicrotasks();
-        subscription.unsubscribe();
 
         // Then
-        expect(spyObjCvDataLoaderService.getCV).toHaveBeenCalledWith(lang);
-      }));
+        expect(mockCvDataLoaderService.getCV).toHaveBeenCalledWith(lang);
+        expect(await firstValueFrom(service.data$)).toEqual(
+          getMockPreparedCurriculumVitaeData()
+        );
+      });
     });
   });
 

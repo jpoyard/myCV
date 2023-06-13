@@ -1,5 +1,5 @@
 import { WorkExperience } from '../model/work-experience';
-import { getMockSkills } from './skill.mock.spec';
+import { getMockSkills } from './skill.mock';
 
 const WORK_EXPERIENCES: WorkExperience[] = [
   {

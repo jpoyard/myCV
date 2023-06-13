@@ -33,8 +33,8 @@ when name='${name}'`, () => {
         const element = fixture.debugElement.query(
           By.css('.badge')
         ).nativeElement;
-        expect(element).toHaveClass('badge-pill');
-        expect(element).toHaveClass('badge-secondary');
+        expect(element.classList).toContain('badge-pill');
+        expect(element.classList).toContain('badge-secondary');
         expect(element.textContent).toBe(name || '');
       });
     });
@@ -56,11 +56,11 @@ when hasBadgePill='${hasBadgePill}'`, () => {
         const element = fixture.debugElement.query(
           By.css('.badge')
         ).nativeElement;
-        expect(element).toHaveClass('badge-secondary');
+        expect(element.classList).toContain('badge-secondary');
         if (hasBadgePill) {
-          expect(element).toHaveClass('badge-pill');
+          expect(element.classList).toContain('badge-pill');
         } else {
-          expect(element).not.toHaveClass('badge-pill');
+          expect(element.classList).not.toContain('badge-pill');
         }
         expect(element.textContent).toBe(component.name);
       });
@@ -82,8 +82,8 @@ when color='${color}'`, () => {
         const element = fixture.debugElement.query(
           By.css('.badge')
         ).nativeElement;
-        expect(element).toHaveClass(expectedBadgeColor);
-        expect(element).toHaveClass('badge-pill');
+        expect(element.classList).toContain(expectedBadgeColor);
+        expect(element.classList).toContain('badge-pill');
         expect(element.textContent).toBe(component.name);
       });
     });

@@ -2,11 +2,11 @@ import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
 } from '../model/cv-data';
-import { getMockCareerSummary } from './career-summary.mock.spec';
-import { getMockDegrees } from './degree.mock.spec';
-import { getMockLanguages } from './language.mock.spec';
-import { getMockPersonalData } from './personal-data.mock.spec';
-import { getMockWorkExperiences } from './work-experience.mock.spec';
+import { getMockCareerSummary } from './career-summary.mock';
+import { getMockDegrees } from './degree.mock';
+import { getMockLanguages } from './language.mock';
+import { getMockPersonalData } from './personal-data.mock';
+import { getMockWorkExperiences } from './work-experience.mock';
 
 const MOCK_CURRICULUM_VITAE_DATA: CurriculumVitaeData = {
   personalData: getMockPersonalData(),

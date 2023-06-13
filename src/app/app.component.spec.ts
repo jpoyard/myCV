@@ -1,27 +1,43 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { EventEmitter, NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  LangChangeEvent,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 import { AppComponent } from './app.component';
 import { SupportedLanguageEnum } from './model/language';
 
 describe(AppComponent.name, () => {
-  let spyOnAddLangs: jasmine.Spy;
-  let spyOnSetDefaultLang: jasmine.Spy;
-  let spyOnUse: jasmine.Spy;
+  let mockLangChangeEvent: EventEmitter<LangChangeEvent>;
+  let mockTranslateService: {
+    onLangChange: EventEmitter<LangChangeEvent>;
+    addLangs(langs: Array<string>): void;
+    setDefaultLang(lang: string): void;
+    use(lang: string): Observable<any>;
+  };
 
   beforeEach(async () => {
+    mockLangChangeEvent = new EventEmitter<LangChangeEvent>();
+    mockTranslateService = {
+      onLangChange: mockLangChangeEvent,
+      addLangs: jest.fn(),
+      setDefaultLang: jest.fn(),
+      use: jest.fn(),
+    };
     await TestBed.configureTestingModule({
       imports: [TranslateModule.forRoot(), RouterTestingModule, AppComponent],
+      providers: [
+        { provide: TranslateService, useValue: mockTranslateService },
+      ],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
+  });
 
-    spyOnAddLangs = spyOn(TestBed.inject(TranslateService), 'addLangs');
-    spyOnSetDefaultLang = spyOn(
-      TestBed.inject(TranslateService),
-      'setDefaultLang'
-    );
-    spyOnUse = spyOn(TestBed.inject(TranslateService), 'use');
+  afterEach(() => {
+    mockLangChangeEvent.complete();
   });
 
   it('should create the app', () => {
@@ -45,13 +61,15 @@ describe(AppComponent.name, () => {
       fixture.detectChanges();
 
       // Then
-      expect(spyOnAddLangs).toHaveBeenCalledWith(
+      expect(mockTranslateService.addLangs).toHaveBeenCalledWith(
         Object.values(SupportedLanguageEnum)
       );
-      expect(spyOnSetDefaultLang).toHaveBeenCalledWith(
+      expect(mockTranslateService.setDefaultLang).toHaveBeenCalledWith(
         SupportedLanguageEnum.english
       );
-      expect(spyOnUse).toHaveBeenCalledWith(SupportedLanguageEnum.english);
+      expect(mockTranslateService.use).toHaveBeenCalledWith(
+        SupportedLanguageEnum.english
+      );
     });
   });
 });
