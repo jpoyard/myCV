@@ -15,6 +15,7 @@ jobs:
     needs: init
 
   build:
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -63,3 +64,11 @@ jobs:
           path: ./dist
           if-no-files-found: error
           retention-days: 1
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MY_CV_C83A5 }}'
+          projectId: my-cv-c83a5
+

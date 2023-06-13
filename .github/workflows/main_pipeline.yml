@@ -60,10 +60,10 @@ jobs:
       - name: Build project
         run: pnpm build
 
-      - name: Upload ./dist folder
-        uses: actions/upload-artifact@v3
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          name: ${{ runner.os }}-mycv
-          path: ./dist
-          if-no-files-found: error
-          retention-days: 1
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MY_CV_C83A5 }}'
+          channelId: live
+          projectId: my-cv-c83a5
