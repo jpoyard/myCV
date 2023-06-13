@@ -1,4 +1,4 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { importProvidersFrom } from '@angular/core';
 
 import {
   HttpClient,
@@ -9,11 +9,18 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
-import { HttpLoaderFactory } from './app/app.module';
-import { environment } from './environments/environment';
 
-if (environment.production) {
-  enableProdMode();
+import { registerLocaleData } from '@angular/common';
+import localeEn from '@angular/common/locales/en';
+import localeFr from '@angular/common/locales/fr';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SupportedLanguageEnum } from './app/model/language';
+
+registerLocaleData(localeFr, SupportedLanguageEnum.french);
+registerLocaleData(localeEn, SupportedLanguageEnum.english);
+
+export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http);
 }
 
 bootstrapApplication(AppComponent, {

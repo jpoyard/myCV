@@ -9,8 +9,10 @@ const routes: Routes = [
   },
   {
     path: 'view',
-    loadChildren: () =>
-      import('./features/viewer/viewer.module').then((m) => m.ViewerModule),
+    loadComponent: () =>
+      import('./features/viewer/viewer.component').then(
+        (m) => m.ViewerComponent
+      ),
   },
 ];
 
