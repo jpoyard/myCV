@@ -16,6 +16,7 @@ describe(AppComponent.name, () => {
     onLangChange: EventEmitter<LangChangeEvent>;
     addLangs(langs: Array<string>): void;
     setDefaultLang(lang: string): void;
+    /*eslint @typescript-eslint/no-explicit-any : "off"*/
     use(lang: string): Observable<any>;
   };
 

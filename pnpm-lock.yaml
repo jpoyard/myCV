@@ -88,6 +88,9 @@ devDependencies:
   bootstrap:
     specifier: ^4.6.2
     version: 4.6.2(jquery@3.7.0)(popper.js@1.16.1)
+  concurrently:
+    specifier: ^8.2.0
+    version: 8.2.0
   eslint:
     specifier: ^8.42.0
     version: 8.42.0
@@ -4404,6 +4407,22 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
+  /concurrently@8.2.0:
+    resolution: {integrity: sha512-nnLMxO2LU492mTUj9qX/az/lESonSZu81UznYDoXtz1IQf996ixVqPAgHXwvHiHCAef/7S8HIK+fTFK7Ifk8YA==}
+    engines: {node: ^14.13.0 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      date-fns: 2.30.0
+      lodash: 4.17.21
+      rxjs: 7.8.1
+      shell-quote: 1.8.1
+      spawn-command: 0.0.2
+      supports-color: 8.1.1
+      tree-kill: 1.2.2
+      yargs: 17.7.2
+    dev: true
+
   /connect-history-api-fallback@2.0.0:
     resolution: {integrity: sha512-U73+6lQFmfiNPrYbXqr6kZ1i1wiRqXnp2nhMsINseWXO8lDau0LGEffJ8kQi4EjLZympVgRdvqjAgiZ1tgzDDA==}
     engines: {node: '>=0.8'}
@@ -4582,6 +4601,13 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
+    dev: true
+
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.21.0
     dev: true
 
   /debug@2.6.9:
@@ -8664,6 +8690,10 @@ packages:
   /source-map@0.7.4:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /spawn-command@0.0.2:
+    resolution: {integrity: sha512-zC8zGoGkmc8J9ndvml8Xksr1Amk9qBujgbF0JAIWO7kXr43w0h/0GJNM/Vustixu+YE8N/MTrQ7N31FvHUACxQ==}
     dev: true
 
   /spdx-correct@3.2.0:

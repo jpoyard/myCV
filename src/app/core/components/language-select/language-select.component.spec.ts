@@ -13,6 +13,7 @@ describe(LanguageSelectComponent.name, () => {
   let fixture: ComponentFixture<LanguageSelectComponent>;
   let mockCurrentLang$: Subject<string>;
   let mockLanguageService: { currentLang$: Observable<string> };
+  /*eslint @typescript-eslint/no-explicit-any : "off"*/
   let mockTranslateService: { use(lang: string): Observable<any> };
 
   beforeEach(async () => {
