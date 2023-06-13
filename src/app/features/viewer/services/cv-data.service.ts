@@ -1,8 +1,8 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable, ReplaySubject, Subscription } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { Injectable, Signal } from '@angular/core';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { map, switchMap } from 'rxjs';
+import { SupportedLanguageEnum } from 'src/app/model/language';
 import { LanguageService } from '../../../core/services/language.service';
-import { SupportedLanguageEnum } from '../../../model/language';
 import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
@@ -21,28 +21,22 @@ import { CvDataLoaderService } from './cv-data-loader.service';
 @Injectable({
   providedIn: 'root',
 })
-export class CurriculumVitaeDataService implements OnDestroy {
-  private subscription: Subscription;
+export class CurriculumVitaeDataService {
 
-  private pData$ = new ReplaySubject<PreparedCurriculumVitaeData>();
-  public get data$(): Observable<PreparedCurriculumVitaeData> {
-    return this.pData$.asObservable();
-  }
+  public data: Signal<PreparedCurriculumVitaeData|null>;
 
   constructor(languageService: LanguageService, loader: CvDataLoaderService) {
-    this.subscription = languageService.currentLang$
-      .pipe(
+    this.data = toSignal<PreparedCurriculumVitaeData, PreparedCurriculumVitaeData|null>(
+      toObservable(languageService.currentLang).pipe(
         map((lang) => lang as SupportedLanguageEnum),
-        switchMap((lang) => loader.getCV(lang))
-      )
-      .subscribe((curriculumVitae) => this.loadData(curriculumVitae));
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+        switchMap((lang) => ((loader.getCV(lang)))),
+        map((cv) => this.getData(cv))
+      ),
+      {initialValue: null});
   }
 
-  private loadData(data: CurriculumVitaeData): void {
-    this.pData$.next({
+  private getData(data: CurriculumVitaeData): PreparedCurriculumVitaeData {
+    return ({
       personalData: data.personalData,
       contactLinks: this.getContactLinks(data.personalData),
       websiteLinks: this.getWebsiteLinks(data.personalData.accounts),

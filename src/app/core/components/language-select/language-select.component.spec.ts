@@ -5,20 +5,19 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { SupportedLanguageEnum } from '../../../model/language';
 import { LanguageService } from '../../services/language.service';
 
+import { Signal, signal } from '@angular/core';
 import { LanguageSelectComponent } from './language-select.component';
 
 describe(LanguageSelectComponent.name, () => {
   const currentLang = SupportedLanguageEnum.english;
   let component: LanguageSelectComponent;
   let fixture: ComponentFixture<LanguageSelectComponent>;
-  let mockCurrentLang$: Subject<string>;
-  let mockLanguageService: { currentLang$: Observable<string> };
+  let mockLanguageService: { currentLang: Signal<string> };
   /*eslint @typescript-eslint/no-explicit-any : "off"*/
   let mockTranslateService: { use(lang: string): Observable<any> };
 
   beforeEach(async () => {
-    mockCurrentLang$ = new BehaviorSubject<string>(currentLang);
-    mockLanguageService = { currentLang$: mockCurrentLang$.asObservable() };
+    mockLanguageService = { currentLang: signal(currentLang) };
     mockTranslateService = { use: jest.fn() };
 
     await TestBed.configureTestingModule({
@@ -33,10 +32,6 @@ describe(LanguageSelectComponent.name, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LanguageSelectComponent);
     component = fixture.componentInstance;
-  });
-
-  afterEach(() => {
-    mockCurrentLang$.complete();
   });
 
   it('should create with currentLang', () => {

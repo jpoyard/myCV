@@ -26,24 +26,15 @@ import { LanguageService } from '../../services/language.service';
   standalone: true,
   imports: [ReactiveFormsModule, NgFor],
 })
-export class LanguageSelectComponent implements OnDestroy {
-  private subscription: Subscription;
-
+export class LanguageSelectComponent {
   public supportedLanguages = SUPPORTED_LANGUAGES;
-
   public languageController = new UntypedFormControl();
 
   constructor(
     languageService: LanguageService,
     private translateService: TranslateService
   ) {
-    this.subscription = languageService.currentLang$.subscribe((lang) =>
-      this.languageController.patchValue(lang)
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.languageController.patchValue(languageService.currentLang());
   }
 
   public changeLanguage(event: Event): void {

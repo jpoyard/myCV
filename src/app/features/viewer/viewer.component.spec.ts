@@ -1,8 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { of } from 'rxjs';
 import { getMockPreparedCurriculumVitaeData } from './mock/cv-data.mock';
+import { PreparedCurriculumVitaeData } from './model/cv-data';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
 import { ViewerComponent } from './viewer.component';
 
@@ -16,7 +16,7 @@ describe(ViewerComponent.name, () => {
       providers: [
         {
           provide: CurriculumVitaeDataService,
-          useValue: { data$: of(getMockPreparedCurriculumVitaeData()) },
+          useValue: { data: signal<PreparedCurriculumVitaeData|null>(getMockPreparedCurriculumVitaeData()) },
         },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],

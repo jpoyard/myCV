@@ -13,7 +13,7 @@
     </div>
     <div
       class="resume-position-time text-muted"
-      *ngIf="languageService.currentLang$ | async as currentLang"
+      *ngIf="languageService.currentLang() as currentLang"
     >
       {{
         workExperience.period.start | date : "MMMM y" : undefined : currentLang

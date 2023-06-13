@@ -1,4 +1,4 @@
-<div class="mx-auto bg-white" *ngIf="cvService.data$ | async as data">
+<div class="mx-auto bg-white" *ngIf="cvService.data() as data">
   <header>
     <div class="media flex-column flex-md-row bg-secondary">
       <img

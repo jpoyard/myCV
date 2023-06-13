@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from '../../../../core/services/language.service';
@@ -14,7 +14,6 @@ import { SkillListComponent } from '../skill-list/skill-list.component';
     NgIf,
     NgFor,
     SkillListComponent,
-    AsyncPipe,
     DatePipe,
     TranslateModule,
   ],

@@ -14,7 +14,6 @@ import { CurriculumVitaeDataService } from './services/cv-data.service';
   templateUrl: './viewer.component.html',
   standalone: true,
   imports: [
-    AsyncPipe,
     DegreeListComponent,
     LanguageListComponent,
     LinkListComponent,

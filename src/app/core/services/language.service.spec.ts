@@ -3,7 +3,6 @@ import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { SupportedLanguageEnum } from '../../model/language';
 
-import { firstValueFrom } from 'rxjs';
 import { LanguageService } from './language.service';
 
 describe(LanguageService.name, () => {
@@ -35,14 +34,14 @@ describe(LanguageService.name, () => {
   });
 
   describe('currentLang$ property', () => {
-    it(`should return '${currentLang}' when currentLang='${currentLang}'`, fakeAsync(async () => {
+    it(`should return '${currentLang}' when currentLang='${currentLang}'`, fakeAsync(() => {
       // Given
 
       // When
       flushMicrotasks();
 
       // Then
-      expect(await firstValueFrom(service.currentLang$)).toBe(currentLang);
+      expect((service.currentLang())).toBe(currentLang);
     }));
 
     [SupportedLanguageEnum.french].forEach((expected) => {
@@ -51,11 +50,11 @@ describe(LanguageService.name, () => {
         flushMicrotasks();
 
         // When
-        expect(await firstValueFrom(service.currentLang$)).toBe(currentLang);
+        expect((service.currentLang())).toBe(currentLang);
         mockLangChangeEvent$.emit({ lang: expected } as LangChangeEvent);
 
         // Then
-        expect(await firstValueFrom(service.currentLang$)).toBe(expected);
+        expect((service.currentLang())).toBe(expected);
       }));
     });
   });
