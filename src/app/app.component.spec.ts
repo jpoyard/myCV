@@ -1,29 +1,27 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SupportedLanguageEnum } from './model/language';
 
 describe(AppComponent.name, () => {
-  let spyObjTranslateService: jasmine.SpyObj<TranslateService>;
+  let spyOnAddLangs: jasmine.Spy;
+  let spyOnSetDefaultLang: jasmine.Spy;
+  let spyOnUse: jasmine.Spy;
 
   beforeEach(async () => {
-
-    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, ['addLangs', 'setDefaultLang', 'use']);
-
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        { provide: TranslateService, useValue: spyObjTranslateService }
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      imports: [TranslateModule.forRoot(), RouterTestingModule, AppComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
+
+    spyOnAddLangs = spyOn(TestBed.inject(TranslateService), 'addLangs');
+    spyOnSetDefaultLang = spyOn(
+      TestBed.inject(TranslateService),
+      'setDefaultLang'
+    );
+    spyOnUse = spyOn(TestBed.inject(TranslateService), 'use');
   });
 
   it('should create the app', () => {
@@ -42,15 +40,18 @@ describe(AppComponent.name, () => {
     it('should initialized translate service', () => {
       // Given
       const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
 
       // When
       fixture.detectChanges();
 
       // Then
-      expect(spyObjTranslateService.addLangs).toHaveBeenCalledWith(Object.values(SupportedLanguageEnum));
-      expect(spyObjTranslateService.setDefaultLang).toHaveBeenCalledWith(SupportedLanguageEnum.english);
-      expect(spyObjTranslateService.use).toHaveBeenCalledWith(SupportedLanguageEnum.english);
+      expect(spyOnAddLangs).toHaveBeenCalledWith(
+        Object.values(SupportedLanguageEnum)
+      );
+      expect(spyOnSetDefaultLang).toHaveBeenCalledWith(
+        SupportedLanguageEnum.english
+      );
+      expect(spyOnUse).toHaveBeenCalledWith(SupportedLanguageEnum.english);
     });
   });
 });

@@ -1,4 +1,7 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
 import { SupportedLanguageEnum } from '../../../model/language';
 import { getMockCurriculumVitaeData } from '../mock/cv-data.mock.spec';
@@ -11,7 +14,7 @@ describe(CvDataLoaderService.name, () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CvDataLoaderService],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
     });
     service = TestBed.inject(CvDataLoaderService);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -22,14 +25,16 @@ describe(CvDataLoaderService.name, () => {
   });
 
   describe('getCv()', () => {
-    Object.values(SupportedLanguageEnum).forEach(lang => {
+    Object.values(SupportedLanguageEnum).forEach((lang) => {
       const url = `/assets/cv/${lang}.json`;
       it(`should return ${lang} CV when ${url} http request succeed`, fakeAsync(() => {
         // Given
         const expected = getMockCurriculumVitaeData();
 
         // When
-        const subscription = service.getCV(lang).subscribe(actual => expect(actual).toEqual(expected), fail);
+        const subscription = service
+          .getCV(lang)
+          .subscribe((actual) => expect(actual).toEqual(expected), fail);
 
         // Then
         const httpRequest = httpTestingController.expectOne(url);

@@ -17,17 +17,22 @@ describe(LanguageSelectComponent.name, () => {
 
   beforeEach(async () => {
     mockCurrentLang$ = new BehaviorSubject<string>(currentLang);
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>
-      (LanguageService.name, [], { currentLang$: mockCurrentLang$.asObservable() });
-    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(TranslateService.name, ['use']);
+    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(
+      LanguageService.name,
+      [],
+      { currentLang$: mockCurrentLang$.asObservable() }
+    );
+    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(
+      TranslateService.name,
+      ['use']
+    );
 
     await TestBed.configureTestingModule({
-      declarations: [LanguageSelectComponent],
       providers: [
         { provide: LanguageService, useValue: spyObjLanguageService },
-        { provide: TranslateService, useValue: spyObjTranslateService }
+        { provide: TranslateService, useValue: spyObjTranslateService },
       ],
-      imports: [ReactiveFormsModule]
+      imports: [ReactiveFormsModule, LanguageSelectComponent],
     }).compileComponents();
   });
 
@@ -49,9 +54,10 @@ describe(LanguageSelectComponent.name, () => {
     it('should change language when method is called', () => {
       // Given
       const expected = SupportedLanguageEnum.french;
+      const $event = { target: { value: expected } } as unknown as Event;
       fixture.detectChanges();
       // When
-      component.changeLanguage({ target: { value: expected } });
+      component.changeLanguage($event);
       fixture.detectChanges();
       // Then
       expect(spyObjTranslateService.use).toHaveBeenCalledWith(expected);

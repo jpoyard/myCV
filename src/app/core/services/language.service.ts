@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LanguageService {
   public currentLang$: Observable<string>;
@@ -12,7 +12,7 @@ export class LanguageService {
   constructor(translateService: TranslateService) {
     this.currentLang$ = translateService.onLangChange.pipe(
       startWith({ lang: translateService.currentLang } as LangChangeEvent),
-      map(langChange => langChange.lang)
+      map((langChange) => langChange.lang)
     );
   }
 }

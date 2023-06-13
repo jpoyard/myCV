@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "test:ci": "ng test --code-coverage --watch=false --browsers=ChromeHeadless",
-    "lint": "ng lint"
+    "format:edit": "prettier --write src",
+    "check:lint": "ng lint",
+    "check:format": "prettier src --check --loglevel warn"
   },
   "private": true,
   "dependencies": {
@@ -27,10 +29,18 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.1",
+    "@angular-eslint/builder": "16.0.3",
+    "@angular-eslint/eslint-plugin": "16.0.3",
+    "@angular-eslint/eslint-plugin-template": "16.0.3",
+    "@angular-eslint/schematics": "16.0.3",
+    "@angular-eslint/template-parser": "16.0.3",
     "@angular/cli": "~16.0.1",
     "@angular/compiler-cli": "^16.0.0",
     "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "5.59.7",
+    "@typescript-eslint/parser": "5.59.7",
     "bootstrap": "^4.6.0",
+    "eslint": "^8.40.0",
     "font-awesome": "^4.7.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
@@ -38,6 +48,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "prettier": "^2.8.8",
     "typescript": "~5.0.2"
   }
 }

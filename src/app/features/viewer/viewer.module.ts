@@ -17,7 +17,11 @@ import { ViewerRoutingModule } from './viewer-routing.module';
 import { ViewerComponent } from './viewer.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    ViewerRoutingModule,
+    HttpClientModule,
+    TranslateModule.forChild(),
     ViewerComponent,
     WorkExperienceComponent,
     WorkExperienceListComponent,
@@ -29,13 +33,7 @@ import { ViewerComponent } from './viewer.component';
     LinkComponent,
     DegreeListComponent,
     LanguageListComponent,
-    LinkListComponent
+    LinkListComponent,
   ],
-  imports: [
-    CommonModule,
-    ViewerRoutingModule,
-    HttpClientModule,
-    TranslateModule.forChild()
-  ]
 })
-export class ViewerModule { }
+export class ViewerModule {}

@@ -2,15 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgressComponent } from './progress.component';
 
-describe('ProgressComponent', () => {
+describe(ProgressComponent.name, () => {
   let component: ProgressComponent;
   let fixture: ComponentFixture<ProgressComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgressComponent ]
-    })
-    .compileComponents();
+      imports: [ProgressComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

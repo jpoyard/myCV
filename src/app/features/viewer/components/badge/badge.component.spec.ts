@@ -9,9 +9,8 @@ describe(BadgeComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BadgeComponent]
-    })
-      .compileComponents();
+      imports: [BadgeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -20,9 +19,7 @@ describe(BadgeComponent.name, () => {
   });
 
   describe('name property', () => {
-    [
-      'PostgresSQL', undefined
-    ].forEach(name => {
+    ['PostgresSQL', undefined].forEach((name) => {
       it(`should display given name '${name}' with badge-pill and badge-secondary classes
 when name='${name}'`, () => {
         // Given
@@ -33,7 +30,9 @@ when name='${name}'`, () => {
         fixture.detectChanges();
         // Then
         expect(component).toBeTruthy();
-        const element = fixture.debugElement.query(By.css('.badge')).nativeElement;
+        const element = fixture.debugElement.query(
+          By.css('.badge')
+        ).nativeElement;
         expect(element).toHaveClass('badge-pill');
         expect(element).toHaveClass('badge-secondary');
         expect(element.textContent).toBe(name || '');
@@ -42,10 +41,10 @@ when name='${name}'`, () => {
   });
 
   describe('hasBadgePill property', () => {
-    [
-      true, false
-    ].forEach(hasBadgePill => {
-      it(`should display component ${hasBadgePill ? 'with' : 'without'} badge-pill class
+    [true, false].forEach((hasBadgePill) => {
+      it(`should display component ${
+        hasBadgePill ? 'with' : 'without'
+      } badge-pill class
 when hasBadgePill='${hasBadgePill}'`, () => {
         // Given
         component.name = 'Angular';
@@ -54,7 +53,9 @@ when hasBadgePill='${hasBadgePill}'`, () => {
         fixture.detectChanges();
         // Then
         expect(component).toBeTruthy();
-        const element = fixture.debugElement.query(By.css('.badge')).nativeElement;
+        const element = fixture.debugElement.query(
+          By.css('.badge')
+        ).nativeElement;
         expect(element).toHaveClass('badge-secondary');
         if (hasBadgePill) {
           expect(element).toHaveClass('badge-pill');
@@ -67,7 +68,7 @@ when hasBadgePill='${hasBadgePill}'`, () => {
   });
 
   describe('color property', () => {
-    Object.values(BootstrapColorEnum).forEach(color => {
+    Object.values(BootstrapColorEnum).forEach((color) => {
       it(`should display component with badge-pill and badge-${color} classes
 when color='${color}'`, () => {
         // Given
@@ -78,7 +79,9 @@ when color='${color}'`, () => {
         fixture.detectChanges();
         // Then
         expect(component).toBeTruthy();
-        const element = fixture.debugElement.query(By.css('.badge')).nativeElement;
+        const element = fixture.debugElement.query(
+          By.css('.badge')
+        ).nativeElement;
         expect(element).toHaveClass(expectedBadgeColor);
         expect(element).toHaveClass('badge-pill');
         expect(element.textContent).toBe(component.name);

@@ -6,13 +6,23 @@
       </h5>
       <div class="resume-company-name ml-auto font-weight-bold">
         <span>{{ workExperience.company }}</span>
-        <span *ngIf="workExperience.serviceCompany"> - {{ workExperience.serviceCompany }}</span>
+        <span *ngIf="workExperience.serviceCompany">
+          - {{ workExperience.serviceCompany }}</span
+        >
       </div>
     </div>
-    <div class="resume-position-time text-muted" *ngIf="languageService.currentLang$|async as currentLang">
-      {{ workExperience.period.start | date:'MMMM y':undefined:currentLang }} -
+    <div
+      class="resume-position-time text-muted"
+      *ngIf="languageService.currentLang$ | async as currentLang"
+    >
+      {{
+        workExperience.period.start | date : "MMMM y" : undefined : currentLang
+      }}
+      -
       <ng-container *ngIf="workExperience.period.end; else presentTpl"
-        >{{ workExperience.period.end | date:'MMMM y':undefined:currentLang }}
+        >{{
+          workExperience.period.end | date : "MMMM y" : undefined : currentLang
+        }}
       </ng-container>
       <ng-template #presentTpl>
         {{ "present" | translate }}

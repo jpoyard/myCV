@@ -5,15 +5,17 @@ import { SupportedLanguageEnum } from '../../../model/language';
 import { CurriculumVitaeData } from '../model/cv-data';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CvDataLoaderService {
   private prefix = '/assets/cv/';
   private suffix = '.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public getCV(lang: SupportedLanguageEnum): Observable<CurriculumVitaeData> {
-    return this.http.get<CurriculumVitaeData>(`${this.prefix}${lang}${this.suffix}`);
+    return this.http.get<CurriculumVitaeData>(
+      `${this.prefix}${lang}${this.suffix}`
+    );
   }
 }

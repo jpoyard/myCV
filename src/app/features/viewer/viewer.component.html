@@ -1,16 +1,26 @@
 <div class="mx-auto bg-white" *ngIf="cvService.data$ | async as data">
   <header>
     <div class="media flex-column flex-md-row bg-secondary">
-      <img [attr.src]="data.personalData.thumbnailUrl" class="img-fluid align-self-center" />
+      <img
+        [attr.src]="data.personalData.thumbnailUrl"
+        class="img-fluid align-self-center"
+        alt="profile picture"
+      />
       <address class="media-body d-flex flex-column p-4 m-0 text-light">
         <div>
           <h1 class="name mt-0 mb-1 text-white text-uppercase">
-            <span class="text-capitalize mr-2">{{ data.personalData.firstName }}</span>
+            <span class="text-capitalize mr-2">{{
+              data.personalData.firstName
+            }}</span>
             <span class="text-uppercase">{{ data.personalData.lastName }}</span>
           </h1>
-          <h4 class="title text-capitalize mb-3">{{data.personalData.jobTitle}}</h4>
+          <h4 class="title text-capitalize mb-3">
+            {{ data.personalData.jobTitle }}
+          </h4>
         </div>
-        <div class="media-body d-flex flex-column flex-md-row justify-content-between">
+        <div
+          class="media-body d-flex flex-column flex-md-row justify-content-between"
+        >
           <mcv-link-list class="mb-2" [links]="data.contactLinks"></mcv-link-list>
           <mcv-link-list [links]="data.websiteLinks"></mcv-link-list>
         </div>
@@ -19,8 +29,7 @@
   </header>
   <div class="px-md-5 py-4">
     <mcv-section title="title.career-summary" *ngIf="data.careerSummary">
-      <p>{{data.careerSummary}}
-      </p>
+      <p>{{ data.careerSummary }}</p>
     </mcv-section>
     <div class="d-flex flex-column flex-md-row">
       <div class="col-md-9">
@@ -32,9 +41,16 @@
       </div>
       <div class="col-md-3">
         <mcv-section title="title.skills-tools">
-          <ng-container *ngFor="let skillGroup of data.skillGroups; last as isLast">
-            <mcv-skill-list [class.mb-4]="!isLast" [title]="skillGroup.title" [skills]="skillGroup.skills" [withLevel]="!isLast">
-          </mcv-skill-list>
+          <ng-container
+            *ngFor="let skillGroup of data.skillGroups; last as isLast"
+          >
+            <mcv-skill-list
+              [class.mb-4]="!isLast"
+              [title]="skillGroup.title"
+              [skills]="skillGroup.skills"
+              [withLevel]="!isLast"
+            >
+            </mcv-skill-list>
           </ng-container>
         </mcv-section>
 

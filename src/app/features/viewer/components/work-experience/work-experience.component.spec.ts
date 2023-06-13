@@ -13,18 +13,19 @@ describe(WorkExperienceComponent.name, () => {
   let spyObjLanguageService: jasmine.SpyObj<LanguageService>;
 
   beforeEach(async () => {
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(LanguageService.name, [],
-      { currentLang$: of(SupportedLanguageEnum.english) });
+    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(
+      LanguageService.name,
+      [],
+      { currentLang$: of(SupportedLanguageEnum.english) }
+    );
 
     await TestBed.configureTestingModule({
-      declarations: [WorkExperienceComponent],
-      imports: [TranslateModule.forRoot()],
+      imports: [TranslateModule.forRoot(), WorkExperienceComponent],
       providers: [
-        { provide: LanguageService, useValue: spyObjLanguageService }
+        { provide: LanguageService, useValue: spyObjLanguageService },
       ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -13,10 +13,14 @@ describe(SkillListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SkillWithLevelComponent, SkillListComponent, BadgeComponent, ProgressComponent],
-      imports: [TranslateModule.forRoot()]
-    })
-      .compileComponents();
+      imports: [
+        TranslateModule.forRoot(),
+        SkillWithLevelComponent,
+        SkillListComponent,
+        BadgeComponent,
+        ProgressComponent,
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -33,9 +37,7 @@ describe(SkillListComponent.name, () => {
       expect(component).toBeTruthy();
       expect(fixture.debugElement.query(By.css('h5'))).toBeNull();
     });
-    [
-      'front-end', 'back-end'
-    ].forEach(title => {
+    ['front-end', 'back-end'].forEach((title) => {
       it(`should display '${title}' title when title='title.${title}'`, () => {
         // Given
         component.title = title;
@@ -44,7 +46,7 @@ describe(SkillListComponent.name, () => {
         // Then
         expect(component).toBeTruthy();
         const titleElt = fixture.debugElement.query(By.css('h5')).nativeElement;
-        expect(titleElt.textContent).toBe(`title.${title}`);
+        expect(titleElt.textContent).toContain(`title.${title}`);
       });
     });
   });
@@ -65,7 +67,9 @@ describe(SkillListComponent.name, () => {
     it('should display ordered (by level) skills with progress when component.skills is defined and component.withLevel=true', () => {
       // Given
       const skills = getMockSkills();
-      const expected = skills.sort((a, b) => (b.level || 0) - (a.level || 0)).map(a => a.name);
+      const expected = skills
+        .sort((a, b) => (b.level || 0) - (a.level || 0))
+        .map((a) => a.name);
       component.title = title;
       component.skills = skills;
       component.withLevel = true;
@@ -75,12 +79,16 @@ describe(SkillListComponent.name, () => {
       expect(component).toBeTruthy();
       const skillElts = fixture.debugElement.queryAll(By.css('.skill-name'));
       expect(skillElts.length).toBe(skills.length);
-      expect(skillElts.map(a => a.nativeElement.textContent)).toEqual(expected);
+      expect(skillElts.map((a) => a.nativeElement.textContent)).toEqual(
+        expected
+      );
     });
     it('should display ordered (by name) skills with badge when component.skills is defined and component.withLevel=false', () => {
       // Given
       const skills = getMockSkills();
-      const expected = skills.sort((a, b) => a.name.localeCompare(b.name)).map(a => a.name);
+      const expected = skills
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((a) => a.name);
       component.title = title;
       component.skills = skills;
       component.withLevel = false;
@@ -90,7 +98,9 @@ describe(SkillListComponent.name, () => {
       expect(component).toBeTruthy();
       const skillElts = fixture.debugElement.queryAll(By.css('mcv-badge'));
       expect(skillElts.length).toBe(skills.length);
-      expect(skillElts.map(a => a.nativeElement.textContent)).toEqual(expected);
+      expect(skillElts.map((a) => a.nativeElement.textContent)).toEqual(
+        expected
+      );
     });
   });
 });

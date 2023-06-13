@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { RouterOutlet } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageSelectComponent } from './core/components/language-select/language-select.component';
 import { SupportedLanguageEnum } from './model/language';
 
 @Component({
   selector: 'mcv-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [RouterOutlet, LanguageSelectComponent, TranslateModule],
 })
 export class AppComponent {
   title = 'myCV';

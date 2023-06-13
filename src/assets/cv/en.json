@@ -393,7 +393,12 @@
         },
         { "name": "Bootstrap", "keys": ["front", "library"], "level": 75 },
         { "name": "JavaScript", "keys": ["front", "language"], "level": 100 },
-        { "name": "JQuery", "keys": ["front", "library"], "level": 100, "onlyForWorkExperience": true },
+        {
+          "name": "JQuery",
+          "keys": ["front", "library"],
+          "level": 100,
+          "onlyForWorkExperience": true
+        },
         {
           "name": "Eclipse",
           "keys": ["IDE"],
@@ -429,13 +434,13 @@
     {
       "name": "Engineer - Computer Engineering in Software and Knowledge Engineering ",
       "school": "UTBM Sevenans",
-      "start": 1998 ,
+      "start": 1998,
       "end": 2001
     },
     {
       "name": "DUT Computer Science in Analysis/Programming",
       "school": "IUT Belfort Montbéliard",
-      "start": 1996 ,
+      "start": 1996,
       "end": 1998
     }
   ],
