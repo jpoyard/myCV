@@ -1,17 +1,13 @@
 {
   "hosting": [
     {
+      "target": "myCV",
       "public": "public",
       "ignore": [
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
       ]
-    },
-    {
-      "target": "myCV",
-      "source": ".",
-      "frameworksBackend": {}
     }
   ],
   "emulators": {
@@ -31,5 +27,8 @@
       "enabled": true
     },
     "singleProjectMode": true
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
   }
 }
