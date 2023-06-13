@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "firebase": "firebase",
     "start": "ng serve",
     "build": "ng build",
     "test": "jest --watch",
     "test:ci": "ng test --ci",
     "format:edit": "prettier --write src",
     "check:lint": "ng lint",
-    "check:format": "prettier src --check --loglevel warn"
+    "check:format": "prettier src --check --loglevel warn",
+    "deploy": "firebase deploy",
+    "emulate":"firebase emulators:start"
   },
   "private": true,
   "dependencies": {
