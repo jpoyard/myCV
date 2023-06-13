@@ -40,7 +40,7 @@ describe(LinkComponent.name, () => {
       fixture.detectChanges();
       // Then
       const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
-      expect(iconElt).toHaveClass(icon);
+      expect(iconElt.classList).toContain(icon);
       const linkTagElt = fixture.debugElement.query(By.css('a'))
         .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain('none');
@@ -108,12 +108,12 @@ describe(LinkComponent.name, () => {
       fixture.detectChanges();
       // Then
       const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
-      expect(iconElt).toHaveClass('bg-' + defaultColor);
+      expect(iconElt.classList).toContain('bg-' + defaultColor);
       const linkTagElt = fixture.debugElement.query(By.css('a'))
         .nativeElement as HTMLLinkElement;
       expect(linkTagElt.textContent).toContain(label);
       expect(linkTagElt.href).toContain(url);
-      expect(linkTagElt).toHaveClass('text-' + defaultColor);
+      expect(linkTagElt.classList).toContain('text-' + defaultColor);
     });
     [BootstrapColorEnum.light, BootstrapColorEnum.white].forEach((color) => {
       it(`should have color='${color}' when component.color is '${color}'`, () => {
@@ -126,12 +126,12 @@ describe(LinkComponent.name, () => {
         fixture.detectChanges();
         // Then
         const iconElt = fixture.debugElement.query(By.css('i')).nativeElement;
-        expect(iconElt).toHaveClass('bg-' + color);
+        expect(iconElt.classList).toContain('bg-' + color);
         const linkTagElt = fixture.debugElement.query(By.css('a'))
           .nativeElement as HTMLLinkElement;
         expect(linkTagElt.textContent).toContain(label);
         expect(linkTagElt.href).toContain(url);
-        expect(linkTagElt).toHaveClass('text-' + color);
+        expect(linkTagElt.classList).toContain('text-' + color);
       });
     });
   });

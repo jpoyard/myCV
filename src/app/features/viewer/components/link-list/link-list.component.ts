@@ -9,11 +9,7 @@ import { LinkComponent } from '../link/link.component';
     <ul class="list-unstyled mb-0">
       <ng-container *ngFor="let link of links; last as isLast">
         <li [class.mb-2]="!isLast">
-          <mcv-link
-            [icon]="link.icon"
-            [label]="link.label"
-            [url]="link.url"
-          >
+          <mcv-link [icon]="link.icon" [label]="link.label" [url]="link.url">
           </mcv-link>
         </li>
       </ng-container>

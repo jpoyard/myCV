@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { SupportedLanguageEnum } from '../../../model/language';
 import { LanguageService } from '../../services/language.service';
 
@@ -11,26 +11,19 @@ describe(LanguageSelectComponent.name, () => {
   const currentLang = SupportedLanguageEnum.english;
   let component: LanguageSelectComponent;
   let fixture: ComponentFixture<LanguageSelectComponent>;
-  let mockCurrentLang$: BehaviorSubject<string>;
-  let spyObjLanguageService: jasmine.SpyObj<LanguageService>;
-  let spyObjTranslateService: jasmine.SpyObj<TranslateService>;
+  let mockCurrentLang$: Subject<string>;
+  let mockLanguageService: { currentLang$: Observable<string> };
+  let mockTranslateService: { use(lang: string): Observable<any> };
 
   beforeEach(async () => {
     mockCurrentLang$ = new BehaviorSubject<string>(currentLang);
-    spyObjLanguageService = jasmine.createSpyObj<LanguageService>(
-      LanguageService.name,
-      [],
-      { currentLang$: mockCurrentLang$.asObservable() }
-    );
-    spyObjTranslateService = jasmine.createSpyObj<TranslateService>(
-      TranslateService.name,
-      ['use']
-    );
+    mockLanguageService = { currentLang$: mockCurrentLang$.asObservable() };
+    mockTranslateService = { use: jest.fn() };
 
     await TestBed.configureTestingModule({
       providers: [
-        { provide: LanguageService, useValue: spyObjLanguageService },
-        { provide: TranslateService, useValue: spyObjTranslateService },
+        { provide: LanguageService, useValue: mockLanguageService },
+        { provide: TranslateService, useValue: mockTranslateService },
       ],
       imports: [ReactiveFormsModule, LanguageSelectComponent],
     }).compileComponents();
@@ -39,6 +32,10 @@ describe(LanguageSelectComponent.name, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LanguageSelectComponent);
     component = fixture.componentInstance;
+  });
+
+  afterEach(() => {
+    mockCurrentLang$.complete();
   });
 
   it('should create with currentLang', () => {
@@ -60,7 +57,7 @@ describe(LanguageSelectComponent.name, () => {
       component.changeLanguage($event);
       fixture.detectChanges();
       // Then
-      expect(spyObjTranslateService.use).toHaveBeenCalledWith(expected);
+      expect(mockTranslateService.use).toHaveBeenCalledWith(expected);
     });
   });
 });

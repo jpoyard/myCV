@@ -2,9 +2,9 @@ import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
-import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 import { SupportedLanguageEnum } from '../../../model/language';
-import { getMockCurriculumVitaeData } from '../mock/cv-data.mock.spec';
+import { getMockCurriculumVitaeData } from '../mock/cv-data.mock';
 import { CvDataLoaderService } from './cv-data-loader.service';
 
 describe(CvDataLoaderService.name, () => {
@@ -32,9 +32,10 @@ describe(CvDataLoaderService.name, () => {
         const expected = getMockCurriculumVitaeData();
 
         // When
-        const subscription = service
-          .getCV(lang)
-          .subscribe((actual) => expect(actual).toEqual(expected), fail);
+        const subscription = service.getCV(lang).subscribe({
+          next: (actual) => expect(actual).toEqual(expected),
+          error: (err) => fail(err),
+        });
 
         // Then
         const httpRequest = httpTestingController.expectOne(url);

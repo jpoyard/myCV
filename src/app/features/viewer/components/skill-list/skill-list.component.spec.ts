@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { TranslateModule } from '@ngx-translate/core';
-import { getMockSkills } from '../../mock/skill.mock.spec';
+import { getMockSkills } from '../../mock/skill.mock';
 import { BadgeComponent } from '../badge/badge.component';
 import { ProgressComponent } from '../progress/progress.component';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';

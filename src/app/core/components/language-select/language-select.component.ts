@@ -3,7 +3,10 @@ import { Component, OnDestroy } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-import { SUPPORTED_LANGUAGES, SupportedLanguageEnum } from '../../../model/language';
+import {
+  SUPPORTED_LANGUAGES,
+  SupportedLanguageEnum,
+} from '../../../model/language';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
@@ -44,10 +47,10 @@ export class LanguageSelectComponent implements OnDestroy {
   }
 
   public changeLanguage(event: Event): void {
-      this.translateService.use(this.getLang(event));
+    this.translateService.use(this.getLang(event));
   }
 
   private getLang(event: Event): SupportedLanguageEnum {
-    return (event.target as unknown as {value: SupportedLanguageEnum}).value;
+    return (event.target as unknown as { value: SupportedLanguageEnum }).value;
   }
 }
