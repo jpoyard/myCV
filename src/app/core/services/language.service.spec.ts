@@ -41,7 +41,7 @@ describe(LanguageService.name, () => {
       flushMicrotasks();
 
       // Then
-      expect((service.currentLang())).toBe(currentLang);
+      expect(service.currentLang()).toBe(currentLang);
     }));
 
     [SupportedLanguageEnum.french].forEach((expected) => {
@@ -50,11 +50,11 @@ describe(LanguageService.name, () => {
         flushMicrotasks();
 
         // When
-        expect((service.currentLang())).toBe(currentLang);
+        expect(service.currentLang()).toBe(currentLang);
         mockLangChangeEvent$.emit({ lang: expected } as LangChangeEvent);
 
         // Then
-        expect((service.currentLang())).toBe(expected);
+        expect(service.currentLang()).toBe(expected);
       }));
     });
   });

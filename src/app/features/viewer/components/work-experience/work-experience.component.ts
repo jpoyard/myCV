@@ -10,13 +10,7 @@ import { SkillListComponent } from '../skill-list/skill-list.component';
   templateUrl: './work-experience.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    NgIf,
-    NgFor,
-    SkillListComponent,
-    DatePipe,
-    TranslateModule,
-  ],
+  imports: [NgIf, NgFor, SkillListComponent, DatePipe, TranslateModule],
 })
 export class WorkExperienceComponent {
   @Input() public workExperience?: WorkExperience;

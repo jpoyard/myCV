@@ -12,8 +12,10 @@ export class LanguageService {
 
   constructor(translateService: TranslateService) {
     this.currentLang = toSignal<SupportedLanguageEnum, SupportedLanguageEnum>(
-      translateService.onLangChange.pipe(map((langChange) => langChange.lang as SupportedLanguageEnum)),
-      {initialValue: translateService.currentLang as SupportedLanguageEnum}
+      translateService.onLangChange.pipe(
+        map((langChange) => langChange.lang as SupportedLanguageEnum)
+      ),
+      { initialValue: translateService.currentLang as SupportedLanguageEnum }
     );
   }
 }
