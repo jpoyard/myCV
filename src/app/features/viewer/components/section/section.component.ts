@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'mcv-section',
@@ -7,7 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./section.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [TranslateModule],
 })
 export class SectionComponent {
   @Input() public title = 'no-title';

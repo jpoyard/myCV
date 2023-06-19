@@ -1,6 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 @Component({
@@ -8,7 +7,7 @@ import { Language, LanguageLevelEnum } from '../../model/language';
   templateUrl: './language-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor, NgIf, TranslateModule],
+  imports: [NgFor, NgIf],
 })
 export class LanguageListComponent {
   private pLanguages: Language[] = [];

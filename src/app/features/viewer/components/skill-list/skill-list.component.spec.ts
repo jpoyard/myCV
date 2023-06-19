@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { TranslateModule } from '@ngx-translate/core';
 import { getMockSkills } from '../../mock/skill.mock';
 import { BadgeComponent } from '../badge/badge.component';
 import { ProgressComponent } from '../progress/progress.component';
@@ -14,7 +13,6 @@ describe(SkillListComponent.name, () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        TranslateModule.forRoot(),
         SkillWithLevelComponent,
         SkillListComponent,
         BadgeComponent,

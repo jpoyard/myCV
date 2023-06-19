@@ -19,10 +19,20 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "mcv",
+      "i18n": {
+        "sourceLocale": "fr-FR",
+        "locales": {
+          "en-US": {
+            "translation": "src/locale/messages.en-US.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/myCV",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -38,7 +48,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "i18nMissingTranslation": "error"
           },
           "configurations": {
             "production": {
@@ -57,12 +68,19 @@
               "outputHashing": "all"
             },
             "development": {
+              "localize": false,
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "fr-FR": {
+              "localize": ["fr-FR"]
+            },
+            "en-US": {
+              "localize": ["en-US"]
             }
           },
           "defaultConfiguration": "production"
@@ -70,11 +88,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "en-US": {
+              "browserTarget": "myCV:build:development,en-US"
+            },
             "production": {
-              "browserTarget": "myCV:build:production"
+              "browserTarget": "myCV:build:production,fr-FR"
             },
             "development": {
-              "browserTarget": "myCV:build:development"
+              "browserTarget": "myCV:build:development,fr-FR"
             }
           },
           "defaultConfiguration": "development"
@@ -93,6 +114,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": ["css"],
             "assets": [
               "src/favicon.ico",
               "src/assets"

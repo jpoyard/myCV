@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { TranslateModule } from '@ngx-translate/core';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 import { LanguageListComponent } from './language-list.component';
@@ -11,7 +10,7 @@ describe(LanguageListComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot(), LanguageListComponent],
+      imports: [LanguageListComponent],
     }).compileComponents();
   });
 

@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { TranslateModule } from '@ngx-translate/core';
 import { getMockPreparedCurriculumVitaeData } from './mock/cv-data.mock';
 import { PreparedCurriculumVitaeData } from './model/cv-data';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
@@ -15,11 +14,7 @@ describe(ViewerComponent.name, () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
-        TranslateModule.forRoot(),
-        ViewerComponent,
-      ],
+      imports: [NoopAnimationsModule, ViewerComponent],
       providers: [
         {
           provide: CurriculumVitaeDataService,

@@ -11,29 +11,17 @@
         >
       </div>
     </div>
-    <div
-      class="resume-position-time text-muted"
-      *ngIf="languageService.currentLang() as currentLang"
-    >
-      {{
-        workExperience.period.start | date : "MMMM y" : undefined : currentLang
-      }}
+    <div class="resume-position-time text-muted">
+      {{ workExperience.period.start | formatDate }}
       -
-      <ng-container *ngIf="workExperience.period.end; else presentTpl"
-        >{{
-          workExperience.period.end | date : "MMMM y" : undefined : currentLang
-        }}
-      </ng-container>
-      <ng-template #presentTpl>
-        {{ "present" | translate }}
-      </ng-template>
+      {{ workExperience.period.end | formatDate }}
     </div>
   </div>
   <div class="description">
     <p>{{ workExperience.description }}</p>
     <ng-container *ngIf="workExperience.achievements as achievements">
-      <h6 class="description-heading font-weight-bold text-capitalize">
-        {{ "title.achievements" | translate }}
+      <h6 class="description-heading font-weight-bold text-capitalize" i18n>
+        title.achievements
       </h6>
       <p>{{ achievements.description }}</p>
       <ul>
@@ -41,8 +29,8 @@
           <li>{{ item }}</li>
         </ng-container>
       </ul>
-      <h6 class="description-heading font-weight-bold text-capitalize">
-        {{ "title.technologies-used" | translate }}
+      <h6 class="description-heading font-weight-bold text-capitalize" i18n>
+        title.technologies-used
       </h6>
       <mcv-skill-list [skills]="workExperience.skills"></mcv-skill-list>
     </ng-container>

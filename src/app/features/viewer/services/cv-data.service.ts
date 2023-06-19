@@ -1,8 +1,7 @@
-import { Injectable, Signal } from '@angular/core';
+import { Injectable, Signal, computed, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { map, switchMap } from 'rxjs';
 import { SupportedLanguageEnum } from 'src/app/model/language';
-import { LanguageService } from '../../../core/services/language.service';
 import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
@@ -22,21 +21,18 @@ import { CvDataLoaderService } from './cv-data-loader.service';
   providedIn: 'root',
 })
 export class CurriculumVitaeDataService {
+  public data: Signal<PreparedCurriculumVitaeData | null>;
 
-  public data: Signal<PreparedCurriculumVitaeData|null>;
-
-  constructor(languageService: LanguageService, loader: CvDataLoaderService) {
-    this.data = toSignal<PreparedCurriculumVitaeData, PreparedCurriculumVitaeData|null>(
-      toObservable(languageService.currentLang).pipe(
-        map((lang) => lang as SupportedLanguageEnum),
-        switchMap((lang) => ((loader.getCV(lang)))),
-        map((cv) => this.getData(cv))
-      ),
-      {initialValue: null});
+  constructor(loader: CvDataLoaderService) {
+    loader.request();
+    this.data = computed(() => {
+      const raw = loader.data();
+      return raw ? this.getData(raw) : null;
+    });
   }
 
   private getData(data: CurriculumVitaeData): PreparedCurriculumVitaeData {
-    return ({
+    return {
       personalData: data.personalData,
       contactLinks: this.getContactLinks(data.personalData),
       websiteLinks: this.getWebsiteLinks(data.personalData.accounts),
@@ -45,7 +41,7 @@ export class CurriculumVitaeDataService {
       skillGroups: this.getSkillGroups(this.getSkills(data.workExperiences)),
       degrees: data.degrees,
       languages: data.languages,
-    });
+    };
   }
 
   public getSkills(workExperiences: WorkExperience[]): Skill[] {

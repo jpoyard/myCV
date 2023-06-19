@@ -2,13 +2,18 @@ module.exports = {
   preset: 'jest-preset-angular',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   globalSetup: 'jest-preset-angular/global-setup',
-  collectCoverage: true,
   collectCoverageFrom: ['./src/app/**'],
-  coverageDirectory: "<rootDir>/coverage/",
+  coverageReporters: [
+    "lcov",
+    "html",
+    "cobertura"
+  ],
+  coverageDirectory: "<rootDir>/reports/",
   coveragePathIgnorePatterns: [
       "node_modules",
       ".module.ts",
-      ".mock.ts"
+      ".mock.ts",
+      "index.ts",
   ],
   coverageThreshold: {
     global: {
@@ -17,5 +22,9 @@ module.exports = {
       lines: 80,
       statements: -10,
     },
-  }
+  },
+  modulePathIgnorePatterns: [],
+  moduleNameMapper: {
+    "src/(.*)": "<rootDir>/src/$1",
+  },
 };

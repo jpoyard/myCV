@@ -1,8 +1,9 @@
-import { signal, WritableSignal } from '@angular/core';
-import { fakeAsync, flushMicrotasks, TestBed } from '@angular/core/testing';
-import { Observable, of } from 'rxjs';
-import { LanguageService } from '../../../core/services/language.service';
-import { SupportedLanguageEnum } from '../../../model/language';
+import { WritableSignal, signal } from '@angular/core';
+import {
+  TestBed,
+  fakeAsync,
+  flush
+} from '@angular/core/testing';
 import {
   getMockCurriculumVitaeData,
   getMockPreparedCurriculumVitaeData,
@@ -18,21 +19,19 @@ import { CurriculumVitaeDataService } from './cv-data.service';
 
 describe(CurriculumVitaeDataService.name, () => {
   let service: CurriculumVitaeDataService;
-  let mockLanguageService: { currentLang: WritableSignal<SupportedLanguageEnum> };
   let mockCvDataLoaderService: {
-    getCV(lang: SupportedLanguageEnum): Observable<CurriculumVitaeData>;
+    request(): void;
+    data: WritableSignal<CurriculumVitaeData | null>;
   };
 
   beforeEach(() => {
-    mockLanguageService = { currentLang: signal(SupportedLanguageEnum.english) };
-    mockCvDataLoaderService = { getCV: jest.fn() };
-    jest
-      .spyOn(mockCvDataLoaderService, 'getCV')
-      .mockImplementationOnce(() => of(getMockCurriculumVitaeData()));
+    mockCvDataLoaderService = {
+      request: jest.fn(),
+      data: signal<CurriculumVitaeData | null>(null),
+    };
 
     TestBed.configureTestingModule({
       providers: [
-        { provide: LanguageService, useValue: mockLanguageService },
         { provide: CvDataLoaderService, useValue: mockCvDataLoaderService },
         CurriculumVitaeDataService,
       ],
@@ -40,21 +39,31 @@ describe(CurriculumVitaeDataService.name, () => {
     service = TestBed.inject(CurriculumVitaeDataService);
   });
 
-  xdescribe('data', () => { // TODO
-    Object.values(SupportedLanguageEnum).forEach((lang) => {
-      it(`should retrieve ${lang} CV when selected lang is ${lang}`, fakeAsync(async () => {
-        // Given
-        flushMicrotasks();
+  describe('data', () => {
 
-        // When
-        mockLanguageService.currentLang.set(lang);
-        flushMicrotasks();
+    it(`should retrieve CV when data is defined`, fakeAsync(() => {
+      // Given
+      mockCvDataLoaderService.data.set(getMockCurriculumVitaeData());
 
-        // Then
-        expect(mockCvDataLoaderService.getCV).toHaveBeenCalledWith(lang);
-        expect((service.data())).toEqual(getMockPreparedCurriculumVitaeData());
-      }));
-    });
+      // When
+      flush();
+
+      // Then
+      expect(mockCvDataLoaderService.request).toHaveBeenCalled();
+      expect(service.data()).toEqual(getMockPreparedCurriculumVitaeData());
+    }));
+
+    it(`should be null when raw data is null`, fakeAsync(() => {
+      // Given
+      mockCvDataLoaderService.data.set(null);
+
+      // When
+      flush();
+
+      // Then
+      expect(mockCvDataLoaderService.request).toHaveBeenCalled();
+      expect(service.data()).toBeNull();
+    }));
   });
 
   describe('getContactLinks()', () => {

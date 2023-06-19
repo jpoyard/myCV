@@ -5,7 +5,6 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 import { BootstrapColorEnum } from '../../model/color.enum';
 import { Skill } from '../../model/skill';
 import { BadgeComponent } from '../badge/badge.component';
@@ -16,13 +15,7 @@ import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.co
   templateUrl: './skill-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    NgIf,
-    NgFor,
-    SkillWithLevelComponent,
-    BadgeComponent,
-    TranslateModule,
-  ],
+  imports: [NgIf, NgFor, SkillWithLevelComponent, BadgeComponent],
 })
 export class SkillListComponent implements OnInit {
   @Input() title?: string;

@@ -6,6 +6,7 @@ import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
 import { SupportedLanguageEnum } from '../../../model/language';
 import { getMockCurriculumVitaeData } from '../mock/cv-data.mock';
 import { CvDataLoaderService } from './cv-data-loader.service';
+import { HttpClient } from '@angular/common/http';
 
 describe(CvDataLoaderService.name, () => {
   let service: CvDataLoaderService;
@@ -13,10 +14,8 @@ describe(CvDataLoaderService.name, () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CvDataLoaderService],
       imports: [HttpClientTestingModule],
     });
-    service = TestBed.inject(CvDataLoaderService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
@@ -29,20 +28,19 @@ describe(CvDataLoaderService.name, () => {
       const url = `/assets/cv/${lang}.json`;
       it(`should return ${lang} CV when ${url} http request succeed`, fakeAsync(() => {
         // Given
+        service = new CvDataLoaderService(lang, TestBed.inject(HttpClient));
         const expected = getMockCurriculumVitaeData();
 
         // When
-        const subscription = service.getCV(lang).subscribe({
-          next: (actual) => expect(actual).toEqual(expected),
-          error: (err) => fail(err),
-        });
+        service.request();
 
         // Then
         const httpRequest = httpTestingController.expectOne(url);
         expect(httpRequest.request.method).toBe('GET');
         httpRequest.flush(expected);
         flushMicrotasks();
-        subscription.unsubscribe();
+
+        expect(service.data()).toEqual(expected);
       }));
     });
   });
