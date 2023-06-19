@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "my-cv-c83a5"
+  },
+  "targets": {
+    "my-cv-c83a5": {
+      "hosting": {
+        "myCV": [
+          "my-cv-c83a5"
+        ]
+      }
+    }
+  }
+}
