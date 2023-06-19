@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "jest --watch",
-    "test:ci": "ng test --ci",
+    "test:ci": "ng test --ci --coverage",
     "format:edit": "prettier --write src",
     "check": "concurrently pnpm:check:*",
     "check:lint": "ng lint",
