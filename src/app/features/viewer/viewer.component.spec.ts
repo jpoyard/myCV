@@ -1,5 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { getMockPreparedCurriculumVitaeData } from './mock/cv-data.mock';
 import { PreparedCurriculumVitaeData } from './model/cv-data';
@@ -8,25 +11,37 @@ import { ViewerComponent } from './viewer.component';
 
 describe(ViewerComponent.name, () => {
   let component: ViewerComponent;
-  let fixture: ComponentFixture<ViewerComponent>;
+  let harness: RouterTestingHarness;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot(), ViewerComponent],
+      imports: [
+        NoopAnimationsModule,
+        TranslateModule.forRoot(),
+        ViewerComponent,
+      ],
       providers: [
         {
           provide: CurriculumVitaeDataService,
-          useValue: { data: signal<PreparedCurriculumVitaeData|null>(getMockPreparedCurriculumVitaeData()) },
+          useValue: {
+            data: signal<PreparedCurriculumVitaeData | null>(
+              getMockPreparedCurriculumVitaeData()
+            ),
+          },
         },
+        provideRouter([
+          {
+            path: 'view',
+            component: ViewerComponent,
+          },
+        ]),
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ViewerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    harness = await RouterTestingHarness.create();
+    component = await harness.navigateByUrl('view', ViewerComponent);
+    harness.detectChanges();
   });
 
   it('should create', () => {
