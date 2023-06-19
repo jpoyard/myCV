@@ -8,7 +8,7 @@ module.exports = {
     "html",
     "cobertura"
   ],
-  coverageDirectory: "<rootDir>/reports/",
+  coverageDirectory: "<rootDir>/coverage/",
   coveragePathIgnorePatterns: [
       "node_modules",
       ".module.ts",
