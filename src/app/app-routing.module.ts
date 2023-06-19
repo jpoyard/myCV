@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -15,6 +15,17 @@ const routes: Routes = [
       ),
   },
 ];
+
+
+if (isDevMode()) {
+  routes.push({
+    path: 'tests',
+    loadComponent: () =>
+      import('../tests/tests.component').then(
+        (m) => m.TestsComponent
+      ),
+  });
+}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

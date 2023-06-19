@@ -1,7 +1,4 @@
-import { Injectable, Signal, computed, signal } from '@angular/core';
-import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { map, switchMap } from 'rxjs';
-import { SupportedLanguageEnum } from 'src/app/model/language';
+import { Injectable, Signal, computed } from '@angular/core';
 import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
