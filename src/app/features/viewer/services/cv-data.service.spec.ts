@@ -1,9 +1,5 @@
 import { WritableSignal, signal } from '@angular/core';
-import {
-  TestBed,
-  fakeAsync,
-  flush
-} from '@angular/core/testing';
+import { TestBed, fakeAsync, flush } from '@angular/core/testing';
 import {
   getMockCurriculumVitaeData,
   getMockPreparedCurriculumVitaeData,
@@ -40,7 +36,6 @@ describe(CurriculumVitaeDataService.name, () => {
   });
 
   describe('data', () => {
-
     it(`should retrieve CV when data is defined`, fakeAsync(() => {
       // Given
       mockCvDataLoaderService.data.set(getMockCurriculumVitaeData());

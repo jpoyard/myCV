@@ -6,10 +6,14 @@ import { TimelineNavTestComponent } from './components/timeline-nav-test.compone
   selector: 'mcv-tests',
   standalone: true,
   imports: [CommonModule, TimelineNavTestComponent],
-  template: `
-   <mcv-timeline-nav-test></mcv-timeline-nav-test>
-  `,
+  template: ` <mcv-timeline-nav-test></mcv-timeline-nav-test> `,
+  styles: [
+    `
+      :host {
+        width: 100%;
+        height: 100%;
+      }
+    `,
+  ],
 })
-export class TestsComponent {
-
-}
+export class TestsComponent {}

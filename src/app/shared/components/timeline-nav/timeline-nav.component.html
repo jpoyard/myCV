@@ -1,1 +1,15 @@
-<p>timeline-nav works!</p>
+<div class="timeline" *ngIf="timeline">
+  <ng-container *ngFor="let period of timeline.periods">
+    <div
+      class="period"
+      [class.active]="period.active"
+      [style.height.%]="(100 * period.sumOfMonths) / timeline.sumOfMonths"
+      (mouseenter)="period.active = true"
+      (mouseleave)="period.active = false"
+    >
+      <div class="milestone start"></div>
+      <div class="content" [style.height.%]="100"></div>
+      <div class="milestone end"></div>
+    </div>
+  </ng-container>
+</div>

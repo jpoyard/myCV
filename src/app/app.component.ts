@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'mcv-root',
   templateUrl: './app.component.html',
   standalone: true,
+  styleUrls: ['./app.component.scss'],
   imports: [RouterOutlet],
 })
 export class AppComponent {

@@ -16,14 +16,11 @@ const routes: Routes = [
   },
 ];
 
-
 if (isDevMode()) {
   routes.push({
     path: 'tests',
     loadComponent: () =>
-      import('../tests/tests.component').then(
-        (m) => m.TestsComponent
-      ),
+      import('../tests/tests.component').then((m) => m.TestsComponent),
   });
 }
 

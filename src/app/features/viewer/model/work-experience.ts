@@ -1,13 +1,15 @@
 import { Skill } from './skill';
 
+export interface WorkExperiencePeriod {
+  start: Date;
+  end?: Date;
+}
+
 export interface WorkExperience {
   jobTitle: string;
   company: string;
   serviceCompany?: string;
-  period: {
-    start: Date;
-    end?: Date;
-  };
+  period: WorkExperiencePeriod;
   description: string;
   achievements: {
     description: string;

@@ -7,6 +7,7 @@ import { SectionComponent } from './components/section/section.component';
 import { SkillListComponent } from './components/skill-list/skill-list.component';
 import { WorkExperienceListComponent } from './components/work-experience-list/work-experience-list.component';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
+import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/timeline-nav.component';
 
 @Component({
   selector: 'mcv-viewer',
@@ -20,6 +21,7 @@ import { CurriculumVitaeDataService } from './services/cv-data.service';
     NgIf,
     SectionComponent,
     SkillListComponent,
+    TimelineNavComponent,
     WorkExperienceListComponent,
   ],
 })
