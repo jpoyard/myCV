@@ -84,12 +84,12 @@ describe(TimelineNavComponent.name, () => {
           jobTitle: 'jobTitle1',
           period: {
             start: new Date('2015-05-01'),
-            end: new Date('2020-11-31'),
+            end: new Date('2020-12-31'),
           },
         } as unknown as WorkExperience,
       ],
       then: {
-        sumOfMonths: 97,
+        sumOfMonths: 98,
         periods: [
           {
             title: 'jobTitle2',
@@ -103,9 +103,9 @@ describe(TimelineNavComponent.name, () => {
             title: 'jobTitle1',
             active: false,
             id: 1,
-            sumOfMonths: 66,
+            sumOfMonths: 67,
             start: new Date('2015-05-01'),
-            end: new Date('2020-11-31'),
+            end: new Date('2020-12-31'),
           },
         ],
       },
