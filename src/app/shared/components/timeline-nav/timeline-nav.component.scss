@@ -22,9 +22,9 @@
   --transition-delay: 500ms;
   --transition-timing-function: ease-in-out;
 
-  width: calc( ( var(--milestone-label-width) * 2 ) + var(--period-width) * 2 );
+  min-width: calc( ( var(--milestone-label-width) * 2 ) + ( var(--period-width) * 3 ) );
   height: 100%;
-  padding: var(--period-width);
+  padding: calc(var(--period-width) * 0.75);
 
   display: flex;
   flex-direction: row;
