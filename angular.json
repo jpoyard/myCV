@@ -20,8 +20,12 @@
       "sourceRoot": "src",
       "prefix": "mcv",
       "i18n": {
-        "sourceLocale": "fr-FR",
+        "sourceLocale": "en",
         "locales": {
+          "fr-FR": {
+            "translation": "src/locale/messages.fr-FR.xlf",
+            "baseHref": ""
+          },
           "en-US": {
             "translation": "src/locale/messages.en-US.xlf",
             "baseHref": ""
@@ -91,11 +95,14 @@
             "en-US": {
               "browserTarget": "myCV:build:development,en-US"
             },
+            "fr-FR": {
+              "browserTarget": "myCV:build:development,fr-FR"
+            },
             "production": {
-              "browserTarget": "myCV:build:production,fr-FR"
+              "browserTarget": "myCV:build:production"
             },
             "development": {
-              "browserTarget": "myCV:build:development,fr-FR"
+              "browserTarget": "myCV:build:development"
             }
           },
           "defaultConfiguration": "development"
