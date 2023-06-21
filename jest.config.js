@@ -26,5 +26,6 @@ module.exports = {
   modulePathIgnorePatterns: [],
   moduleNameMapper: {
     "src/(.*)": "<rootDir>/src/$1",
+    "@features/(.*)": "<rootDir>/src/app/features/$1",
   },
 };

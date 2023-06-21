@@ -1,15 +1,18 @@
 <div class="timeline" *ngIf="timeline">
-  <ng-container *ngFor="let period of timeline.periods">
+  <ng-container *ngFor="let period of timeline.periods; trackBy: trackByFn">
     <div
       class="period"
+      role="none"
       [class.active]="period.active"
+      [class.selected]="period.id === selectedPeriodId()"
       [style.height.%]="(100 * period.sumOfMonths) / timeline.sumOfMonths"
-      (mouseenter)="period.active = true"
-      (mouseleave)="period.active = false"
+      (mouseenter)="onMouseEnter(period)"
+      (mouseleave)="onMouseLeave(period)"
+      (click)="onSelect($event, period)"
     >
-      <div class="milestone start"></div>
+      <div class="milestone end" [attr.content]="period.end | formatDate"></div>
       <div class="content" [style.height.%]="100"></div>
-      <div class="milestone end"></div>
+      <div class="milestone start" [attr.content]="period.start | formatDate"></div>
     </div>
   </ng-container>
 </div>

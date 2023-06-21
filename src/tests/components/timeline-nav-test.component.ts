@@ -13,7 +13,8 @@ import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mo
   styles: [
     `
       :host {
-        display: block;
+        display: flex;
+        justify-content: center;
         width: 100%;
         height: 100%;
       }

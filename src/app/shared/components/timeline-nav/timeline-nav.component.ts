@@ -1,5 +1,11 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  signal,
+} from '@angular/core';
 import { differenceInMonths } from 'date-fns';
 import {
   WorkExperience,
@@ -8,6 +14,7 @@ import {
 import { FormatDatePipe } from '../../pipe/format-date/format-date.pipe';
 
 interface Period extends WorkExperiencePeriod {
+  id: number;
   title: string;
   active: boolean;
   sumOfMonths: number;
@@ -30,6 +37,7 @@ export class TimelineNavComponent implements OnChanges {
   public workExperiences: WorkExperience[] = [];
 
   public timeline: Timeline | null = null;
+  public selectedPeriodId = signal<number | null>(null);
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['workExperiences']) {
@@ -37,11 +45,31 @@ export class TimelineNavComponent implements OnChanges {
     }
   }
 
+  public onMouseEnter(period: Period): void {
+    period.active = true;
+  }
+
+  public onMouseLeave(period: Period): void {
+    period.active = false;
+  }
+
+  public onSelect($event: MouseEvent, period: Period): void {
+    $event.stopPropagation();
+    this.selectedPeriodId.update((selectedPeriodId) =>
+      selectedPeriodId === period.id ? null : period.id
+    );
+  }
+
+  public trackByFn(index: number, period: Period): number {
+    return period.id;
+  }
+
   private getTimeline(workExperiences: WorkExperience[]): Timeline | null {
     if (workExperiences.length === 0) {
       return null;
     }
-    const periods = workExperiences.map((workExperience) => ({
+    const periods = workExperiences.map((workExperience, id) => ({
+      id,
       title: workExperience.jobTitle,
       active: false,
       start: workExperience.period.start,
