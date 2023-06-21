@@ -12,7 +12,10 @@
     >
       <div class="milestone end" [attr.content]="period.end | formatDate"></div>
       <div class="content" [style.height.%]="100"></div>
-      <div class="milestone start" [attr.content]="period.start | formatDate"></div>
+      <div
+        class="milestone start"
+        [attr.content]="period.start | formatDate"
+      ></div>
     </div>
   </ng-container>
 </div>
