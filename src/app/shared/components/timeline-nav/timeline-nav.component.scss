@@ -4,7 +4,7 @@
   --secondary-color: lightgray;
   --accent-color: royalblue;
 
-  --period-width: 40px;
+  --period-width: 30px;
 
   --period-border-width: 4px;
   --selected-period-border-width: 2px;
@@ -12,6 +12,7 @@
 
   --milestone-border-width: 4px;
   --milestone-label-width: 100px;
+  --milestone-label-height: 50px;
 
   --milestone-size: calc(var(--period-width) + var(--milestone-border-width));
 
@@ -75,7 +76,7 @@
           position: absolute;
           content:attr(content);
           width: var(--milestone-label-width);
-          height: var(--milestone-size);
+          height: var(--milestone-label-height);
           background-color: var(--secondary-color);
           border-radius: 5px;
           font-weight: bolder;
