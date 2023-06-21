@@ -3,6 +3,7 @@
     <div class="media flex-column flex-md-row bg-secondary">
       <img
         [attr.src]="data.personalData.thumbnailUrl"
+
         class="img-fluid align-self-center"
         alt="profile picture"
       />
@@ -30,22 +31,22 @@
       </address>
     </div>
   </header>
-  <div class="px-md-5 py-4">
-    <mcv-section title="title.career-summary" *ngIf="data.careerSummary">
+  <div class="px-md-4 py-4">
+    <mcv-section i18n-title title="title.career-summary" *ngIf="data.careerSummary">
       <p>{{ data.careerSummary }}</p>
     </mcv-section>
     <div class="d-flex flex-column flex-md-row">
       <div class="col-md-9">
         <div class="d-flex flex-row" [style.height.%]="100" >
-          <mcv-timeline-nav [workExperiences]="data.workExperiences" [style.width.px]="300"></mcv-timeline-nav>
-          <mcv-section title="title.work-experience">
+          <mcv-timeline-nav [workExperiences]="data.workExperiences" [style.width.px]="650"></mcv-timeline-nav>
+          <mcv-section i18n-title title="title.work-experience">
             <mcv-work-experience-list [workExperiences]="data.workExperiences">
             </mcv-work-experience-list>
           </mcv-section>
         </div>
       </div>
       <div class="col-md-3">
-        <mcv-section title="title.skills-tools">
+        <mcv-section i18n-title title="title.skills-tools">
           <ng-container
             *ngFor="let skillGroup of data.skillGroups; last as isLast"
           >
@@ -59,11 +60,11 @@
           </ng-container>
         </mcv-section>
 
-        <mcv-section title="title.education">
+        <mcv-section i18n-title title="title.education">
           <mcv-degree-list [degrees]="data.degrees"></mcv-degree-list>
         </mcv-section>
 
-        <mcv-section title="title.language" class="mb-3 mb-md-0">
+        <mcv-section i18n-title title="title.language" class="mb-3 mb-md-0">
           <mcv-language-list [languages]="data.languages"></mcv-language-list>
         </mcv-section>
       </div>
