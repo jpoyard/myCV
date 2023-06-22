@@ -1,8 +1,8 @@
 import { Skill } from './skill';
 
 export interface WorkExperiencePeriod {
-  start: Date;
-  end?: Date;
+  start: string;
+  end?: string;
 }
 
 export interface WorkExperience {

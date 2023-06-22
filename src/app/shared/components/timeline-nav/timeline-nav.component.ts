@@ -60,7 +60,7 @@ export class TimelineNavComponent implements OnChanges {
     );
   }
 
-  public trackByFn(index: number, period: Period): number {
+  public trackByFn(_index: number, period: Period): number {
     return period.id;
   }
 
@@ -91,6 +91,14 @@ export class TimelineNavComponent implements OnChanges {
   }
 
   private getTotalSumOfMonths(periods: Period[]): number {
-    return periods.reduce((acc, period) => acc + period.sumOfMonths, 0);
+    const start = Math.min(
+      ...periods.map((period) => new Date(period.start).getTime())
+    );
+    const end = Math.max(
+      ...periods.map((period) =>
+        period.end ? new Date(period.end).getTime() : new Date().getTime()
+      )
+    );
+    return differenceInMonths(new Date(end), new Date(start));
   }
 }

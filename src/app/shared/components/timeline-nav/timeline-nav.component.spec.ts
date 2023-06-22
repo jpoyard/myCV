@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkExperience } from '@features/viewer/model/work-experience';
-import { TimelineNavComponent } from './timeline-nav.component';
-import { differenceInMonths } from 'date-fns';
 import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
+import { WorkExperience } from '@features/viewer/model/work-experience';
+import { differenceInMonths, format } from 'date-fns';
+import { TimelineNavComponent } from './timeline-nav.component';
 
 describe(TimelineNavComponent.name, () => {
   let component: TimelineNavComponent;
@@ -30,8 +30,8 @@ describe(TimelineNavComponent.name, () => {
         {
           jobTitle: 'jobTitle1',
           period: {
-            start: new Date('2015-05-01'),
-            end: new Date('2020-12-31'),
+            start: '2015-05-01',
+            end: '2020-12-31',
           },
         } as unknown as WorkExperience,
       ],
@@ -43,8 +43,8 @@ describe(TimelineNavComponent.name, () => {
             active: false,
             id: 0,
             sumOfMonths: 67,
-            start: new Date('2015-05-01'),
-            end: new Date('2020-12-31'),
+            start: '2015-05-01',
+            end: '2020-12-31',
           },
         ],
       },
@@ -54,7 +54,7 @@ describe(TimelineNavComponent.name, () => {
       when: [
         {
           jobTitle: 'jobTitle1',
-          period: { start: new Date('2015-05-01') },
+          period: { start: '2015-05-01' },
         } as unknown as WorkExperience,
       ],
       then: {
@@ -65,7 +65,7 @@ describe(TimelineNavComponent.name, () => {
             active: false,
             id: 0,
             sumOfMonths: differenceInMonths(new Date(), new Date('2015-05-01')),
-            start: new Date('2015-05-01'),
+            start: '2015-05-01'
           },
         ],
       },
@@ -76,36 +76,36 @@ describe(TimelineNavComponent.name, () => {
         {
           jobTitle: 'jobTitle2',
           period: {
-            start: new Date('2020-12-01'),
-            end: new Date('2023-07-31'),
+            start: '2021-02-01',
+            end: '2023-03-31',
           },
         } as unknown as WorkExperience,
         {
           jobTitle: 'jobTitle1',
           period: {
-            start: new Date('2015-05-01'),
-            end: new Date('2020-12-31'),
+            start: '2015-05-01',
+            end: '2020-12-31',
           },
         } as unknown as WorkExperience,
       ],
       then: {
-        sumOfMonths: 98,
+        sumOfMonths: 94,
         periods: [
           {
             title: 'jobTitle2',
             active: false,
             id: 0,
-            sumOfMonths: 31,
-            start: new Date('2020-12-01'),
-            end: new Date('2023-07-31'),
+            sumOfMonths: 25,
+            start: '2021-02-01',
+            end: '2023-03-31',
           },
           {
             title: 'jobTitle1',
             active: false,
             id: 1,
             sumOfMonths: 67,
-            start: new Date('2015-05-01'),
-            end: new Date('2020-12-31'),
+            start: '2015-05-01',
+            end: '2020-12-31',
           },
         ],
       },

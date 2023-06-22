@@ -27,14 +27,17 @@
     (var(--milestone-label-width) * 2) + (var(--period-width) * 3)
   );
   height: 100%;
-  padding: calc(var(--period-width) * 0.75);
+  padding: calc(var(--period-width) * 1.25);
 
   display: flex;
   flex-direction: row;
   justify-content: center;
 
   .timeline {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
 
     .period {
       transition: var(--transition-delay) var(--transition-timing-function);

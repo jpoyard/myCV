@@ -6,7 +6,7 @@ const WORK_EXPERIENCES: WorkExperience[] = [
     jobTitle: 'Tech Lead Developer',
     company: 'Startup Hub',
     period: {
-      start: new Date(2018, 3),
+      start: '2018-03-01',
     },
     description: `Role description goes here ipsum dolor sit amet, consectetuer adipiscing
   elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -30,8 +30,8 @@ const WORK_EXPERIENCES: WorkExperience[] = [
     company: 'a company',
     serviceCompany: 'a service company',
     period: {
-      start: new Date(2016, 6),
-      end: new Date(2018, 2),
+      start: '2016-06-01',
+      end: '2017-06-30',
     },
     description: `Role description goes here ipsum dolor sit amet, consectetuer adipiscing
   elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
