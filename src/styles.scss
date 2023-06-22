@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+@use "./styles/themes/light" as theme;
+@use "./styles/components";
+@use "./styles/typography/config" as typography;
+
+@include mat.core();
+
+@include mat.core-theme(theme.$custom-theme);
+@include mat.chips-theme(theme.$custom-theme);
+
+@include components.theme(
+  theme.$custom-theme,
+  typography.$typography-config
+);
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

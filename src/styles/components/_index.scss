@@ -1,0 +1,5 @@
+@use '../../app/shared/components/timeline-nav/timeline-nav.component-theme' as timeline-nav;
+
+@mixin theme($theme, $typography-config) {
+  @include timeline-nav.theme($theme, $typography-config);
+}

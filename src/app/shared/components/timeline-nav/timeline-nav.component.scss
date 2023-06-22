@@ -1,33 +1,23 @@
 :host {
-  --background-color: white;
-  --primary-color: gray;
-  --secondary-color: lightgray;
-  --accent-color: royalblue;
+  $period-width: 30px;
 
-  --period-width: 30px;
+  $period-border-width: 4px;
+  $selected-period-border-width: 2px;
+  $active-period-border-width: 2px;
 
-  --period-border-width: 4px;
-  --selected-period-border-width: 2px;
-  --active-period-border-width: 2px;
+  $milestone-border-width: 4px;
+  $milestone-label-width: 100px;
+  $milestone-label-height: 50px;
 
-  --milestone-border-width: 4px;
-  --milestone-label-width: 100px;
-  --milestone-label-height: 50px;
+  $milestone-size: $period-width + $milestone-border-width;
 
-  --milestone-size: calc(var(--period-width) + var(--milestone-border-width));
+  $transition-delay: 500ms;
+  $transition-timing-function: ease-in-out;
 
-  --milestone-color: var(--primary-color);
-  --selected-milestone-color: var(--background-color);
-  --active-milestone-color: var(--background-color);
-
-  --transition-delay: 500ms;
-  --transition-timing-function: ease-in-out;
-
-  min-width: calc(
-    (var(--milestone-label-width) * 2) + (var(--period-width) * 3)
-  );
+  min-width: (($milestone-label-width * 2) + ($period-width * 3));
   height: 100%;
-  padding: calc(var(--period-width) * 1.25);
+  box-sizing: border-box;
+  padding: $period-width $period-width ($period-width * 1.25);
 
   display: flex;
   flex-direction: row;
@@ -37,66 +27,68 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: var(--secondary-color);
+    box-sizing: border-box;
 
     .period {
-      transition: var(--transition-delay) var(--transition-timing-function);
+      transition: $transition-delay $transition-timing-function;
       position: relative;
       display: flex;
       flex-direction: column;
+      box-sizing: border-box;
       cursor: pointer;
       z-index: 0;
 
       .content {
-        transition: var(--transition-delay) var(--transition-timing-function);
-        width: var(--period-width);
-        background-color: var(--secondary-color);
-        border: var(--period-border-width) solid var(--background-color);
+        transition: $transition-delay $transition-timing-function;
+        width: $period-width;
+        border-style: solid;
+        border-width: $period-border-width;
+        box-sizing: border-box;
       }
 
       .milestone {
         position: relative;
+        box-sizing: border-box;
 
         &::before {
-          transition: var(--transition-delay) var(--transition-timing-function);
+          transition: $transition-delay $transition-timing-function;
           display: block;
           position: absolute;
           content: "";
-          left: calc((var(--period-width) - var(--milestone-size)) / 2);
-          top: calc(var(--period-width) / -2);
-          width: var(--milestone-size);
-          height: var(--milestone-size);
-          background-color: var(--secondary-color);
-          border: solid var(--milestone-border-width) var(--background-color);
+          left: (($period-width - $milestone-size) / 2);
+          top: ($period-width / -2);
+          box-sizing: border-box;
+          width: $milestone-size;
+          height: $milestone-size;
+          border-style: solid;
+          border-width: $milestone-border-width;
           border-radius: 50%;
           z-index: 10;
         }
 
         &::after {
-          transition: var(--transition-delay) var(--transition-timing-function);
+          transition: $transition-delay $transition-timing-function;
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
           position: absolute;
           content: attr(content);
-          width: var(--milestone-label-width);
-          height: var(--milestone-label-height);
-          background-color: var(--secondary-color);
+          box-sizing: border-box;
+          width: $milestone-label-width;
+          height: $milestone-label-height;
           border-radius: 5px;
-          font-weight: bolder;
-          color: var(--milestone-color);
           padding: 0 5px;
         }
 
         &.start::after {
-          top: calc(var(--milestone-size) / -1.5);
-          left: calc(var(--milestone-size) * 1);
+          top: ($milestone-size / -1.5);
+          left: ($milestone-size * 1);
         }
 
         &.end::after {
-          top: calc(var(--milestone-size) / -2.5);
-          right: calc(var(--milestone-size) * 1);
+          top: ($milestone-size / -2.5);
+          right: ($milestone-size * 1);
         }
       }
 
@@ -104,32 +96,14 @@
       &.active {
         z-index: 20;
         .content {
-          border-width: var(--period-border-width)
-            var(--active-period-border-width);
-        }
-        .content,
-        .milestone::before,
-        .milestone::after {
-          background-color: var(--accent-color);
-        }
-        .milestone::after {
-          color: var(--active-milestone-color);
+          border-width: $period-border-width $active-period-border-width;
         }
       }
 
       &.selected:not(.active) {
         z-index: 10;
         .content {
-          border-width: var(--period-border-width)
-            var(--selected-period-border-width);
-        }
-        .content,
-        .milestone::before,
-        .milestone::after {
-          background-color: var(--primary-color);
-        }
-        .milestone::after {
-          color: var(--selected-milestone-color);
+          border-width: $period-border-width $selected-period-border-width;
         }
       }
     }
