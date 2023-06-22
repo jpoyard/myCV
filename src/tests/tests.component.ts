@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TimelineNavTestComponent } from './components/timeline-nav-test.component';
+import { TimelineNavTestComponent } from './shared/components/timeline-nav-test.component';
 
 @Component({
   selector: 'mcv-tests',
