@@ -6,14 +6,12 @@ import {
   SimpleChanges,
   signal,
 } from '@angular/core';
-import { MatChipsModule } from '@angular/material/chips';
 import { differenceInMonths } from 'date-fns';
 import {
   WorkExperience,
   WorkExperiencePeriod,
 } from 'src/app/features/viewer/model/work-experience';
 import { FormatDatePipe } from '../../pipe/format-date/format-date.pipe';
-
 
 interface Period extends WorkExperiencePeriod {
   id: number;
@@ -30,7 +28,7 @@ interface Timeline {
 @Component({
   selector: 'mcv-timeline-nav',
   standalone: true,
-  imports: [CommonModule, NgFor, FormatDatePipe, MatChipsModule],
+  imports: [CommonModule, NgFor, FormatDatePipe],
   templateUrl: './timeline-nav.component.html',
   styleUrls: ['./timeline-nav.component.scss'],
 })
