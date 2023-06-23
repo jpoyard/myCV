@@ -6,8 +6,11 @@ import { ProgressComponent } from '../progress/progress.component';
 @Component({
   selector: 'mcv-skill-with-level',
   template: ` <ng-container *ngIf="skill">
-    <div class="skill-name">{{ skill.name }}</div>
-    <mcv-progress *ngIf="skill.level" [value]="skill.level"></mcv-progress>
+    <mcv-progress
+      *ngIf="skill.level"
+      [content]="skill.name"
+      [value]="skill.level"
+    ></mcv-progress>
   </ng-container>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,

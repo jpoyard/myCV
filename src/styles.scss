@@ -6,7 +6,7 @@
 @include mat.core();
 
 @include mat.core-theme(theme.$custom-theme);
-@include mat.chips-theme(theme.$custom-theme);
+@include mat.progress-bar-theme(theme.$custom-theme);
 
 @include components.theme(
   theme.$custom-theme,

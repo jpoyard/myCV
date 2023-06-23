@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TimelineNavTestComponent } from './shared/components/timeline-nav-test.component';
+import { ProgressTestComponent } from './features/viewer/progress-test.component';
 
 @Component({
   selector: 'mcv-tests',
   standalone: true,
-  imports: [CommonModule, TimelineNavTestComponent],
-  template: ` <mcv-timeline-nav-test></mcv-timeline-nav-test> `,
+  imports: [CommonModule, ProgressTestComponent],
+  template: `<mcv-progress-test></mcv-progress-test> `,
   styles: [
     `
       :host {

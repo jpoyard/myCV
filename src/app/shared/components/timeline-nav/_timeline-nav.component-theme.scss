@@ -37,7 +37,7 @@
 
         &::after {
           background-color: $secondary-color;
-          color: $background-color;
+          color: $primary-color;
         }
       }
 
@@ -72,8 +72,6 @@
   .milestone {
     &::after {
       @include mat.typography-level($typography-config, "body-1");
-      font-size: larger;
-      font-weight: bolder;
     }
   }
 }

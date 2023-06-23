@@ -1,10 +1,4 @@
-<div class="progress">
-  <div
-    role="progressbar"
-    class="progress-bar"
-    [ngClass]="'bg-' + color"
-    [style.width.%]="value"
-  >
-    {{ content }}
-  </div>
-</div>
+<article>
+  <b>{{ content }}</b>
+  <mat-progress-bar color="primary" mode="determinate" [value]="value * 100"></mat-progress-bar>
+</article>
