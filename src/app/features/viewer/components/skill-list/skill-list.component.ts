@@ -9,13 +9,20 @@ import {
 import { MatChipsModule } from '@angular/material/chips';
 import { Skill } from '../../model/skill';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'mcv-skill-list',
   templateUrl: './skill-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, NgFor, SkillWithLevelComponent, MatChipsModule],
+  imports: [
+    NgIf,
+    NgFor,
+    SkillWithLevelComponent,
+    MatChipsModule,
+    MatListModule,
+  ],
 })
 export class SkillListComponent implements OnChanges {
   @Input() title?: string;

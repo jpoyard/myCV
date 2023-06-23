@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SkillWithLevelTestComponent } from './features/viewer/skill-with-level-test.component';
+import { SkillListTestComponent } from './features/viewer/skill-list-test.component';
 
 @Component({
   selector: 'mcv-tests',
   standalone: true,
-  imports: [CommonModule, SkillWithLevelTestComponent],
-  template: `<mcv-skill-with-level-test></mcv-skill-with-level-test> `,
+  imports: [CommonModule, SkillListTestComponent],
+  template: `<mcv-skill-list-test></mcv-skill-list-test> `,
   styles: [
     `
       :host {

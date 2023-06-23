@@ -1,12 +1,10 @@
 <h3 *ngIf="title">{{ title }}</h3>
 <ng-container *ngIf="withLevel; else badgeTpl">
-  <ul>
-    <ng-container *ngFor="let skill of orderedSkills">
-      <li>
-        <mcv-skill-with-level [skill]="skill"></mcv-skill-with-level>
-      </li>
-    </ng-container>
-  </ul>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let skill of orderedSkills">
+      <mcv-skill-with-level [skill]="skill"></mcv-skill-with-level>
+    </mat-list-item>
+  </mat-list>
 </ng-container>
 <ng-template #badgeTpl>
   <mat-chip-listbox>

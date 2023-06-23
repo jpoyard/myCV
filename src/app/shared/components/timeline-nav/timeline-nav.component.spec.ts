@@ -65,7 +65,7 @@ describe(TimelineNavComponent.name, () => {
             active: false,
             id: 0,
             sumOfMonths: differenceInMonths(new Date(), new Date('2015-05-01')),
-            start: '2015-05-01'
+            start: '2015-05-01',
           },
         ],
       },

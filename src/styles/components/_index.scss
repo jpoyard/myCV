@@ -1,5 +1,7 @@
-@use '../../app/shared/components/timeline-nav/timeline-nav.component-theme' as timeline-nav;
-@use '../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme' as skill-with-level;
+@use "../../app/shared/components/timeline-nav/timeline-nav.component-theme" as
+  timeline-nav;
+@use "../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme"
+  as skill-with-level;
 
 @mixin theme($theme, $typography-config) {
   // features/view

@@ -1,18 +1,16 @@
-import { HarnessLoader, parallel } from '@angular/cdk/testing';
-import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatChip } from '@angular/material/chips';
-import { MatChipListboxHarness } from '@angular/material/chips/testing';
 import { By } from '@angular/platform-browser';
+import { Skill } from '@features/viewer/model/skill';
 import { getMockSkills } from '../../mock/skill.mock';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
 import { SkillListComponent } from './skill-list.component';
-import { Skill } from '@features/viewer/model/skill';
 
 describe(SkillListComponent.name, () => {
   let component: SkillListComponent;
   let fixture: ComponentFixture<SkillListComponent>;
-  let loader: HarnessLoader;
+  // TODO: TestbedHarnessEnvironment.loader(fixture) is not working
+  // let loader: HarnessLoader;
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SkillListComponent);
