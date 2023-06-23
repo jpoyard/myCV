@@ -3,11 +3,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  OnInit,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
-import { BootstrapColorEnum } from '../../model/color.enum';
+import { MatChipsModule } from '@angular/material/chips';
 import { Skill } from '../../model/skill';
-import { BadgeComponent } from '../badge/badge.component';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
 
 @Component({
@@ -15,20 +15,20 @@ import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.co
   templateUrl: './skill-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, NgFor, SkillWithLevelComponent, BadgeComponent],
+  imports: [NgIf, NgFor, SkillWithLevelComponent, MatChipsModule],
 })
-export class SkillListComponent implements OnInit {
+export class SkillListComponent implements OnChanges {
   @Input() title?: string;
   @Input() skills: Skill[] = [];
   @Input() withLevel = false;
 
-  public BootstrapColorEnum = BootstrapColorEnum;
-
   public orderedSkills: Skill[] = [];
 
-  ngOnInit(): void {
-    this.orderedSkills = this.withLevel
-      ? this.skills.sort((a, b) => (b.level || 0) - (a.level || 0))
-      : this.skills.sort((a, b) => a.name.localeCompare(b.name));
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['skills']) {
+      this.orderedSkills = this.withLevel
+        ? this.skills.sort((a, b) => (b.level || 0) - (a.level || 0))
+        : this.skills.sort((a, b) => a.name.localeCompare(b.name));
+    }
   }
 }

@@ -2,15 +2,11 @@
 @use "@angular/material" as mat;
 
 @mixin color($config-or-theme) {
-  // Get the color config from the theme.
-  $color-config: mat.get-color-config($config-or-theme);
 }
 
 @mixin typography($typography-config) {
-  article {
-    b {
-      @include mat.typography-level($typography-config, "subtitle-1");
-    }
+  b {
+    @include mat.typography-level($typography-config, "subtitle-1");
   }
 }
 

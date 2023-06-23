@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProgressTestComponent } from './features/viewer/progress-test.component';
+import { SkillWithLevelTestComponent } from './features/viewer/skill-with-level-test.component';
 
 @Component({
   selector: 'mcv-tests',
   standalone: true,
-  imports: [CommonModule, ProgressTestComponent],
-  template: `<mcv-progress-test></mcv-progress-test> `,
+  imports: [CommonModule, SkillWithLevelTestComponent],
+  template: `<mcv-skill-with-level-test></mcv-skill-with-level-test> `,
   styles: [
     `
       :host {

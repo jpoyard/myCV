@@ -1,21 +1,22 @@
 import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Skill } from '../../model/skill';
-import { ProgressComponent } from '../progress/progress.component';
 
 @Component({
   selector: 'mcv-skill-with-level',
-  template: ` <ng-container *ngIf="skill">
-    <mcv-progress
-      *ngIf="skill.level"
-      [content]="skill.name"
-      [value]="skill.level"
-    ></mcv-progress>
-  </ng-container>`,
+  template: `<b>{{ skill.name }}</b>
+    <mat-progress-bar [color]="color" mode="determinate" [value]="skill.level">
+    </mat-progress-bar>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, ProgressComponent],
+  imports: [NgIf, MatProgressBarModule],
 })
 export class SkillWithLevelComponent {
-  @Input() public skill?: Skill;
+  @Input({ required: true }) public skill!: Skill;
+  public get color(): string {
+    return this.skill.level == null || this.skill.level === 0
+      ? 'warn'
+      : 'primary';
+  }
 }

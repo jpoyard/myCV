@@ -7,6 +7,10 @@
 
 @include mat.core-theme(theme.$custom-theme);
 @include mat.progress-bar-theme(theme.$custom-theme);
+@include mat.chips-theme(theme.$custom-theme);
+@include mat.input-theme(theme.$custom-theme);
+@include mat.select-theme(theme.$custom-theme);
+@include mat.form-field-theme(theme.$custom-theme);
 
 @include components.theme(
   theme.$custom-theme,

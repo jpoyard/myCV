@@ -1,9 +1,9 @@
 @use '../../app/shared/components/timeline-nav/timeline-nav.component-theme' as timeline-nav;
-@use '../../app/features/viewer/components/progress/progress.component-theme' as progress;
+@use '../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme' as skill-with-level;
 
 @mixin theme($theme, $typography-config) {
   // features/view
-  @include progress.theme($theme, $typography-config);
+  @include skill-with-level.theme($theme, $typography-config);
 
   // shared
   @include timeline-nav.theme($theme, $typography-config);
