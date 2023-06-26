@@ -4,16 +4,16 @@ import { By } from '@angular/platform-browser';
 import { Skill } from '@features/viewer/model/skill';
 import { getMockSkills } from '../../mock/skill.mock';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
-import { SkillListComponent } from './skills-list.component';
+import { SkillsListComponent } from './skills-list.component';
 
-describe(SkillListComponent.name, () => {
-  let component: SkillListComponent;
-  let fixture: ComponentFixture<SkillListComponent>;
+describe(SkillsListComponent.name, () => {
+  let component: SkillsListComponent;
+  let fixture: ComponentFixture<SkillsListComponent>;
   // TODO: TestbedHarnessEnvironment.loader(fixture) is not working
   // let loader: HarnessLoader;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillListComponent);
+    fixture = TestBed.createComponent(SkillsListComponent);
     component = fixture.componentInstance;
     // TODO: TestbedHarnessEnvironment.loader(fixture) is not working
     // loader = TestbedHarnessEnvironment.loader(fixture);
@@ -69,9 +69,7 @@ describe(SkillListComponent.name, () => {
       init({ title, skills, withLevel: true });
 
       // Then
-      expect(component.orderedSkills.map((skill) => skill.name)).toEqual(
-        expected
-      );
+      expect(component.orderedSkills.map(({ name }) => name)).toEqual(expected);
 
       const skillElts = fixture.debugElement.queryAll(
         By.directive(SkillWithLevelComponent)
@@ -92,9 +90,7 @@ describe(SkillListComponent.name, () => {
       init({ title, skills, withLevel: false });
 
       // Then
-      expect(component.orderedSkills.map((skill) => skill.name)).toEqual(
-        expected
-      );
+      expect(component.orderedSkills.map(({ name }) => name)).toEqual(expected);
 
       // TODO: TestbedHarnessEnvironment.loader(fixture) is not working
       // const chipList = await loader.getHarness(MatChipListboxHarness);

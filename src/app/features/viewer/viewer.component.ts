@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { DegreeListComponent } from './components/degree-list/degree-list.component';
 import { LanguageListComponent } from './components/language-list/language-list.component';
-import { LinkListComponent } from './components/link-list/link-list.component';
+import { LinksListComponent } from './components/links-list/links-list.component';
 import { SectionComponent } from './components/section/section.component';
 import { SkillsListComponent } from './components/skills-list/skills-list.component';
 import { WorkExperienceListComponent } from './components/work-experience-list/work-experience-list.component';
@@ -16,7 +16,7 @@ import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/tim
   imports: [
     DegreeListComponent,
     LanguageListComponent,
-    LinkListComponent,
+    LinksListComponent,
     NgFor,
     NgIf,
     SectionComponent,

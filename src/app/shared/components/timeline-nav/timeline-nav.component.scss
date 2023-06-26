@@ -55,8 +55,8 @@
           display: block;
           position: absolute;
           content: "";
-          left: (($period-width - $milestone-size) / 2);
-          top: ($period-width / -2);
+          left: calc((($period-width - $milestone-size) / 2));
+          top: calc(($period-width / -2));
           box-sizing: border-box;
           width: $milestone-size;
           height: $milestone-size;
@@ -82,12 +82,12 @@
         }
 
         &.start::after {
-          top: ($milestone-size / -1.5);
+          top: calc(($milestone-size / -1.5));
           left: ($milestone-size * 1);
         }
 
         &.end::after {
-          top: ($milestone-size / -2.5);
+          top: calc(($milestone-size / -2.5));
           right: ($milestone-size * 1);
         }
       }

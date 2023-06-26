@@ -5,11 +5,7 @@ import {
   SkillGroup,
 } from '../model/cv-data';
 import { Link } from '../model/link';
-import {
-  PersonalData,
-  WebsiteAccount,
-  WebsiteEnum,
-} from '../model/personal-data';
+import { PersonalData } from '../model/personal-data';
 import { Skill } from '../model/skill';
 import { WorkExperience } from '../model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
@@ -32,7 +28,7 @@ export class CurriculumVitaeDataService {
     return {
       personalData: data.personalData,
       contactLinks: this.getContactLinks(data.personalData),
-      websiteLinks: this.getWebsiteLinks(data.personalData.accounts),
+      websiteLinks: data.personalData.accounts,
       careerSummary: data.careerSummary,
       workExperiences: data.workExperiences,
       skillGroups: this.getSkillGroups(this.getSkills(data.workExperiences)),
@@ -64,12 +60,6 @@ export class CurriculumVitaeDataService {
     ];
   }
 
-  public getWebsiteLinks(accounts: WebsiteAccount[]): Link[] {
-    return accounts.map((account) => {
-      return this.getWebsiteLink(account);
-    });
-  }
-
   public getSkillGroups(skills: Skill[]): SkillGroup[] {
     const frontSkillGroup = {
       title: 'front-end',
@@ -92,47 +82,11 @@ export class CurriculumVitaeDataService {
     );
   }
 
-  private getWebsiteLink(account: WebsiteAccount): Link {
-    let result: Link;
-    switch (account.website) {
-      case WebsiteEnum.linkedin:
-        result = {
-          icon: 'fa-linkedin',
-          label: `linkedin.com/in/${account.account}`,
-          url: `http://www.linkedin.com/in/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.github:
-        result = {
-          icon: 'fa-github',
-          label: `github.com/${account.account}`,
-          url: `https://github.com/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.twitter:
-        result = {
-          icon: 'fa-twitter',
-          label: `@${account.account}`,
-          url: `https://twitter.com/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.codepen:
-      default:
-        result = {
-          icon: 'fa-codepen',
-          label: `codepen.io/${account.account}`,
-          url: `https://codepen.io/${account.account}`,
-        };
-        break;
-    }
-    return result;
-  }
-
   private getPhoneNumberLink(phoneNumber?: string): Link[] {
     return phoneNumber
       ? [
           {
-            icon: 'fa-mobile',
+            icon: 'phone',
             label: phoneNumber,
             url: `tel:${phoneNumber.replace(/[\s()]/gm, '')}`,
           },
@@ -142,7 +96,7 @@ export class CurriculumVitaeDataService {
 
   private getEmailLink(email?: string): Link[] {
     return email
-      ? [{ icon: 'fa-envelope', label: email, url: `mailto:${email}` }]
+      ? [{ icon: 'mail', label: email, url: `mailto:${email}` }]
       : [];
   }
 
@@ -150,7 +104,7 @@ export class CurriculumVitaeDataService {
     return address
       ? [
           {
-            icon: 'fa-map-marker',
+            icon: 'home',
             label: address,
             url: `https://www.google.fr/maps/place/${encodeURI(address)}`,
           },

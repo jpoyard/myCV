@@ -24,39 +24,39 @@ const MOCK_PREPARE_CV_DATA: PreparedCurriculumVitaeData = {
   personalData: getMockPersonalData(),
   contactLinks: [
     {
-      icon: 'fa-map-marker',
+      icon: 'home',
       label: '2, rue des Monts Chauvet Poissy France',
       url: 'https://www.google.fr/maps/place/2,%20rue%20des%20Monts%20Chauvet%20Poissy%20France',
     },
     {
-      icon: 'fa-envelope',
+      icon: 'mail',
       label: 'julien.poyard@gmail.com',
       url: 'mailto:julien.poyard@gmail.com',
     },
     {
-      icon: 'fa-mobile',
+      icon: 'phone',
       label: '(+33) 6 60 75 40 32',
       url: 'tel:+33660754032',
     },
   ],
   websiteLinks: [
     {
-      icon: 'fa-linkedin',
+      icon: 'linkedin',
       label: 'linkedin.com/in/jpoyard',
       url: 'http://www.linkedin.com/in/jpoyard',
     },
     {
-      icon: 'fa-github',
+      icon: 'github',
       label: 'github.com/jpoyard',
       url: 'https://github.com/jpoyard',
     },
     {
-      icon: 'fa-twitter',
+      icon: 'twitter',
       label: '@jpoyard',
       url: 'https://twitter.com/jpoyard',
     },
     {
-      icon: 'fa-codepen',
+      icon: 'codepen',
       label: 'codepen.io/jpoyard',
       url: 'https://codepen.io/jpoyard',
     },

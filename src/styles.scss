@@ -14,6 +14,8 @@
 @include mat.slide-toggle-theme(theme.$custom-theme);
 @include mat.list-theme(theme.$custom-theme);
 @include mat.card-theme(theme.$custom-theme);
+@include mat.icon-theme(theme.$custom-theme);
+@include mat.button-theme(theme.$custom-theme);
 
 @include components.theme(theme.$custom-theme, typography.$typography-config);
 

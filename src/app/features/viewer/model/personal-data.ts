@@ -1,14 +1,4 @@
-export enum WebsiteEnum {
-  linkedin = 'linkedin',
-  github = 'github',
-  twitter = 'twitter',
-  codepen = 'codepen',
-}
-
-export interface WebsiteAccount {
-  website: WebsiteEnum;
-  account: string;
-}
+import { Link } from "./link";
 
 export interface PersonalData {
   firstName: string;
@@ -18,5 +8,5 @@ export interface PersonalData {
   address?: string;
   phoneNumber?: string;
   email?: string;
-  accounts: WebsiteAccount[];
+  accounts: Link[];
 }

@@ -21,11 +21,8 @@
         <div
           class="media-body d-flex flex-column flex-md-row justify-content-between"
         >
-          <mcv-link-list
-            class="mb-2"
-            [links]="data.contactLinks"
-          ></mcv-link-list>
-          <mcv-link-list [links]="data.websiteLinks"></mcv-link-list>
+          <mcv-links-list [links]="data.contactLinks"></mcv-links-list>
+          <mcv-links-list [links]="data.websiteLinks"></mcv-links-list>
         </div>
       </address>
     </div>

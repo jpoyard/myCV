@@ -1,4 +1,4 @@
-import { PersonalData, WebsiteEnum } from '../model/personal-data';
+import { PersonalData } from '../model/personal-data';
 
 const MOCK_PERSONAL_DATA: PersonalData = {
   thumbnailUrl:
@@ -10,10 +10,26 @@ const MOCK_PERSONAL_DATA: PersonalData = {
   phoneNumber: '(+33) 6 60 75 40 32',
   email: 'julien.poyard@gmail.com',
   accounts: [
-    { website: WebsiteEnum.linkedin, account: 'jpoyard' },
-    { website: WebsiteEnum.github, account: 'jpoyard' },
-    { website: WebsiteEnum.twitter, account: 'jpoyard' },
-    { website: WebsiteEnum.codepen, account: 'jpoyard' },
+    {
+      icon: 'linkedin',
+      label: 'linkedin.com/in/jpoyard',
+      url: 'http://www.linkedin.com/in/jpoyard',
+    },
+    {
+      icon: 'github',
+      label: 'github.com/jpoyard',
+      url: 'https://github.com/jpoyard',
+    },
+    {
+      icon: 'twitter',
+      label: '@jpoyard',
+      url: 'https://twitter.com/jpoyard',
+    },
+    {
+      icon: 'codepen',
+      label: 'codepen.io/jpoyard',
+      url: 'https://codepen.io/jpoyard',
+    },
   ],
 };
 

@@ -7,12 +7,26 @@ const routes: Routes = [
     path: '',
     component: TestsComponent,
     children: [
-      { path: '', pathMatch: 'full', redirectTo: 'work-experience' },
+      { path: '', pathMatch: 'full', redirectTo: 'link' },
+      {
+        path: 'links-list',
+        loadComponent: () =>
+          import('./features/viewer/links-list-test.component').then(
+            (m) => m.linksListTestComponent
+          ),
+      },
       {
         path: 'work-experience',
         loadComponent: () =>
           import('./features/viewer/work-experience-test.component').then(
             (m) => m.WorkExperienceTestComponent
+          ),
+      },
+      {
+        path: 'icon-loader',
+        loadComponent: () =>
+          import('./features/viewer/icon-loader-test.component').then(
+            (m) => m.IconLoaderTestComponent
           ),
       },
       {
