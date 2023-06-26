@@ -55,13 +55,13 @@
           <ng-container
             *ngFor="let skillGroup of data.skillGroups; last as isLast"
           >
-            <mcv-skill-list
+            <mcv-skills-list
               [class.mb-4]="!isLast"
               [title]="skillGroup.title"
               [skills]="skillGroup.skills"
               [withLevel]="!isLast"
             >
-            </mcv-skill-list>
+            </mcv-skills-list>
           </ng-container>
         </mcv-section>
 

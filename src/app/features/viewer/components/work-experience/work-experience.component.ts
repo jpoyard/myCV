@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { FormatDatePipe } from 'src/app/shared/pipe/format-date/format-date.pipe';
 import { WorkExperience } from '../../model/work-experience';
-import { SkillListComponent } from '../skill-list/skill-list.component';
+import { SkillsListComponent } from '../skills-list/skills-list.component';
 
 @Component({
   selector: 'mcv-work-experience',
@@ -11,7 +11,7 @@ import { SkillListComponent } from '../skill-list/skill-list.component';
   styleUrls: ['./work-experience.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, NgFor, SkillListComponent, FormatDatePipe, MatCardModule],
+  imports: [NgIf, NgFor, SkillsListComponent, FormatDatePipe, MatCardModule],
 })
 export class WorkExperienceComponent {
   @Input({ required: true })

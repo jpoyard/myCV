@@ -19,8 +19,8 @@ const routes: Routes = [
 if (isDevMode()) {
   routes.push({
     path: 'tests',
-    loadComponent: () =>
-      import('../tests/tests.component').then((m) => m.TestsComponent),
+    loadChildren: () =>
+      import('../tests/tests.module').then((m) => m.TestsModule),
   });
 }
 

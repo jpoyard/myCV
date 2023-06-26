@@ -1,12 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { WorkExperienceTestComponent } from './features/viewer/work-experience-test.component';
 
 @Component({
   selector: 'mcv-tests',
-  standalone: true,
-  imports: [CommonModule, WorkExperienceTestComponent],
-  template: `<mcv-work-experience-test></mcv-work-experience-test> `,
+  template: `<router-outlet></router-outlet>`,
   styles: [
     `
       :host {

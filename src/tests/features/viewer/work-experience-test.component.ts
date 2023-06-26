@@ -1,77 +1,57 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 import { WorkExperienceComponent } from '@features/viewer/components/work-experience/work-experience.component';
 import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
+import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({
   selector: 'mcv-work-experience-test',
   standalone: true,
-  imports: [CommonModule, WorkExperienceComponent],
-  template: `
-    <aside></aside>
-    <section>
-      <article>
-        <mcv-work-experience [workExperience]="workExperience">
-        </mcv-work-experience>
-      </article>
-      <article>
-        <pre>
-        {{ workExperience | json }}
-        </pre
+  imports: [
+    CommonModule,
+    WorkExperienceComponent,
+    OutputTestContainerComponent,
+    MatRadioModule,
+    ReactiveFormsModule,
+  ],
+  template: ` <mcv-output-test-container
+    [data]="selectedWorkExperienceFormControl.value"
+  >
+    <div inputs>
+      <label for="work-experiences" >Choose one</label>
+      <mat-radio-group
+        id="work-experiences"
+        class="work-experiences-radio-group"
+        [formControl]="selectedWorkExperienceFormControl"
+      >
+        <mat-radio-button
+          *ngFor="let workExperience of workExperiences"
+          [value]="workExperience"
         >
-      </article>
-    </section>
-  `,
+          {{ workExperience.jobTitle }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mcv-work-experience
+      [workExperience]="selectedWorkExperienceFormControl.value!"
+      output
+    >
+    </mcv-work-experience>
+  </mcv-output-test-container>`,
   styles: [
     `
-      :host {
-        position: relative;
-        width: 100%;
-        height: 100%;
-
+      .work-experiences-radio-group {
         display: flex;
-        align-items: stretch;
-        justify-content: stretch;
-
-        aside,
-        section {
-          position: relative;
-          flex: 1 1 0;
-          padding: 1rem;
-          box-sizing: content-box;
-
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: stretch;
-          row-gap: 1rem;
-
-          article {
-            position: relative;
-            flex: 1 1 0;
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            flex-direction: column;
-            overflow: auto;
-            pre {
-              text-wrap: wrap;
-            }
-          }
-        }
-
-        aside {
-          flex: 1 1 25%;
-        }
-
-        section {
-          flex: 1 1 75%;
-        }
+        flex-direction: column;
+        margin: 15px 0;
+        align-items: flex-start;
       }
     `,
   ],
 })
 export class WorkExperienceTestComponent {
-  workExperience = getMockWorkExperiences()[0];
+  workExperiences = getMockWorkExperiences();
+  selectedWorkExperienceFormControl = new FormControl(this.workExperiences[0]);
 }

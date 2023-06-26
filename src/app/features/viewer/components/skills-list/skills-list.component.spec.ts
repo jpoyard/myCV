@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { Skill } from '@features/viewer/model/skill';
 import { getMockSkills } from '../../mock/skill.mock';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
-import { SkillListComponent } from './skill-list.component';
+import { SkillListComponent } from './skills-list.component';
 
 describe(SkillListComponent.name, () => {
   let component: SkillListComponent;

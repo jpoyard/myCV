@@ -4,7 +4,7 @@ import { DegreeListComponent } from './components/degree-list/degree-list.compon
 import { LanguageListComponent } from './components/language-list/language-list.component';
 import { LinkListComponent } from './components/link-list/link-list.component';
 import { SectionComponent } from './components/section/section.component';
-import { SkillListComponent } from './components/skill-list/skill-list.component';
+import { SkillsListComponent } from './components/skills-list/skills-list.component';
 import { WorkExperienceListComponent } from './components/work-experience-list/work-experience-list.component';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
 import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/timeline-nav.component';
@@ -20,7 +20,7 @@ import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/tim
     NgFor,
     NgIf,
     SectionComponent,
-    SkillListComponent,
+    SkillsListComponent,
     TimelineNavComponent,
     WorkExperienceListComponent,
   ],

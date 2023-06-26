@@ -1,4 +1,4 @@
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   FormControl,
@@ -6,53 +6,48 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 import { SkillWithLevelComponent } from '@features/viewer/components/skill-with-level/skill-with-level.component';
 import { getMockSkills } from '@features/viewer/mock/skill.mock';
+import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({
   selector: 'mcv-skill-with-level-test',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
-    JsonPipe,
-    MatFormFieldModule,
-    MatSelectModule,
+    MatRadioModule,
+    OutputTestContainerComponent,
     ReactiveFormsModule,
     SkillWithLevelComponent,
   ],
   template: `
-    <aside>
-      <mat-form-field>
-        <mat-label>Choose one</mat-label>
-        <mat-select [formControl]="selectedSkillFormControl">
-          <mat-option *ngFor="let skill of skills" [value]="skill">
-            {{ skill.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </aside>
-    <main *ngIf="selectedSkillFormControl.value as selectedSkill">
-      <mcv-skill-with-level [skill]="selectedSkill"></mcv-skill-with-level>
-      <pre>{{ selectedSkill | json }}</pre>
-    </main>
+    <ng-container *ngIf="selectedSkillFormControl.value as selectedSkill">
+      <mcv-output-test-container [data]="selectedSkill">
+        <div inputs>
+          <label for="skills">Choose one</label>
+          <mat-radio-group
+            id="skills"
+            class="skills-radio-group"
+            [formControl]="selectedSkillFormControl"
+          >
+            <mat-radio-button *ngFor="let skill of skills" [value]="skill">
+              {{ skill.name }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mcv-skill-with-level [skill]="selectedSkill" output>
+        </mcv-skill-with-level>
+      </mcv-output-test-container>
+    </ng-container>
   `,
   styles: [
     `
-      :host {
-        width: 100%;
-        height: 100%;
-
+      .skills-radio-group {
         display: flex;
-        align-items: baseline;
-
-        aside,
-        main {
-          width: 50%;
-          padding: 1rem;
-        }
+        flex-direction: column;
+        margin: 15px 0;
+        align-items: flex-start;
       }
     `,
   ],

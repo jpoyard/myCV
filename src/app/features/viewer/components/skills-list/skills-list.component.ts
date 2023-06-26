@@ -12,9 +12,9 @@ import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.co
 import { MatListModule } from '@angular/material/list';
 
 @Component({
-  selector: 'mcv-skill-list',
-  templateUrl: './skill-list.component.html',
-  styleUrls: ['./skill-list.component.scss'],
+  selector: 'mcv-skills-list',
+  templateUrl: './skills-list.component.html',
+  styleUrls: ['./skills-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
@@ -25,7 +25,7 @@ import { MatListModule } from '@angular/material/list';
     MatListModule,
   ],
 })
-export class SkillListComponent implements OnChanges {
+export class SkillsListComponent implements OnChanges {
   @Input() title?: string;
   @Input() skills: Skill[] = [];
   @Input() withLevel = false;
