@@ -1,38 +1,31 @@
-<article class="position-relative" *ngIf="workExperience">
-  <div class="header mb-2">
-    <div class="d-flex flex-row">
-      <h5 class="resume-position-title font-weight-bold mb-1">
-        {{ workExperience.jobTitle }}
-      </h5>
-      <div class="resume-company-name ml-auto font-weight-bold">
-        <span>{{ workExperience.company }}</span>
-        <span *ngIf="workExperience.serviceCompany">
-          - {{ workExperience.serviceCompany }}</span
-        >
-      </div>
-    </div>
-    <div class="resume-position-time text-muted">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ workExperience.jobTitle }} </mat-card-title>
+    <mat-card-subtitle>
+      <span>
+        {{ workExperience.company }}
+      </span>
+      <span *ngIf="workExperience.serviceCompany">
+        - {{ workExperience.serviceCompany }}
+      </span>
+    </mat-card-subtitle>
+    <mat-card-subtitle>
       {{ workExperience.period.start | formatDate }}
       -
       {{ workExperience.period.end | formatDate }}
-    </div>
-  </div>
-  <div class="description">
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
     <p>{{ workExperience.description }}</p>
     <ng-container *ngIf="workExperience.achievements as achievements">
-      <h6 class="description-heading font-weight-bold text-capitalize" i18n>
-        title.achievements
-      </h6>
-      <p>{{ achievements.description }}</p>
       <ul>
         <ng-container *ngFor="let item of achievements.items">
           <li>{{ item }}</li>
         </ng-container>
       </ul>
-      <h6 class="description-heading font-weight-bold text-capitalize" i18n>
-        title.technologies-used
-      </h6>
-      <mcv-skill-list [skills]="workExperience.skills"></mcv-skill-list>
     </ng-container>
-  </div>
-</article>
+  </mat-card-content>
+  <mat-card-footer>
+    <mcv-skill-list [skills]="workExperience.skills"></mcv-skill-list>
+  </mat-card-footer>
+</mat-card>

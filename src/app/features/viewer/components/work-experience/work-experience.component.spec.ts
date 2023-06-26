@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WorkExperienceComponent } from './work-experience.component';
+import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
 
 describe(WorkExperienceComponent.name, () => {
   let component: WorkExperienceComponent;
@@ -17,10 +18,14 @@ describe(WorkExperienceComponent.name, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WorkExperienceComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    // Given
+    component.workExperience = getMockWorkExperiences()[0];
+    // When
+    fixture.detectChanges();
+    // Then
     expect(component).toBeTruthy();
   });
 });

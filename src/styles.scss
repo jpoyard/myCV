@@ -13,6 +13,7 @@
 @include mat.form-field-theme(theme.$custom-theme);
 @include mat.slide-toggle-theme(theme.$custom-theme);
 @include mat.list-theme(theme.$custom-theme);
+@include mat.card-theme(theme.$custom-theme);
 
 @include components.theme(theme.$custom-theme, typography.$typography-config);
 

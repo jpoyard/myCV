@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 @Component({
   selector: 'mcv-skill-list',
   templateUrl: './skill-list.component.html',
+  styleUrls: ['./skill-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
