@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
@@ -10,7 +9,6 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   selector: 'mcv-work-experience-test',
   standalone: true,
   imports: [
-    CommonModule,
     WorkExperienceComponent,
     OutputTestContainerComponent,
     MatRadioModule,
@@ -20,7 +18,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
     [data]="selectedWorkExperienceFormControl.value"
   >
     <div inputs>
-      <label for="work-experiences" >Choose one</label>
+      <label for="work-experiences">Choose one</label>
       <mat-radio-group
         id="work-experiences"
         class="work-experiences-radio-group"

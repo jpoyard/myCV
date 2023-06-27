@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,7 +9,6 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   selector: 'mcv-link-with-level-test',
   standalone: true,
   imports: [
-    CommonModule,
     MatRadioModule,
     OutputTestContainerComponent,
     ReactiveFormsModule,

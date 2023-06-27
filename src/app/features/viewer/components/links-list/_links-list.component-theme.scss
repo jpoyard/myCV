@@ -5,8 +5,10 @@
 }
 
 @mixin typography($typography-config) {
-  .mcv-section .section-title.mat-mdc-card-title {
-    @include mat.typography-level($typography-config, "headline-4");
+  .mcv-links-list {
+    .mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-one-line {
+      height: 36px;
+    }
   }
 }
 

@@ -1,0 +1,49 @@
+:host {
+  box-sizing: border-box;
+  padding: 1rem 2rem;
+
+  display: flex;
+  flex-direction: row;
+
+  address {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+      width: 15vw;
+      border-radius: 4px;
+      padding: 0.4rem;
+      border-radius: 50%;
+      margin: 1rem;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0;
+
+      /** firstName / lastName / jobTitle **/
+      & > div:first-child {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /** links **/
+      & > div:last-child {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        .mcv-links-list {
+          padding: 0 1rem;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

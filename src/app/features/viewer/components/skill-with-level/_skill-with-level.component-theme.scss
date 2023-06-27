@@ -5,7 +5,7 @@
 }
 
 @mixin typography($typography-config) {
-  b {
+  .mcv-skill-with-level b {
     @include mat.typography-level($typography-config, "subtitle-1");
   }
 }

@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, DoCheck, Input } from '@angular/core';
 import { WorkExperienceTestComponent } from './features/viewer/work-experience-test.component';
 
 @Component({
   selector: 'mcv-output-test-container',
   standalone: true,
-  imports: [CommonModule, WorkExperienceTestComponent],
+  imports: [NgIf, WorkExperienceTestComponent],
   template: `<aside>
       <ng-content select="[inputs]"></ng-content>
     </aside>

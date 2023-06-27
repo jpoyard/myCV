@@ -42,24 +42,22 @@ describe(DegreesListComponent.name, () => {
       // Then
       expect(component.orderedDegrees).toEqual(expected);
       // check names
-      const degreeNameElts = fixture.debugElement.queryAll(By.css('.degree'));
+      const degreeNameElts = fixture.debugElement.queryAll(
+        By.css('.mat-mdc-list-item-title')
+      );
       expect(degreeNameElts.map((d) => d.nativeElement.textContent)).toEqual(
         expected.map((e) => e.name)
       );
-      // check schools
-      const degreeSchoolElts = fixture.debugElement.queryAll(
-        By.css('.degree-school')
+      // check schools and years
+      const degreeElts = fixture.debugElement.queryAll(
+        By.css('.at-mdc-list-item-line')
       );
-      expect(degreeSchoolElts.map((d) => d.nativeElement.textContent)).toEqual(
-        expected.map((e) => e.school)
-      );
-      // check years
-      const degreeYearElts = fixture.debugElement.queryAll(
-        By.css('.degree-years')
-      );
-      degreeYearElts.forEach((degreeYearElts, i) =>
-        expect(degreeYearElts.nativeElement.textContent).toContain(
-          `${expected[i].start} - ${expected[i].end}`
+      degreeElts.forEach((degreeElts, i) =>
+        expect(degreeElts.nativeElement.textContent).toEqual(
+          expected.map(
+            (e) =>
+              `${expected[i].start} - ${expected[i].end} ${expected[i].school}`
+          )
         )
       );
     });

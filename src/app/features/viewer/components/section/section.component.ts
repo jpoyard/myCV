@@ -29,6 +29,9 @@ import { MatCardModule } from '@angular/material/card';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [MatCardModule],
+  host: {
+    class: 'mcv-section',
+  },
 })
 export class SectionComponent {
   @Input() public title = 'no-title';

@@ -1,3 +1,7 @@
+@use "../../app/features/viewer/components/header/_header.component-theme.scss"
+  as header;
+@use "../../app/features/viewer/components/links-list/_links-list.component-theme.scss"
+  as links-list;
 @use "../../app/features/viewer/components/section/_section.component-theme.scss"
   as section;
 @use "../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme"
@@ -7,6 +11,8 @@
 
 @mixin theme($theme, $typography-config) {
   // features/view
+  @include header.theme($theme, $typography-config);
+  @include links-list.theme($theme, $typography-config);
   @include section.theme($theme, $typography-config);
   @include skill-with-level.theme($theme, $typography-config);
 

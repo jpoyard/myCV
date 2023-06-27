@@ -17,7 +17,7 @@
   $background-color: #fff;
   $accent-color: mat.get-color-from-palette($accent-palette, 500);
 
-  .timeline {
+  .mcv-timeline-nav .timeline {
     background-color: $secondary-color;
 
     .period {
@@ -67,7 +67,7 @@
 }
 
 @mixin typography($typography-config) {
-  .milestone {
+  .mcv-timeline-nav .milestone {
     &::after {
       @include mat.typography-level($typography-config, "body-1");
     }

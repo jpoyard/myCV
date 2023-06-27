@@ -33,6 +33,9 @@ import { Link } from '../../model/link';
   ],
   standalone: true,
   imports: [NgIf, NgFor, MatIconModule, MatListModule, MatButtonModule],
+  host: {
+    class: 'mcv-links-list',
+  },
 })
 export class LinksListComponent {
   @Input() public links: Link[] = [];

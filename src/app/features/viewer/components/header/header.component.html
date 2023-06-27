@@ -1,0 +1,21 @@
+<address>
+  <img
+    class="mat-elevation-z2"
+    [attr.src]="cv.personalData.thumbnailUrl"
+    alt="profile picture"
+  />
+  <div>
+    <div>
+      <h1>
+        {{ cv.personalData.firstName }}&nbsp;{{ cv.personalData.lastName }}
+      </h1>
+      <h2>
+        {{ cv.personalData.jobTitle }}
+      </h2>
+    </div>
+    <div>
+      <mcv-links-list [links]="cv.contactLinks"></mcv-links-list>
+      <mcv-links-list [links]="cv.websiteLinks"></mcv-links-list>
+    </div>
+  </div>
+</address>

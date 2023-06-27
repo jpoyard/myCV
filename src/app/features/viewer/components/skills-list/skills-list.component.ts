@@ -7,14 +7,22 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 import { Skill } from '../../model/skill';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
-import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'mcv-skills-list',
   templateUrl: './skills-list.component.html',
-  styleUrls: ['./skills-list.component.scss'],
+  styles: [
+    `
+      :host {
+        mat-chip-listbox {
+          padding: 1rem;
+        }
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
@@ -24,6 +32,9 @@ import { MatListModule } from '@angular/material/list';
     MatChipsModule,
     MatListModule,
   ],
+  host: {
+    class: 'mcv-skills-list',
+  },
 })
 export class SkillsListComponent implements OnChanges {
   @Input() title?: string;

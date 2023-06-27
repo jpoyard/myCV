@@ -5,7 +5,7 @@
 }
 
 @mixin typography($typography-config) {
-  h3 {
+  .mcv-skills-list h3 {
     @include mat.typography-level($typography-config, "headline-3");
   }
 }

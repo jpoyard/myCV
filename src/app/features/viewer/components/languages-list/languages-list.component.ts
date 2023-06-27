@@ -1,23 +1,27 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MatListModule } from '@angular/material/list';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
 @Component({
-  selector: 'mcv-language-list',
-  templateUrl: './language-list.component.html',
+  selector: 'mcv-languages-list',
+  templateUrl: './languages-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [MatListModule, NgFor],
+  host: {
+    class: 'mcv-languages-list',
+  },
 })
-export class LanguageListComponent {
+export class LanguagesListComponent {
   private pLanguages: Language[] = [];
   @Input()
   public set languages(value: Language[]) {
     this.pLanguages = value;
     this.orderedLanguages = this.languages.sort(
       (a, b) =>
-        LanguageListComponent.getLevelValue(b) -
-        LanguageListComponent.getLevelValue(a)
+        LanguagesListComponent.getLevelValue(b) -
+        LanguagesListComponent.getLevelValue(a)
     );
   }
   public get languages(): Language[] {

@@ -1,11 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { SkillWithLevelComponent } from '@features/viewer/components/skill-with-level/skill-with-level.component';
 import { getMockSkills } from '@features/viewer/mock/skill.mock';
@@ -15,8 +10,8 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   selector: 'mcv-skill-with-level-test',
   standalone: true,
   imports: [
-    CommonModule,
     MatRadioModule,
+    NgIf,
     OutputTestContainerComponent,
     ReactiveFormsModule,
     SkillWithLevelComponent,

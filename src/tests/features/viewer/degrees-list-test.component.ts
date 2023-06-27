@@ -1,23 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DegreesListComponent } from '@features/viewer/components/degrees-list/degrees-list.component';
 import { getMockDegrees } from '@features/viewer/mock/degree.mock';
-import { OutputTestContainerComponent } from 'src/tests/output-test.component';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Degree } from '@features/viewer/model/degree';
+import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({
   selector: 'mcv-degrees-list-test',
   standalone: true,
   imports: [
-    CommonModule,
     DegreesListComponent,
     MatCheckboxModule,
     OutputTestContainerComponent,

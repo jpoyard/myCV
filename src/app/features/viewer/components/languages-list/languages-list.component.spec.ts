@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Language, LanguageLevelEnum } from '../../model/language';
 
-import { LanguageListComponent } from './language-list.component';
+import { LanguagesListComponent } from './languages-list.component';
 
-describe(LanguageListComponent.name, () => {
-  let component: LanguageListComponent;
-  let fixture: ComponentFixture<LanguageListComponent>;
+describe(LanguagesListComponent.name, () => {
+  let component: LanguagesListComponent;
+  let fixture: ComponentFixture<LanguagesListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LanguageListComponent],
+      imports: [LanguagesListComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LanguageListComponent);
+    fixture = TestBed.createComponent(LanguagesListComponent);
     component = fixture.componentInstance;
   });
 

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
@@ -13,11 +13,11 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   selector: 'mcv-links-list-test',
   standalone: true,
   imports: [
-    CommonModule,
+    LinksListComponent,
     MatRadioModule,
+    NgIf,
     OutputTestContainerComponent,
     ReactiveFormsModule,
-    LinksListComponent,
   ],
   template: `
     <ng-container *ngIf="selectedGroupFormControl.value as selectedGroup">

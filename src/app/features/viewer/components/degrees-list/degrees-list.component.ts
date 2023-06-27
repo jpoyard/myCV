@@ -9,6 +9,9 @@ import { Degree } from '../../model/degree';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [MatListModule, NgFor],
+  host: {
+    class: 'mcv-degrees-list',
+  },
 })
 export class DegreesListComponent {
   private _degrees: Degree[] = [];

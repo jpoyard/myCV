@@ -1,5 +1,9 @@
 import { NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input
+} from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Skill } from '../../model/skill';
 
@@ -11,6 +15,9 @@ import { Skill } from '../../model/skill';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgIf, MatProgressBarModule],
+  host: {
+    class: 'mcv-skill-with-level',
+  },
 })
 export class SkillWithLevelComponent {
   @Input({ required: true }) public skill!: Skill;

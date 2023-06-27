@@ -1,32 +1,5 @@
 <div class="mx-auto bg-white" *ngIf="cvService.data() as data">
-  <header>
-    <div class="media flex-column flex-md-row bg-secondary">
-      <img
-        [attr.src]="data.personalData.thumbnailUrl"
-        class="img-fluid align-self-center"
-        alt="profile picture"
-      />
-      <address class="media-body d-flex flex-column p-4 m-0 text-light">
-        <div>
-          <h1 class="name mt-0 mb-1 text-white text-uppercase">
-            <span class="text-capitalize mr-2">{{
-              data.personalData.firstName
-            }}</span>
-            <span class="text-uppercase">{{ data.personalData.lastName }}</span>
-          </h1>
-          <h4 class="title text-capitalize mb-3">
-            {{ data.personalData.jobTitle }}
-          </h4>
-        </div>
-        <div
-          class="media-body d-flex flex-column flex-md-row justify-content-between"
-        >
-          <mcv-links-list [links]="data.contactLinks"></mcv-links-list>
-          <mcv-links-list [links]="data.websiteLinks"></mcv-links-list>
-        </div>
-      </address>
-    </div>
-  </header>
+  <mcv-header [cv]="data"></mcv-header>
   <div class="px-md-4 py-4">
     <mcv-section
       i18n-title
@@ -38,8 +11,6 @@
     <div class="d-flex flex-column flex-md-row">
       <div class="col-md-9">
         <div class="d-flex flex-row" [style.height.%]="100">
-          <mcv-timeline-nav [workExperiences]="data.workExperiences">
-          </mcv-timeline-nav>
           <mcv-work-experience-list [workExperiences]="data.workExperiences">
           </mcv-work-experience-list>
         </div>
@@ -64,7 +35,7 @@
         </mcv-section>
 
         <mcv-section i18n-title title="title.language" class="mb-3 mb-md-0">
-          <mcv-language-list [languages]="data.languages"></mcv-language-list>
+          <mcv-languages-list [languages]="data.languages"></mcv-languages-list>
         </mcv-section>
       </div>
     </div>

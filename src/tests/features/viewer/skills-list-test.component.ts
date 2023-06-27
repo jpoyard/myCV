@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -10,7 +9,6 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   selector: 'mcv-skills-list-test',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     MatSlideToggleModule,
     OutputTestContainerComponent,

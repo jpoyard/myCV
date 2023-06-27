@@ -9,10 +9,24 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'link' },
       {
+        path: 'header',
+        loadComponent: () =>
+          import('./features/viewer/header-test.component').then(
+            (m) => m.HeaderTestComponent
+          )
+      },
+      {
         path: 'degrees-list',
         loadComponent: () =>
           import('./features/viewer/degrees-list-test.component').then(
             (m) => m.DegreesListTestComponent
+          ),
+      },
+      {
+        path: 'languages-list',
+        loadComponent: () =>
+          import('./features/viewer/languages-list-test.component').then(
+            (m) => m.LanguagesListTestComponent
           ),
       },
       {

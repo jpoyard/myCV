@@ -1,4 +1,4 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import {
   Component,
   Input,
@@ -28,9 +28,12 @@ interface Timeline {
 @Component({
   selector: 'mcv-timeline-nav',
   standalone: true,
-  imports: [CommonModule, NgFor, FormatDatePipe],
+  imports: [NgFor, NgIf, FormatDatePipe],
   templateUrl: './timeline-nav.component.html',
   styleUrls: ['./timeline-nav.component.scss'],
+  host: {
+    class: 'mcv-timeline-nav',
+  },
 })
 export class TimelineNavComponent implements OnChanges {
   @Input({ required: true })
