@@ -12,6 +12,7 @@ import { SkillsListComponent } from '../skills-list/skills-list.component';
     `
       :host {
         display: block;
+        padding: 0.2rem;
       }
     `,
   ],

@@ -1,3 +1,35 @@
 :host {
-  display: block;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .main {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0.5rem;
+    gap: 0.5rem;
+
+    .left,
+    .right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      gap: 0.5rem;
+    }
+
+    .left {
+      flex: 1 1 0;
+    }
+
+    .right {
+      max-width: 30%;
+    }
+  }
 }

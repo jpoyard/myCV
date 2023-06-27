@@ -8,66 +8,65 @@
   address {
     flex: 1 1 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
 
-    .avatar {
-      --size: 10vw;
-      --border-width: calc(var(--size) / 10);
+    div.header {
+      display: flex;
+      flex-direction: row;
 
-      position: relative;
-      width: var(--size);
-      height: var(--size);
-      border-width: var(--border-width);
-      border-style: solid;
-      border-radius: 50%;
+      .avatar {
+        --size: 10vw;
+        --border-width: calc(var(--size) / 10);
 
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        width: var(--border-width);
-        height: var(--border-width);
+        display: block;
+        position: relative;
+        min-width: var(--size);
+        width: var(--size);
+        height: var(--size);
+        border-width: var(--border-width);
+        border-style: solid;
         border-radius: 50%;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: var(--border-width);
+          height: var(--border-width);
+          border-radius: 50%;
+        }
+
+        &::before {
+          right: calc(var(--border-width) * 0.75);
+          top: calc(var(--border-width) * 0.5);
+        }
+
+        &::after {
+          right: calc(var(--border-width) * 0.75);
+          bottom: calc(var(--border-width) * 0.5);
+        }
+
+        img {
+          width: 100%;
+          padding: 0.4rem;
+          border-radius: 50%;
+          box-sizing: border-box;
+        }
       }
 
-      &::before {
-        right: calc(var(--border-width) * 0.75);
-        top: calc(var(--border-width) * 0.5);
-      }
-
-      &::after {
-        right: calc(var(--border-width) * 0.75);
-        bottom: calc(var(--border-width) * 0.5);
-      }
-
-      img {
-        width: 100%;
-        padding: 0.4rem;
-        border-radius: 50%;
-        box-sizing: border-box;
+      .title {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-around;
       }
     }
 
-    & > div.content {
+    div.content {
       display: flex;
-      flex-direction: column;
-      flex: 1 1 0;
-
-      /** firstName / lastName / jobTitle **/
-      & > div:first-child {
-        display: flex;
-        flex-direction: column;
-      }
-
-      /** links **/
-      & > div:last-child {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
     }
   }
 }

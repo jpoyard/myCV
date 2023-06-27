@@ -2,13 +2,14 @@ import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { Language, LanguageLevelEnum } from '../../model/language';
+import { SectionComponent } from '../section/section.component';
 
 @Component({
   selector: 'mcv-languages-list',
   templateUrl: './languages-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatListModule, NgFor],
+  imports: [MatListModule, NgFor, SectionComponent],
   host: {
     class: 'mcv-languages-list',
   },

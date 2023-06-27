@@ -11,6 +11,7 @@ import { CurriculumVitaeDataService } from './services/cv-data.service';
 @Component({
   selector: 'mcv-viewer',
   templateUrl: './viewer.component.html',
+  styleUrls: ['./viewer.component.scss'],
   standalone: true,
   imports: [
     DegreesListComponent,

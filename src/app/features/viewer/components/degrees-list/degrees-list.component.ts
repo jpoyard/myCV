@@ -2,13 +2,14 @@ import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { Degree } from '../../model/degree';
+import { SectionComponent } from '../section/section.component';
 
 @Component({
   selector: 'mcv-degrees-list',
   templateUrl: './degrees-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatListModule, NgFor],
+  imports: [MatListModule, NgFor, SectionComponent],
   host: {
     class: 'mcv-degrees-list',
   },

@@ -3,7 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'mcv-section',
-  template: `<mat-card>
+  template: `<mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title class="section-title">{{ title }}</mat-card-title>
     </mat-card-header>

@@ -1,19 +1,19 @@
 <address>
-  <div class="avatar">
-    <img [attr.src]="cv.personalData.thumbnailUrl" alt="profile picture" />
-  </div>
-  <div class="content">
-    <div>
+  <div class="header">
+    <div class="avatar">
+      <img [attr.src]="cv.personalData.thumbnailUrl" alt="profile picture" />
+    </div>
+    <div class="title">
       <h1>
         {{ cv.personalData.firstName }}&nbsp;{{ cv.personalData.lastName }}
       </h1>
-      <h2>
-        {{ cv.personalData.jobTitle }}
-      </h2>
+      <h2>{{ cv.personalData.jobTitle }}</h2>
+      <p>{{ cv.careerSummary }}</p>
     </div>
-    <div>
-      <mcv-links-list [links]="cv.contactLinks"></mcv-links-list>
-      <mcv-links-list [links]="cv.websiteLinks"></mcv-links-list>
-    </div>
+  </div>
+
+  <div class="content">
+    <mcv-links-list [links]="cv.contactLinks"></mcv-links-list>
+    <mcv-links-list [links]="cv.websiteLinks"></mcv-links-list>
   </div>
 </address>
