@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { DegreeListComponent } from './components/degree-list/degree-list.component';
+import { DegreesListComponent } from './components/degrees-list/degrees-list.component';
 import { LanguageListComponent } from './components/language-list/language-list.component';
 import { LinksListComponent } from './components/links-list/links-list.component';
 import { SectionComponent } from './components/section/section.component';
@@ -14,7 +14,7 @@ import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/tim
   templateUrl: './viewer.component.html',
   standalone: true,
   imports: [
-    DegreeListComponent,
+    DegreesListComponent,
     LanguageListComponent,
     LinksListComponent,
     NgFor,

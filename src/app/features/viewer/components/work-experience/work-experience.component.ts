@@ -8,7 +8,13 @@ import { SkillsListComponent } from '../skills-list/skills-list.component';
 @Component({
   selector: 'mcv-work-experience',
   templateUrl: './work-experience.component.html',
-  styleUrls: ['./work-experience.component.scss'],
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgIf, NgFor, SkillsListComponent, FormatDatePipe, MatCardModule],

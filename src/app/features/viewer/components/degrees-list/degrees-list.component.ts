@@ -1,23 +1,24 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MatListModule } from '@angular/material/list';
 import { Degree } from '../../model/degree';
 
 @Component({
-  selector: 'mcv-degree-list',
-  templateUrl: './degree-list.component.html',
+  selector: 'mcv-degrees-list',
+  templateUrl: './degrees-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgFor],
+  imports: [MatListModule, NgFor],
 })
-export class DegreeListComponent {
-  private pDegrees: Degree[] = [];
+export class DegreesListComponent {
+  private _degrees: Degree[] = [];
   @Input()
   public set degrees(value: Degree[]) {
-    this.pDegrees = value;
+    this._degrees = value;
     this.orderedDegrees = this.degrees.sort((a, b) => b.start - a.start);
   }
   public get degrees(): Degree[] {
-    return this.pDegrees;
+    return this._degrees;
   }
 
   public orderedDegrees: Degree[] = [];

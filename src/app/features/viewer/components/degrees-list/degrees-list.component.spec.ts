@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { getMockDegrees } from '../../mock/degree.mock';
 
-import { DegreeListComponent } from './degree-list.component';
+import { DegreesListComponent } from './degrees-list.component';
 
-describe(DegreeListComponent.name, () => {
-  let component: DegreeListComponent;
-  let fixture: ComponentFixture<DegreeListComponent>;
+describe(DegreesListComponent.name, () => {
+  let component: DegreesListComponent;
+  let fixture: ComponentFixture<DegreesListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DegreeListComponent],
+      imports: [DegreesListComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DegreeListComponent);
+    fixture = TestBed.createComponent(DegreesListComponent);
     component = fixture.componentInstance;
   });
 

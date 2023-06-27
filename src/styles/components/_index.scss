@@ -1,10 +1,13 @@
-@use "../../app/shared/components/timeline-nav/timeline-nav.component-theme" as
-  timeline-nav;
+@use "../../app/features/viewer/components/section/_section.component-theme.scss"
+  as section;
 @use "../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme"
   as skill-with-level;
+@use "../../app/shared/components/timeline-nav/timeline-nav.component-theme" as
+  timeline-nav;
 
 @mixin theme($theme, $typography-config) {
   // features/view
+  @include section.theme($theme, $typography-config);
   @include skill-with-level.theme($theme, $typography-config);
 
   // shared

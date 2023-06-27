@@ -38,13 +38,10 @@
     <div class="d-flex flex-column flex-md-row">
       <div class="col-md-9">
         <div class="d-flex flex-row" [style.height.%]="100">
-          <mcv-timeline-nav
-            [workExperiences]="data.workExperiences"
-          ></mcv-timeline-nav>
-          <mcv-section i18n-title title="title.work-experience">
-            <mcv-work-experience-list [workExperiences]="data.workExperiences">
-            </mcv-work-experience-list>
-          </mcv-section>
+          <mcv-timeline-nav [workExperiences]="data.workExperiences">
+          </mcv-timeline-nav>
+          <mcv-work-experience-list [workExperiences]="data.workExperiences">
+          </mcv-work-experience-list>
         </div>
       </div>
       <div class="col-md-3">
@@ -56,14 +53,14 @@
               [class.mb-4]="!isLast"
               [title]="skillGroup.title"
               [skills]="skillGroup.skills"
-              [withLevel]="!isLast"
+              [withLevel]="true"
             >
             </mcv-skills-list>
           </ng-container>
         </mcv-section>
 
         <mcv-section i18n-title title="title.education">
-          <mcv-degree-list [degrees]="data.degrees"></mcv-degree-list>
+          <mcv-degrees-list [degrees]="data.degrees"></mcv-degrees-list>
         </mcv-section>
 
         <mcv-section i18n-title title="title.language" class="mb-3 mb-md-0">

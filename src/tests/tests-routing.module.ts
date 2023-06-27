@@ -9,6 +9,13 @@ const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', redirectTo: 'link' },
       {
+        path: 'degrees-list',
+        loadComponent: () =>
+          import('./features/viewer/degrees-list-test.component').then(
+            (m) => m.DegreesListTestComponent
+          ),
+      },
+      {
         path: 'links-list',
         loadComponent: () =>
           import('./features/viewer/links-list-test.component').then(
