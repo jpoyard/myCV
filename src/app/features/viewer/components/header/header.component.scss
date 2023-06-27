@@ -12,16 +12,45 @@
     justify-content: space-around;
     align-items: center;
 
-    img {
+    .avatar {
+      --size: 10vw;
+      --border-width: calc(var(--size) / 10);
+
+      position: relative;
+      width: var(--size);
+      height: var(--size);
+      border-width: var(--border-width);
+      border-style: solid;
       border-radius: 50%;
-      width: 15vw;
-      border-radius: 4px;
-      padding: 0.4rem;
-      border-radius: 50%;
-      margin: 1rem;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: var(--border-width);
+        height: var(--border-width);
+        border-radius: 50%;
+      }
+
+      &::before {
+        right: calc(var(--border-width) * 0.75);
+        top: calc(var(--border-width) * 0.5);
+      }
+
+      &::after {
+        right: calc(var(--border-width) * 0.75);
+        bottom: calc(var(--border-width) * 0.5);
+      }
+
+      img {
+        width: 100%;
+        padding: 0.4rem;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
     }
 
-    & > div {
+    & > div.content {
       display: flex;
       flex-direction: column;
       flex: 1 1 0;
@@ -38,11 +67,6 @@
         flex-direction: row;
         align-items: flex-end;
         justify-content: space-between;
-
-        .mcv-links-list {
-          padding: 0 1rem;
-          border-radius: 5px;
-        }
       }
     }
   }

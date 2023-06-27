@@ -7,22 +7,23 @@
 
   // Get the primary color palette from the color-config.
   $primary-palette: map.get($color-config, "primary");
+  $grey-palette: mat.$grey-palette;
   $accent-palette: map.get($color-config, "accent");
   $warn-palette: map.get($color-config, "warn");
   $is-dark-theme: map.get($color-config, "is-dark");
 
-  $primary-color: mat.get-color-from-palette($primary-palette, 500);
-  $on-primary-color: mat.get-color-from-palette($primary-palette, 500);
-  $secondary-color: mat.get-color-from-palette($primary-palette, 200);
+  $primary-color: mat.get-color-from-palette($primary-palette, 900);
+  $on-primary-color: mat.get-color-from-palette($primary-palette, 900);
+  $grey-200: mat.get-color-from-palette($grey-palette, 200);
   $background-color: #fff;
   $accent-color: mat.get-color-from-palette($accent-palette, 500);
 
   .mcv-timeline-nav .timeline {
-    background-color: $secondary-color;
+    background-color: $grey-200;
 
     .period {
       .content {
-        background-color: $secondary-color;
+        background-color: $grey-200;
         border-color: $background-color;
       }
 
@@ -30,13 +31,13 @@
         position: relative;
 
         &::before {
-          background-color: $secondary-color;
+          background-color: $grey-200;
           border-color: $background-color;
         }
 
         &::after {
-          background-color: $secondary-color;
-          color: $primary-color;
+          background-color: $grey-200;
+          color: $on-primary-color;
         }
       }
 

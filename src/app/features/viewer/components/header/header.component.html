@@ -1,10 +1,8 @@
 <address>
-  <img
-    class="mat-elevation-z2"
-    [attr.src]="cv.personalData.thumbnailUrl"
-    alt="profile picture"
-  />
-  <div>
+  <div class="avatar">
+    <img [attr.src]="cv.personalData.thumbnailUrl" alt="profile picture" />
+  </div>
+  <div class="content">
     <div>
       <h1>
         {{ cv.personalData.firstName }}&nbsp;{{ cv.personalData.lastName }}

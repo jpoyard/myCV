@@ -14,11 +14,14 @@
     background-color: $primary-color;
     @include mat.elevation(8);
 
-    img {
-      border: 1px solid #fff;
-    }
-    .mcv-links-list {
-      background: #fff;
+    .avatar {
+      background-color: $primary-color;
+      border-color: #fff $primary-color #fff #fff;
+
+      &::before,
+      &::after {
+        background-color: #fff;
+      }
     }
   }
 }

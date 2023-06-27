@@ -26,8 +26,12 @@ import { Link } from '../../model/link';
   `,
   styles: [
     `
-      .mdc-list-item--with-leading-icon .mdc-list-item__start {
-        margin: 0px;
+      :host {
+        display: block;
+        padding: 1rem;
+        .mdc-list-item--with-leading-icon .mdc-list-item__start {
+          margin: 0px;
+        }
       }
     `,
   ],

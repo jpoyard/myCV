@@ -1,14 +1,15 @@
 <div class="mx-auto bg-white" *ngIf="cvService.data() as data">
   <mcv-header [cv]="data"></mcv-header>
+  <div>test</div>
   <div class="px-md-4 py-4">
-    <mcv-section
+    <!-- <mcv-section
       i18n-title
       title="title.career-summary"
       *ngIf="data.careerSummary"
     >
       <p>{{ data.careerSummary }}</p>
-    </mcv-section>
-    <div class="d-flex flex-column flex-md-row">
+    </mcv-section> -->
+    <!-- <div class="d-flex flex-column flex-md-row">
       <div class="col-md-9">
         <div class="d-flex flex-row" [style.height.%]="100">
           <mcv-work-experience-list [workExperiences]="data.workExperiences">
@@ -38,6 +39,6 @@
           <mcv-languages-list [languages]="data.languages"></mcv-languages-list>
         </mcv-section>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

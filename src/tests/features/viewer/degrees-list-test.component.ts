@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -12,6 +13,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   imports: [
     DegreesListComponent,
     MatCheckboxModule,
+    NgFor,
     OutputTestContainerComponent,
     ReactiveFormsModule,
   ],

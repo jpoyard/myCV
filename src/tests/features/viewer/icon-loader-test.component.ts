@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,6 +11,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   standalone: true,
   imports: [
     MatRadioModule,
+    NgIf,
     OutputTestContainerComponent,
     ReactiveFormsModule,
     MatIconModule,
@@ -68,7 +70,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: end;
+          justify-content: flex-end;
           mat-icon {
             border: 1px solid black;
             margin: 0.2rem 1rem;
