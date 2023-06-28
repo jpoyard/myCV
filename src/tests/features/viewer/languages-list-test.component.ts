@@ -34,15 +34,19 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 })
 export class LanguagesListTestComponent {
   public languages = getMockLanguages();
-  public languagesFormControl = new FormGroup(
-    this.languages.reduce(
-      (acc, language) => ({ ...acc, [language.name]: new FormControl(true) }),
-      {}
-    )
-  );
+  public languagesFormControl: FormGroup;
   get selectedLanguages(): Language[] {
     return this.languages.filter(
-      (value) => (this.languagesFormControl.value as any)[value.name]
+      (value) => this.languagesFormControl.value[value.name]
+    );
+  }
+
+  constructor() {
+    this.languagesFormControl = new FormGroup(
+      this.languages.reduce(
+        (acc, language) => ({ ...acc, [language.name]: new FormControl(true) }),
+        {}
+      )
     );
   }
 }

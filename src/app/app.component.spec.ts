@@ -20,6 +20,7 @@ describe(AppComponent.name, () => {
   it(`should have as title 'myCV'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+
     expect(app.title).toEqual('myCV');
   });
 });
