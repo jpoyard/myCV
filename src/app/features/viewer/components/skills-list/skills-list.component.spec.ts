@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatChip } from '@angular/material/chips';
 import { By } from '@angular/platform-browser';
-import { Skill } from '@features/viewer/model/skill';
-import { getMockSkills } from '../../mock/skill.mock';
+import { Skill } from '@model/skill';
+import { getMockSkills } from '../../../../mock/skill.mock';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
 import { SkillsListComponent } from './skills-list.component';
 

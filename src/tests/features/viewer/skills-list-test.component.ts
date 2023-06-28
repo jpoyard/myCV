@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SkillsListComponent } from '@features/viewer/components/skills-list/skills-list.component';
-import { getMockSkills } from '@features/viewer/mock/skill.mock';
+import { getMockSkills } from 'src/app/mock/skill.mock';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

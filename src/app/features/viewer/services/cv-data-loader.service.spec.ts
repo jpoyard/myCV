@@ -3,8 +3,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { TestBed, fakeAsync, flushMicrotasks } from '@angular/core/testing';
-import { SupportedLanguageEnum } from '../../../model/language';
-import { getMockCurriculumVitaeData } from '../mock/cv-data.mock';
+import { getMockCurriculumVitaeData } from '@mock/cv-data.mock';
 import { CvDataLoaderService } from './cv-data-loader.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -24,7 +23,7 @@ describe(CvDataLoaderService.name, () => {
   });
 
   describe('getCv()', () => {
-    Object.values(SupportedLanguageEnum).forEach((lang) => {
+    ['en', 'fr'].forEach((lang) => {
       const url = `/assets/cv/${lang}.json`;
       it(`should return ${lang} CV when ${url} http request succeed`, fakeAsync(() => {
         // Given

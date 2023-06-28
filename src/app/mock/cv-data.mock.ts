@@ -1,7 +1,7 @@
 import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
-} from '../model/cv-data';
+} from '@model/cv-data';
 import { getMockCareerSummary } from './career-summary.mock';
 import { getMockDegrees } from './degree.mock';
 import { getMockLanguages } from './language.mock';

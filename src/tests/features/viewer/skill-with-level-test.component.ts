@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { SkillWithLevelComponent } from '@features/viewer/components/skill-with-level/skill-with-level.component';
-import { getMockSkills } from '@features/viewer/mock/skill.mock';
+import { getMockSkills } from 'src/app/mock/skill.mock';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/timeline-nav.component';
-import { WorkExperience } from '../../model/work-experience';
+import { WorkExperience } from '@model/work-experience';
 import { SectionComponent } from '../section/section.component';
 import { WorkExperienceComponent } from '../work-experience/work-experience.component';
 
@@ -12,7 +12,6 @@ import { WorkExperienceComponent } from '../work-experience/work-experience.comp
     `
       :host {
         display: block;
-
       }
     `,
   ],

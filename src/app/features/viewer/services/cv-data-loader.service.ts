@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, LOCALE_ID, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CurriculumVitaeData } from '../model/cv-data';
+import { CurriculumVitaeData } from '@model/cv-data';
 
 @Injectable({
   providedIn: 'root',

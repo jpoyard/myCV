@@ -6,7 +6,7 @@ import { LinksListComponent } from '@features/viewer/components/links-list/links
 import {
   getMockPrimaryLinks,
   getMockSecondaryLinks,
-} from '@features/viewer/mock/link.mock';
+} from 'src/app/mock/link.mock';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

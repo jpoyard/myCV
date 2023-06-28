@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LanguagesListComponent } from '@features/viewer/components/languages-list/languages-list.component';
-import { getMockLanguages } from '@features/viewer/mock/language.mock';
-import { Language } from '@features/viewer/model/language';
+import { getMockLanguages } from '@mock/language.mock';
+import { Language } from '@model/language';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

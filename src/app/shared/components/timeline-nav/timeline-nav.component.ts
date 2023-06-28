@@ -7,10 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { differenceInMonths } from 'date-fns';
-import {
-  WorkExperience,
-  WorkExperiencePeriod,
-} from 'src/app/features/viewer/model/work-experience';
+import { WorkExperience, WorkExperiencePeriod } from '@model/work-experience';
 import { FormatDatePipe } from '../../pipe/format-date/format-date.pipe';
 
 interface Period extends WorkExperiencePeriod {

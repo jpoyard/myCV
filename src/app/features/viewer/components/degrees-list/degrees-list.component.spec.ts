@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { getMockDegrees } from '../../mock/degree.mock';
+import { getMockDegrees } from '../../../../mock/degree.mock';
 
 import { DegreesListComponent } from './degrees-list.component';
 

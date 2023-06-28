@@ -3,11 +3,11 @@ import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
   SkillGroup,
-} from '../model/cv-data';
-import { Link } from '../model/link';
-import { PersonalData } from '../model/personal-data';
-import { Skill } from '../model/skill';
-import { WorkExperience } from '../model/work-experience';
+} from '@model/cv-data';
+import { Link } from '@model/link';
+import { PersonalData } from '@model/personal-data';
+import { Skill } from '@model/skill';
+import { WorkExperience } from '@model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
 
 @Injectable({

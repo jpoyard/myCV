@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { WorkExperienceComponent } from '@features/viewer/components/work-experience/work-experience.component';
-import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
+import { getMockWorkExperiences } from 'src/app/mock/work-experience.mock';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

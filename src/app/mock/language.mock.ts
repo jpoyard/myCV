@@ -1,4 +1,4 @@
-import { Language, LanguageLevelEnum } from '../model/language';
+import { Language, LanguageLevelEnum } from '@model/language';
 
 const MOCK_LANGUAGES: Language[] = [
   {

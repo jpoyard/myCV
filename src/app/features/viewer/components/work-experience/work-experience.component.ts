@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { FormatDatePipe } from 'src/app/shared/pipe/format-date/format-date.pipe';
-import { WorkExperience } from '../../model/work-experience';
+import { WorkExperience } from '@model/work-experience';
 import { SkillsListComponent } from '../skills-list/skills-list.component';
 
 @Component({

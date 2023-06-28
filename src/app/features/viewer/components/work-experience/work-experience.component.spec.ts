@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WorkExperienceComponent } from './work-experience.component';
-import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
+import { getMockWorkExperiences } from 'src/app/mock/work-experience.mock';
 
 describe(WorkExperienceComponent.name, () => {
   let component: WorkExperienceComponent;

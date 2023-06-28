@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { Language, LanguageLevelEnum } from '../../model/language';
+import { Language, LanguageLevelEnum } from '@model/language';
 import { SectionComponent } from '../section/section.component';
 
 @Component({

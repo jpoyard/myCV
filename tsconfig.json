@@ -23,7 +23,9 @@
     "esModuleInterop": true,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@features/*": ["src/app/features/*"]
+      "@features/*": ["src/app/features/*"],
+      "@mock/*": ["src/app/mock/*"],
+      "@model/*": ["src/app/model/*"]
     }
   },
   "angularCompilerOptions": {

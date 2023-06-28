@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
+import { getMockWorkExperiences } from 'src/app/mock/work-experience.mock';
 import { TimelineNavComponent } from 'src/app/shared/components/timeline-nav/timeline-nav.component';
 
 @Component({

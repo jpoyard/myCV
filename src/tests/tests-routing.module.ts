@@ -13,7 +13,7 @@ const routes: Routes = [
         loadComponent: () =>
           import('./features/viewer/header-test.component').then(
             (m) => m.HeaderTestComponent
-          )
+          ),
       },
       {
         path: 'degrees-list',

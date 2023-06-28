@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
-import { Skill } from '../../model/skill';
+import { Skill } from '@model/skill';
 import { SkillWithLevelComponent } from '../skill-with-level/skill-with-level.component';
 
 @Component({

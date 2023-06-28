@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { Degree } from '../../model/degree';
+import { Degree } from '@model/degree';
 import { SectionComponent } from '../section/section.component';
 
 @Component({

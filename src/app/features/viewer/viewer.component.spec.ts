@@ -3,8 +3,8 @@ import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { getMockPreparedCurriculumVitaeData } from './mock/cv-data.mock';
-import { PreparedCurriculumVitaeData } from './model/cv-data';
+import { getMockPreparedCurriculumVitaeData } from '@mock/cv-data.mock';
+import { PreparedCurriculumVitaeData } from '@model/cv-data';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
 import { ViewerComponent } from './viewer.component';
 

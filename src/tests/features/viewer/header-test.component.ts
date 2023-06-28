@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from '@features/viewer/components/header/header.component';
-import { getMockPreparedCurriculumVitaeData } from '@features/viewer/mock/cv-data.mock';
+import { getMockPreparedCurriculumVitaeData } from 'src/app/mock/cv-data.mock';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Skill, SkillLevelEnum } from '../model/skill';
+import { Skill, SkillLevelEnum } from '@model/skill';
 
 const MOCK_SKILLS: Skill[] = [
   {

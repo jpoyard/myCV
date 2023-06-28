@@ -1,4 +1,4 @@
-import { Degree } from '../model/degree';
+import { Degree } from '@model/degree';
 
 const MOCK_DEGREES: Degree[] = [
   {

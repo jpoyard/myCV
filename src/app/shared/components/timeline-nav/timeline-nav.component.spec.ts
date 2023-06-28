@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { getMockWorkExperiences } from '@features/viewer/mock/work-experience.mock';
-import { WorkExperience } from '@features/viewer/model/work-experience';
+import { getMockWorkExperiences } from 'src/app/mock/work-experience.mock';
+import { WorkExperience } from '@model/work-experience';
 import { differenceInMonths, format } from 'date-fns';
 import { TimelineNavComponent } from './timeline-nav.component';
 

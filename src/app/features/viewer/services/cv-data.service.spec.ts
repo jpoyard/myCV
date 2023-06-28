@@ -3,13 +3,13 @@ import { TestBed, fakeAsync, flush } from '@angular/core/testing';
 import {
   getMockCurriculumVitaeData,
   getMockPreparedCurriculumVitaeData,
-} from '../mock/cv-data.mock';
-import { getMockSkills } from '../mock/skill.mock';
-import { CurriculumVitaeData } from '../model/cv-data';
-import { Link } from '../model/link';
-import { PersonalData } from '../model/personal-data';
-import { SkillLevelEnum } from '../model/skill';
-import { WorkExperience } from '../model/work-experience';
+} from '@mock/cv-data.mock';
+import { getMockSkills } from '@mock/skill.mock';
+import { CurriculumVitaeData } from '@model/cv-data';
+import { Link } from '@model/link';
+import { PersonalData } from '@model/personal-data';
+import { SkillLevelEnum } from '@model/skill';
+import { WorkExperience } from '@model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
 import { CurriculumVitaeDataService } from './cv-data.service';
 

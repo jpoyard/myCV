@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { IconLoaderService } from '@features/viewer/services/icon-loader.service';
-import { Link } from '../../model/link';
+import { Link } from '@model/link';
 
 @Component({
   selector: 'mcv-links-list',

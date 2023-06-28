@@ -1,4 +1,4 @@
-import { Link } from '../model/link';
+import { Link } from '@model/link';
 
 const MOCK_PRIMARY_LINKS: Link[] = [
   {

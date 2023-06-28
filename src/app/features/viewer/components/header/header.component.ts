@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { PreparedCurriculumVitaeData } from '@features/viewer/model/cv-data';
+import { PreparedCurriculumVitaeData } from '@model/cv-data';
 import { LinksListComponent } from '../links-list/links-list.component';
 
 @Component({

@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DegreesListComponent } from '@features/viewer/components/degrees-list/degrees-list.component';
-import { getMockDegrees } from '@features/viewer/mock/degree.mock';
-import { Degree } from '@features/viewer/model/degree';
+import { getMockDegrees } from 'src/app/mock/degree.mock';
+import { Degree } from '@model/degree';
 import { OutputTestContainerComponent } from 'src/tests/output-test.component';
 
 @Component({

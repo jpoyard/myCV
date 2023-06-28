@@ -1,4 +1,4 @@
-import { PersonalData } from '../model/personal-data';
+import { PersonalData } from '@model/personal-data';
 
 const MOCK_PERSONAL_DATA: PersonalData = {
   thumbnailUrl:

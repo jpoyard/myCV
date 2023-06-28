@@ -1,4 +1,4 @@
-import { WorkExperience } from '../model/work-experience';
+import { WorkExperience } from '@model/work-experience';
 import { getMockSkills } from './skill.mock';
 
 const WORK_EXPERIENCES: WorkExperience[] = [

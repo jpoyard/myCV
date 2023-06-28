@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Language, LanguageLevelEnum } from '../../model/language';
+import { Language, LanguageLevelEnum } from '@model/language';
 
 import { LanguagesListComponent } from './languages-list.component';
 
