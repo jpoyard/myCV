@@ -18,13 +18,8 @@ export interface SkillGroup {
   skills: Skill[];
 }
 
-export interface PreparedCurriculumVitaeData {
-  personalData: PersonalData;
+export interface PreparedCurriculumVitaeData extends CurriculumVitaeData {
   contactLinks: Link[];
   websiteLinks: Link[];
-  careerSummary?: string;
-  workExperiences: WorkExperience[];
   skillGroups: SkillGroup[];
-  degrees: Degree[];
-  languages: Language[];
 }
