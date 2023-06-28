@@ -1,7 +1,10 @@
-<mcv-section i18n-title title="title.work-experience">
+<div class="sidenav">
   <mcv-timeline-nav [workExperiences]="workExperiences"> </mcv-timeline-nav>
-  <ng-container *ngFor="let workExperience of workExperiences">
-    <mcv-work-experience [workExperience]="workExperience">
-    </mcv-work-experience>
-  </ng-container>
-</mcv-section>
+</div>
+<div class="content">
+  <mcv-work-experience
+    *ngFor="let workExperience of workExperiences"
+    [workExperience]="workExperience"
+  >
+  </mcv-work-experience>
+</div>

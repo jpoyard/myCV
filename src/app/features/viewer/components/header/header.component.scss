@@ -1,6 +1,7 @@
 :host {
   box-sizing: border-box;
   padding: 1rem 2rem;
+  height: 20vh;
 
   display: flex;
   flex-direction: row;
@@ -8,65 +9,60 @@
   address {
     flex: 1 1 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-    div.header {
-      display: flex;
-      flex-direction: row;
+    .avatar {
+      --size: 15vh;
+      --border-width: calc(var(--size) / 10);
 
-      .avatar {
-        --size: 10vw;
-        --border-width: calc(var(--size) / 10);
+      display: block;
+      position: relative;
+      min-width: var(--size);
+      width: var(--size);
+      height: var(--size);
+      border-width: var(--border-width);
+      border-style: solid;
+      border-radius: 50%;
 
-        display: block;
-        position: relative;
-        min-width: var(--size);
-        width: var(--size);
-        height: var(--size);
-        border-width: var(--border-width);
-        border-style: solid;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: var(--border-width);
+        height: var(--border-width);
         border-radius: 50%;
-
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          width: var(--border-width);
-          height: var(--border-width);
-          border-radius: 50%;
-        }
-
-        &::before {
-          right: calc(var(--border-width) * 0.75);
-          top: calc(var(--border-width) * 0.5);
-        }
-
-        &::after {
-          right: calc(var(--border-width) * 0.75);
-          bottom: calc(var(--border-width) * 0.5);
-        }
-
-        img {
-          width: 100%;
-          padding: 0.4rem;
-          border-radius: 50%;
-          box-sizing: border-box;
-        }
       }
 
-      .title {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: space-around;
+      &::before {
+        right: calc(var(--border-width) * 0.75);
+        top: calc(var(--border-width) * 0.5);
+      }
+
+      &::after {
+        right: calc(var(--border-width) * 0.75);
+        bottom: calc(var(--border-width) * 0.5);
+      }
+
+      img {
+        width: 100%;
+        padding: 0.4rem;
+        border-radius: 50%;
+        box-sizing: border-box;
       }
     }
 
-    div.content {
+    .title {
+      flex: 1 1 auto;
       display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-around;
+    }
+
+    .mcv-links-list {
+      align-self: flex-start;
     }
   }
 }

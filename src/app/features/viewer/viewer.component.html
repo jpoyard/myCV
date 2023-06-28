@@ -2,22 +2,26 @@
   <mcv-header [cv]="data" [style.zIndex]="100"></mcv-header>
   <div class="main">
     <div class="left">
-      <mcv-work-experience-list [workExperiences]="data.workExperiences">
-      </mcv-work-experience-list>
+      <div class="content">
+        <mcv-work-experience-list [workExperiences]="data.workExperiences">
+        </mcv-work-experience-list>
+      </div>
     </div>
     <div class="right">
-      <mcv-section i18n-title title="title.skills-tools">
-        <mcv-skills-list
-          *ngFor="let skillGroup of data.skillGroups"
-          [title]="skillGroup.title"
-          [skills]="skillGroup.skills"
-          [withLevel]="true"
-        >
-        </mcv-skills-list>
-      </mcv-section>
+      <div class="content">
+        <mcv-section i18n-title title="title.skills-tools">
+          <mcv-skills-list
+            *ngFor="let skillGroup of data.skillGroups"
+            [title]="skillGroup.title"
+            [skills]="skillGroup.skills"
+            [withLevel]="true"
+          >
+          </mcv-skills-list>
+        </mcv-section>
 
-      <mcv-degrees-list [degrees]="data.degrees"></mcv-degrees-list>
-      <mcv-languages-list [languages]="data.languages"></mcv-languages-list>
+        <mcv-degrees-list [degrees]="data.degrees"></mcv-degrees-list>
+        <mcv-languages-list [languages]="data.languages"></mcv-languages-list>
+      </div>
     </div>
   </div>
 </ng-container>

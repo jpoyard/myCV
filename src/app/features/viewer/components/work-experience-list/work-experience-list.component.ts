@@ -8,13 +8,7 @@ import { WorkExperienceComponent } from '../work-experience/work-experience.comp
 @Component({
   selector: 'mcv-work-experience-list',
   templateUrl: './work-experience-list.component.html',
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-    `,
-  ],
+  styleUrls: ['./work-experience-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [

@@ -22,14 +22,29 @@
       align-items: stretch;
 
       gap: 0.5rem;
+
+      .content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+      }
     }
 
     .left {
-      flex: 1 1 0;
+      width: 80%;
     }
 
     .right {
-      max-width: 30%;
+      width: 20%;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+      }
     }
   }
 }

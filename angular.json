@@ -87,16 +87,19 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "en-US": {
-              "browserTarget": "myCV:build:development,en-US"
+              "browserTarget": "myCV:build:development,en-US",
+              "proxyConfig": "config/proxy.conf.json"
             },
             "fr-FR": {
-              "browserTarget": "myCV:build:development,fr-FR"
+              "browserTarget": "myCV:build:development,fr-FR",
+              "proxyConfig": "config/proxy.conf.json"
             },
             "production": {
               "browserTarget": "myCV:build:production"
             },
             "development": {
-              "browserTarget": "myCV:build:development"
+              "browserTarget": "myCV:build:development",
+              "proxyConfig": "config/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "pnpm start:local",
+    "start:local": "concurrently pnpm:start:local:*",
+    "start:local:client": "ng serve",
+    "start:local:json-server": "node mock-server/server.js",
     "build": "ng build",
     "test": "jest --coverage --watch",
     "test:ci": "ng test --ci --coverage",

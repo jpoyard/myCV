@@ -1,0 +1,25 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($config-or-theme) {
+}
+
+@mixin typography($typography-config) {
+  .mcv-work-experience {
+    p,
+    li {
+      @include mat.typography-level($typography-config, "body-1");
+    }
+  }
+}
+
+@mixin theme($theme, $typography-config) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config);
+  }
+}
