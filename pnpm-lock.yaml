@@ -79,9 +79,6 @@ devDependencies:
   '@angular/localize':
     specifier: 16.0.5
     version: 16.0.5(@angular/compiler-cli@16.0.5)(@angular/compiler@16.0.5)
-  '@types/jasmine':
-    specifier: ~4.3.2
-    version: 4.3.2
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
@@ -103,9 +100,6 @@ devDependencies:
   husky:
     specifier: ^8.0.3
     version: 8.0.3
-  jasmine-core:
-    specifier: ~4.6.0
-    version: 4.6.0
   jest:
     specifier: ^29.5.0
     version: 29.5.0(@types/node@20.3.1)(ts-node@10.9.1)
@@ -3953,10 +3947,6 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jasmine@4.3.2:
-    resolution: {integrity: sha512-lKkWBcbxEZX/7nxPqEtv/OjPLaBa2j0o+hmv5Yn83b/+11C1kfBAkgvmrb13WDkmizUJ3B+jYrWh4M0YRtrzEQ==}
-    dev: true
-
   /@types/jest@29.5.2:
     resolution: {integrity: sha512-mSoZVJF5YzGVCk+FsDxzDuH7s+SCkzrgKZzf0Z0T2WudhBUPoF6ktoTPC4R0ZoCPCV5xUvuU6ias5NvxcBcMMg==}
     dependencies:
@@ -7480,10 +7470,6 @@ packages:
       chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
-    dev: true
-
-  /jasmine-core@4.6.0:
-    resolution: {integrity: sha512-O236+gd0ZXS8YAjFx8xKaJ94/erqUliEkJTDedyE7iHvv4ZVqi+q+8acJxu05/WJDKm512EUNn809In37nWlAQ==}
     dev: true
 
   /jest-changed-files@29.5.0:
