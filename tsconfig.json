@@ -23,6 +23,7 @@
     "esModuleInterop": true,
     "lib": ["ES2022", "dom"],
     "paths": {
+      "@core/*": ["src/app/core/*"],
       "@features/*": ["src/app/features/*"],
       "@mock/*": ["src/app/mock/*"],
       "@model/*": ["src/app/model/*"]

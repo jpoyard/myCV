@@ -1,5 +1,5 @@
-import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, Signal, computed } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
@@ -11,27 +11,31 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   standalone: true,
   imports: [
     MatRadioModule,
+    NgFor,
     NgIf,
     OutputTestContainerComponent,
     ReactiveFormsModule,
     MatIconModule,
   ],
   template: `
-    <ng-container *ngIf="selectedIconFormControl.value as selectedIcon">
+    <ng-container *ngIf="selectedIconFormControl() as formControl">
       <mcv-output-test-container>
         <div inputs>
           <label for="icons">Choose one</label>
           <mat-radio-group
             id="icons"
             class="icons-radio-group"
-            [formControl]="selectedIconFormControl"
+            [formControl]="formControl"
           >
-            <mat-radio-button *ngFor="let icon of icons" [value]="icon">
-              {{ icon }}
+            <mat-radio-button *ngFor="let icon of icons()" [value]="icon">
+              <div class="radio-content">
+                <mat-icon [svgIcon]="icon"></mat-icon>
+                <span>{{ icon }}</span>
+              </div>
             </mat-radio-button>
           </mat-radio-group>
         </div>
-        <div output>
+        <div output *ngIf="formControl.value as selectedIcon">
           <div>
             <mat-icon [svgIcon]="selectedIcon"></mat-icon>
             <i>24px*24px</i>
@@ -44,7 +48,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
             <mat-icon
               [svgIcon]="selectedIcon"
               class="big"
-              style="background-color: greenyellow; border: none;"
+              style="background-color: black; color: white;"
             ></mat-icon>
             <i>96px*96px</i>
           </div>
@@ -59,6 +63,15 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
         flex-direction: column;
         margin: 15px 0;
         align-items: flex-start;
+
+        .radio-content {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          span {
+            margin-left: 0.4rem;
+          }
+        }
       }
 
       div[output] {
@@ -71,6 +84,7 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
           flex-direction: column;
           align-items: center;
           justify-content: flex-end;
+
           mat-icon {
             border: 1px solid black;
             margin: 0.2rem 1rem;
@@ -86,7 +100,18 @@ import { OutputTestContainerComponent } from 'src/tests/output-test.component';
   ],
 })
 export class IconLoaderTestComponent {
-  icons = this.iconLoaderService.availableIcons;
-  selectedIconFormControl = new FormControl(this.icons[0]);
-  constructor(public iconLoaderService: IconLoaderService) {}
+  get icons(): Signal<string[]> {
+    return this.iconLoaderService.availableIcons;
+  }
+  selectedIconFormControl: Signal<FormControl<string | null>>;
+
+  constructor(public iconLoaderService: IconLoaderService) {
+    this.selectedIconFormControl = computed(() => {
+      const icon = this.icons()[0];
+      return new FormControl<string | null>({
+        value: icon,
+        disabled: false,
+      });
+    });
+  }
 }

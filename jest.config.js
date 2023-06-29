@@ -22,6 +22,7 @@ module.exports = {
   modulePathIgnorePatterns: [],
   moduleNameMapper: {
     "src/(.*)": "<rootDir>/src/$1",
+    "@core/(.*)": "<rootDir>/src/app/core/$1",
     "@features/(.*)": "<rootDir>/src/app/features/$1",
     "@mock/(.*)": "<rootDir>/src/app/mock/$1",
     "@model/(.*)": "<rootDir>/src/app/model/$1",

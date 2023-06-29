@@ -1,21 +1,45 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, signal } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { getMockSvgIcons } from '@mock/icons.mock';
+import { ConfigService } from '@core/services/config.service';
+import { SvgIcon } from '@model/icon';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IconLoaderService {
-  public availableIcons: string[] = [];
+  public availableIcons = signal<string[]>([]);
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    getMockSvgIcons().forEach((icon) => {
-      iconRegistry.addSvgIconLiteral(
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+    private http: HttpClient,
+    private configService: ConfigService
+  ) {
+    this.retrieveAndRegisterSvgIcon();
+  }
+
+  private retrieveAndRegisterSvgIcon(): void {
+    this.retrieveSvgIcons()
+      .pipe(map((icons) => this.registerSvgIcons(icons)))
+      .subscribe((availableIcons) => this.availableIcons.set(availableIcons));
+  }
+
+  private retrieveSvgIcons(): Observable<SvgIcon[]> {
+    return this.http
+      .get<SvgIcon[]>(this.configService.externalApi().icons)
+      .pipe(catchError(() => of([])));
+  }
+
+  private registerSvgIcons(icons: SvgIcon[]): string[] {
+    return icons.map((icon) => {
+      this.iconRegistry.addSvgIconLiteral(
         icon.name,
-        sanitizer.bypassSecurityTrustHtml(icon.svg)
+        this.sanitizer.bypassSecurityTrustHtml(icon.svg)
       );
-      this.availableIcons.push(icon.name);
+      return icon.name;
     });
   }
 }

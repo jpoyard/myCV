@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Signal, computed } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -11,7 +11,11 @@ import { Link } from '@model/link';
   template: `
     <mat-list>
       <mat-list-item *ngFor="let link of links">
-        <mat-icon *ngIf="link.icon" matListItemIcon [svgIcon]="link.icon">
+        <mat-icon
+          *ngIf="hasIcon(link.icon)()"
+          matListItemIcon
+          [svgIcon]="link.icon"
+        >
         </mat-icon>
         <a
           matListItemTitle
@@ -44,5 +48,12 @@ import { Link } from '@model/link';
 export class LinksListComponent {
   @Input() public links: Link[] = [];
 
-  constructor(public iconLoaderService: IconLoaderService) {}
+  constructor(private iconLoaderService: IconLoaderService) {}
+
+  public hasIcon(icon?: string | null): Signal<boolean> {
+    return computed(
+      () =>
+        icon != null && this.iconLoaderService.availableIcons().includes(icon)
+    );
+  }
 }

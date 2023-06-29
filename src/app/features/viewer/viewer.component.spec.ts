@@ -6,6 +6,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { getMockPreparedCurriculumVitaeData } from '@mock/cv-data.mock';
 import { PreparedCurriculumVitaeData } from '@model/cv-data';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
+import { IconLoaderService } from './services/icon-loader.service';
 import { ViewerComponent } from './viewer.component';
 
 describe(ViewerComponent.name, () => {
@@ -23,6 +24,10 @@ describe(ViewerComponent.name, () => {
               getMockPreparedCurriculumVitaeData()
             ),
           },
+        },
+        {
+          provide: IconLoaderService,
+          useValue: { availableIcons: signal([]) },
         },
         provideRouter([
           {
