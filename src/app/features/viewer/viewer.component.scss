@@ -1,0 +1,50 @@
+:host {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .main {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0.5rem;
+    gap: 0.5rem;
+
+    .left,
+    .right {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      gap: 0.5rem;
+
+      .content {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+      }
+    }
+
+    .left {
+      width: 80%;
+    }
+
+    .right {
+      width: 20%;
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+      }
+    }
+  }
+}

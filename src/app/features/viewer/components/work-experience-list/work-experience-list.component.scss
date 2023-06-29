@@ -1,0 +1,25 @@
+:host {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  .sidenav {
+    width: 290px;
+    height: 100%;
+    .mcv-timeline-nav {
+      position: fixed;
+      top: 20vh;
+      height: calc(100% - 20vh);
+    }
+  }
+
+  .content {
+    flex: 1 1 0;
+    padding: 0 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+}

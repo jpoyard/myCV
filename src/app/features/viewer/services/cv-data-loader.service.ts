@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, LOCALE_ID, signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SupportedLanguageEnum } from '../../../model/language';
-import { CurriculumVitaeData } from '../model/cv-data';
+import { CurriculumVitaeData } from '@model/cv-data';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +10,21 @@ export class CvDataLoaderService {
   private prefix = '/assets/cv/';
   private suffix = '.json';
 
-  constructor(private http: HttpClient) {}
+  public data = signal<CurriculumVitaeData | null>(null);
 
-  public getCV(lang: SupportedLanguageEnum): Observable<CurriculumVitaeData> {
+  constructor(
+    @Inject(LOCALE_ID) private locale: string,
+    private http: HttpClient
+  ) {}
+
+  public request(): void {
+    this.data.set(null);
+    this.getCV().subscribe({ next: (cv) => this.data.set(cv) });
+  }
+
+  private getCV(): Observable<CurriculumVitaeData> {
     return this.http.get<CurriculumVitaeData>(
-      `${this.prefix}${lang}${this.suffix}`
+      `${this.prefix}${this.locale}${this.suffix}`
     );
   }
 }

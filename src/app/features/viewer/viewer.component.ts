@@ -1,28 +1,26 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { DegreeListComponent } from './components/degree-list/degree-list.component';
-import { LanguageListComponent } from './components/language-list/language-list.component';
-import { LinkListComponent } from './components/link-list/link-list.component';
+import { DegreesListComponent } from './components/degrees-list/degrees-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LanguagesListComponent } from './components/languages-list/languages-list.component';
 import { SectionComponent } from './components/section/section.component';
-import { SkillListComponent } from './components/skill-list/skill-list.component';
+import { SkillsListComponent } from './components/skills-list/skills-list.component';
 import { WorkExperienceListComponent } from './components/work-experience-list/work-experience-list.component';
 import { CurriculumVitaeDataService } from './services/cv-data.service';
 
 @Component({
   selector: 'mcv-viewer',
   templateUrl: './viewer.component.html',
+  styleUrls: ['./viewer.component.scss'],
   standalone: true,
   imports: [
-    AsyncPipe,
-    DegreeListComponent,
-    LanguageListComponent,
-    LinkListComponent,
+    DegreesListComponent,
+    LanguagesListComponent,
     NgFor,
     NgIf,
     SectionComponent,
-    SkillListComponent,
-    TranslateModule,
+    SkillsListComponent,
+    HeaderComponent,
     WorkExperienceListComponent,
   ],
 })

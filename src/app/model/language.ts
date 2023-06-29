@@ -1,14 +1,9 @@
-export enum SupportedLanguageEnum {
-  french = 'fr',
-  english = 'en',
+export enum LanguageLevelEnum {
+  native = 'native',
+  professional = 'professional',
 }
 
-export interface DiplayedLanguage {
-  language: SupportedLanguageEnum;
-  label: string;
+export interface Language {
+  name: string;
+  level?: LanguageLevelEnum;
 }
-
-export const SUPPORTED_LANGUAGES: DiplayedLanguage[] = [
-  { language: SupportedLanguageEnum.french, label: 'français' },
-  { language: SupportedLanguageEnum.english, label: 'english' },
-];

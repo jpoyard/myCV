@@ -1,0 +1,50 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($config-or-theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($config-or-theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, "primary");
+
+  $primary-color: mat.get-color-from-palette($primary-palette, 500);
+
+  .mcv-links-list {
+    background-color: $primary-color;
+
+    .mat-mdc-list,
+    .mat-mdc-list-item,
+    a.mat-mdc-unelevated-button {
+      background-color: $primary-color;
+    }
+  }
+}
+
+@mixin typography($typography-config) {
+  .mcv-links-list {
+    font-style: normal;
+    .mat-mdc-list-item {
+      height: 36px !important;
+    }
+    .mdc-list-item,
+    .mdc-list-item:hover {
+      .mat-icon,
+      .mat-mdc-unelevated-button {
+        color: #fff;
+        @include mat.typography-level($typography-config, "body-1");
+      }
+    }
+  }
+}
+
+@mixin theme($theme, $typography-config) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config);
+  }
+}

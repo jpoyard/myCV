@@ -1,0 +1,87 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+
+@mixin color($config-or-theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($config-or-theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, "primary");
+  $grey-palette: mat.$grey-palette;
+  $accent-palette: map.get($color-config, "accent");
+  $warn-palette: map.get($color-config, "warn");
+  $is-dark-theme: map.get($color-config, "is-dark");
+
+  $primary-color: mat.get-color-from-palette($primary-palette, 900);
+  $on-primary-color: mat.get-color-from-palette($primary-palette, 900);
+  $grey-200: mat.get-color-from-palette($grey-palette, 200);
+  $background-color: #fff;
+  $accent-color: mat.get-color-from-palette($accent-palette, 500);
+
+  .mcv-timeline-nav .timeline {
+    background-color: $grey-200;
+
+    .period {
+      .content {
+        background-color: $grey-200;
+        border-color: $background-color;
+      }
+
+      .milestone {
+        position: relative;
+
+        &::before {
+          background-color: $grey-200;
+          border-color: $background-color;
+        }
+
+        &::after {
+          background-color: $grey-200;
+          color: $on-primary-color;
+        }
+      }
+
+      &:hover,
+      &.active {
+        .content,
+        .milestone::before,
+        .milestone::after {
+          background-color: $accent-color;
+        }
+        .milestone::after {
+          color: $background-color;
+        }
+      }
+
+      &.selected:not(.active) {
+        .content,
+        .milestone::before,
+        .milestone::after {
+          background-color: $primary-color;
+        }
+        .milestone::after {
+          color: $background-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin typography($typography-config) {
+  .mcv-timeline-nav .milestone {
+    &::after {
+      @include mat.typography-level($typography-config, "body-1");
+    }
+  }
+}
+
+@mixin theme($theme, $typography-config) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  @if $typography-config != null {
+    @include typography($typography-config);
+  }
+}

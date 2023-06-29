@@ -1,0 +1,52 @@
+import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LanguagesListComponent } from '@features/viewer/components/languages-list/languages-list.component';
+import { getMockLanguages } from '@mock/language.mock';
+import { Language } from '@model/language';
+import { OutputTestContainerComponent } from 'src/tests/output-test.component';
+
+@Component({
+  selector: 'mcv-languages-list-test',
+  standalone: true,
+  imports: [
+    LanguagesListComponent,
+    MatCheckboxModule,
+    NgFor,
+    OutputTestContainerComponent,
+    ReactiveFormsModule,
+  ],
+  template: `
+    <mcv-output-test-container [data]="selectedLanguages">
+      <section [formGroup]="languagesFormControl" inputs>
+        <h4>Select languages:</h4>
+        <p *ngFor="let language of languages">
+          <mat-checkbox [formControlName]="language.name">
+            {{ language.name }}
+          </mat-checkbox>
+        </p>
+      </section>
+      <mcv-languages-list [languages]="selectedLanguages" output>
+      </mcv-languages-list>
+    </mcv-output-test-container>
+  `,
+})
+export class LanguagesListTestComponent {
+  public languages = getMockLanguages();
+  public languagesFormControl: FormGroup;
+  get selectedLanguages(): Language[] {
+    return this.languages.filter(
+      (value) => this.languagesFormControl.value[value.name]
+    );
+  }
+
+  constructor() {
+    this.languagesFormControl = new FormGroup(
+      this.languages.reduce(
+        (acc, language) => ({ ...acc, [language.name]: new FormControl(true) }),
+        {}
+      )
+    );
+  }
+}

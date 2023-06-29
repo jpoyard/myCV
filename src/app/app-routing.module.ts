@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -9,10 +9,20 @@ const routes: Routes = [
   },
   {
     path: 'view',
-    loadChildren: () =>
-      import('./features/viewer/viewer.module').then((m) => m.ViewerModule),
+    loadComponent: () =>
+      import('./features/viewer/viewer.component').then(
+        (m) => m.ViewerComponent
+      ),
   },
 ];
+
+if (isDevMode()) {
+  routes.push({
+    path: 'tests',
+    loadChildren: () =>
+      import('../tests/tests.module').then((m) => m.TestsModule),
+  });
+}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

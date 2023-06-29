@@ -1,23 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
-import { Observable, of } from 'rxjs';
-import { LanguageService } from '../../../../core/services/language.service';
-import { SupportedLanguageEnum } from '../../../../model/language';
 
 import { WorkExperienceComponent } from './work-experience.component';
+import { getMockWorkExperiences } from 'src/app/mock/work-experience.mock';
 
 describe(WorkExperienceComponent.name, () => {
   let component: WorkExperienceComponent;
   let fixture: ComponentFixture<WorkExperienceComponent>;
-  let mockLanguageService: { currentLang$: Observable<string> };
 
   beforeEach(async () => {
-    mockLanguageService = { currentLang$: of(SupportedLanguageEnum.english) };
-
     await TestBed.configureTestingModule({
-      imports: [TranslateModule.forRoot(), WorkExperienceComponent],
-      providers: [{ provide: LanguageService, useValue: mockLanguageService }],
+      imports: [WorkExperienceComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
@@ -25,10 +18,14 @@ describe(WorkExperienceComponent.name, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WorkExperienceComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    // Given
+    component.workExperience = getMockWorkExperiences()[0];
+    // When
+    fixture.detectChanges();
+    // Then
     expect(component).toBeTruthy();
   });
 });

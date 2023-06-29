@@ -1,41 +1,33 @@
-import { TestBed } from '@angular/core/testing';
-import { BehaviorSubject, firstValueFrom, Observable, of, Subject } from 'rxjs';
-import { LanguageService } from '../../../core/services/language.service';
-import { SupportedLanguageEnum } from '../../../model/language';
+import { WritableSignal, signal } from '@angular/core';
+import { TestBed, fakeAsync, flush } from '@angular/core/testing';
 import {
   getMockCurriculumVitaeData,
   getMockPreparedCurriculumVitaeData,
-} from '../mock/cv-data.mock';
-import { getMockSkills } from '../mock/skill.mock';
-import { CurriculumVitaeData } from '../model/cv-data';
-import { Link } from '../model/link';
-import { PersonalData, WebsiteEnum } from '../model/personal-data';
-import { SkillLevelEnum } from '../model/skill';
-import { WorkExperience } from '../model/work-experience';
+} from '@mock/cv-data.mock';
+import { getMockSkills } from '@mock/skill.mock';
+import { CurriculumVitaeData } from '@model/cv-data';
+import { Link } from '@model/link';
+import { PersonalData } from '@model/personal-data';
+import { SkillLevelEnum } from '@model/skill';
+import { WorkExperience } from '@model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
 import { CurriculumVitaeDataService } from './cv-data.service';
 
 describe(CurriculumVitaeDataService.name, () => {
   let service: CurriculumVitaeDataService;
-  let mockCurrentLang$: Subject<SupportedLanguageEnum>;
-  let mockLanguageService: { currentLang$: Observable<SupportedLanguageEnum> };
   let mockCvDataLoaderService: {
-    getCV(lang: SupportedLanguageEnum): Observable<CurriculumVitaeData>;
+    request(): void;
+    data: WritableSignal<CurriculumVitaeData | null>;
   };
 
   beforeEach(() => {
-    mockCurrentLang$ = new BehaviorSubject<SupportedLanguageEnum>(
-      SupportedLanguageEnum.english
-    );
-    mockLanguageService = { currentLang$: mockCurrentLang$ };
-    mockCvDataLoaderService = { getCV: jest.fn() };
-    jest
-      .spyOn(mockCvDataLoaderService, 'getCV')
-      .mockImplementationOnce(() => of(getMockCurriculumVitaeData()));
+    mockCvDataLoaderService = {
+      request: jest.fn(),
+      data: signal<CurriculumVitaeData | null>(null),
+    };
 
     TestBed.configureTestingModule({
       providers: [
-        { provide: LanguageService, useValue: mockLanguageService },
         { provide: CvDataLoaderService, useValue: mockCvDataLoaderService },
         CurriculumVitaeDataService,
       ],
@@ -43,23 +35,30 @@ describe(CurriculumVitaeDataService.name, () => {
     service = TestBed.inject(CurriculumVitaeDataService);
   });
 
-  afterEach(() => service.ngOnDestroy());
+  describe('data', () => {
+    it(`should retrieve CV when data is defined`, fakeAsync(() => {
+      // Given
+      mockCvDataLoaderService.data.set(getMockCurriculumVitaeData());
 
-  describe('data$', () => {
-    Object.values(SupportedLanguageEnum).forEach((lang) => {
-      it(`should retrieve ${lang} CV when selected lang is ${lang}`, async () => {
-        // Given
+      // When
+      flush();
 
-        // When
-        mockCurrentLang$.next(lang);
+      // Then
+      expect(mockCvDataLoaderService.request).toHaveBeenCalled();
+      expect(service.data()).toEqual(getMockPreparedCurriculumVitaeData());
+    }));
 
-        // Then
-        expect(mockCvDataLoaderService.getCV).toHaveBeenCalledWith(lang);
-        expect(await firstValueFrom(service.data$)).toEqual(
-          getMockPreparedCurriculumVitaeData()
-        );
-      });
-    });
+    it(`should be null when raw data is null`, fakeAsync(() => {
+      // Given
+      mockCvDataLoaderService.data.set(null);
+
+      // When
+      flush();
+
+      // Then
+      expect(mockCvDataLoaderService.request).toHaveBeenCalled();
+      expect(service.data()).toBeNull();
+    }));
   });
 
   describe('getContactLinks()', () => {
@@ -79,7 +78,7 @@ describe(CurriculumVitaeDataService.name, () => {
           address: '15 Avenue des Champs-Élysées, Paris',
         } as PersonalData,
         then: {
-          icon: 'fa-map-marker',
+          icon: 'home',
           label: '15 Avenue des Champs-Élysées, Paris',
           url: `https://www.google.fr/maps/place/15%20Avenue%20des%20Champs-%C3%89lys%C3%A9es,%20Paris`,
         },
@@ -87,7 +86,7 @@ describe(CurriculumVitaeDataService.name, () => {
       {
         when: { email: 'john.doe@yahoo.com' } as PersonalData,
         then: {
-          icon: 'fa-envelope',
+          icon: 'mail',
           label: 'john.doe@yahoo.com',
           url: 'mailto:john.doe@yahoo.com',
         },
@@ -95,7 +94,7 @@ describe(CurriculumVitaeDataService.name, () => {
       {
         when: { phoneNumber: '(+33)6 12 34 56 78' } as PersonalData,
         then: {
-          icon: 'fa-mobile',
+          icon: 'phone',
           label: '(+33)6 12 34 56 78',
           url: 'tel:+33612345678',
         },
@@ -112,107 +111,6 @@ describe(CurriculumVitaeDataService.name, () => {
 
         // Then
         expect(actual).toEqual(expected);
-      });
-    });
-  });
-
-  describe('getWebsiteLinks()', () => {
-    [
-      {
-        when: [],
-        then: [],
-      },
-      {
-        when: [{ website: WebsiteEnum.linkedin, account: 'jpoyard' }],
-        then: [
-          {
-            icon: 'fa-linkedin',
-            label: 'linkedin.com/in/jpoyard',
-            url: 'http://www.linkedin.com/in/jpoyard',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.linkedin, account: 'gishin01' }],
-        then: [
-          {
-            icon: 'fa-linkedin',
-            label: 'linkedin.com/in/gishin01',
-            url: 'http://www.linkedin.com/in/gishin01',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.github, account: 'jpoyard' }],
-        then: [
-          {
-            icon: 'fa-github',
-            label: 'github.com/jpoyard',
-            url: 'https://github.com/jpoyard',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.github, account: 'gishin01' }],
-        then: [
-          {
-            icon: 'fa-github',
-            label: 'github.com/gishin01',
-            url: 'https://github.com/gishin01',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.twitter, account: 'jpoyard' }],
-        then: [
-          {
-            icon: 'fa-twitter',
-            label: '@jpoyard',
-            url: 'https://twitter.com/jpoyard',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.twitter, account: 'gishin01' }],
-        then: [
-          {
-            icon: 'fa-twitter',
-            label: '@gishin01',
-            url: 'https://twitter.com/gishin01',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.codepen, account: 'jpoyard' }],
-        then: [
-          {
-            icon: 'fa-codepen',
-            label: 'codepen.io/jpoyard',
-            url: 'https://codepen.io/jpoyard',
-          },
-        ],
-      },
-      {
-        when: [{ website: WebsiteEnum.codepen, account: 'gishin01' }],
-        then: [
-          {
-            icon: 'fa-codepen',
-            label: 'codepen.io/gishin01',
-            url: 'https://codepen.io/gishin01',
-          },
-        ],
-      },
-    ].forEach((scenario) => {
-      it(`should return ${JSON.stringify(
-        scenario.then
-      )}, when accounts=${JSON.stringify(scenario.when)}`, () => {
-        // Given
-
-        // When
-        const actual = service.getWebsiteLinks(scenario.when);
-
-        // Then
-        expect(actual).toEqual(scenario.then);
       });
     });
   });

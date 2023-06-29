@@ -1,57 +1,40 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable, ReplaySubject, Subscription } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { LanguageService } from '../../../core/services/language.service';
-import { SupportedLanguageEnum } from '../../../model/language';
+import { Injectable, Signal, computed } from '@angular/core';
 import {
   CurriculumVitaeData,
   PreparedCurriculumVitaeData,
   SkillGroup,
-} from '../model/cv-data';
-import { Link } from '../model/link';
-import {
-  PersonalData,
-  WebsiteAccount,
-  WebsiteEnum,
-} from '../model/personal-data';
-import { Skill } from '../model/skill';
-import { WorkExperience } from '../model/work-experience';
+} from '@model/cv-data';
+import { Link } from '@model/link';
+import { PersonalData } from '@model/personal-data';
+import { Skill } from '@model/skill';
+import { WorkExperience } from '@model/work-experience';
 import { CvDataLoaderService } from './cv-data-loader.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CurriculumVitaeDataService implements OnDestroy {
-  private subscription: Subscription;
+export class CurriculumVitaeDataService {
+  public data: Signal<PreparedCurriculumVitaeData | null>;
 
-  private pData$ = new ReplaySubject<PreparedCurriculumVitaeData>();
-  public get data$(): Observable<PreparedCurriculumVitaeData> {
-    return this.pData$.asObservable();
+  constructor(loader: CvDataLoaderService) {
+    loader.request();
+    this.data = computed(() => {
+      const raw = loader.data();
+      return raw ? this.getData(raw) : null;
+    });
   }
 
-  constructor(languageService: LanguageService, loader: CvDataLoaderService) {
-    this.subscription = languageService.currentLang$
-      .pipe(
-        map((lang) => lang as SupportedLanguageEnum),
-        switchMap((lang) => loader.getCV(lang))
-      )
-      .subscribe((curriculumVitae) => this.loadData(curriculumVitae));
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  private loadData(data: CurriculumVitaeData): void {
-    this.pData$.next({
+  private getData(data: CurriculumVitaeData): PreparedCurriculumVitaeData {
+    return {
       personalData: data.personalData,
       contactLinks: this.getContactLinks(data.personalData),
-      websiteLinks: this.getWebsiteLinks(data.personalData.accounts),
+      websiteLinks: data.personalData.accounts,
       careerSummary: data.careerSummary,
       workExperiences: data.workExperiences,
       skillGroups: this.getSkillGroups(this.getSkills(data.workExperiences)),
       degrees: data.degrees,
       languages: data.languages,
-    });
+    };
   }
 
   public getSkills(workExperiences: WorkExperience[]): Skill[] {
@@ -77,12 +60,6 @@ export class CurriculumVitaeDataService implements OnDestroy {
     ];
   }
 
-  public getWebsiteLinks(accounts: WebsiteAccount[]): Link[] {
-    return accounts.map((account) => {
-      return this.getWebsiteLink(account);
-    });
-  }
-
   public getSkillGroups(skills: Skill[]): SkillGroup[] {
     const frontSkillGroup = {
       title: 'front-end',
@@ -105,47 +82,11 @@ export class CurriculumVitaeDataService implements OnDestroy {
     );
   }
 
-  private getWebsiteLink(account: WebsiteAccount): Link {
-    let result: Link;
-    switch (account.website) {
-      case WebsiteEnum.linkedin:
-        result = {
-          icon: 'fa-linkedin',
-          label: `linkedin.com/in/${account.account}`,
-          url: `http://www.linkedin.com/in/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.github:
-        result = {
-          icon: 'fa-github',
-          label: `github.com/${account.account}`,
-          url: `https://github.com/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.twitter:
-        result = {
-          icon: 'fa-twitter',
-          label: `@${account.account}`,
-          url: `https://twitter.com/${account.account}`,
-        };
-        break;
-      case WebsiteEnum.codepen:
-      default:
-        result = {
-          icon: 'fa-codepen',
-          label: `codepen.io/${account.account}`,
-          url: `https://codepen.io/${account.account}`,
-        };
-        break;
-    }
-    return result;
-  }
-
   private getPhoneNumberLink(phoneNumber?: string): Link[] {
     return phoneNumber
       ? [
           {
-            icon: 'fa-mobile',
+            icon: 'phone',
             label: phoneNumber,
             url: `tel:${phoneNumber.replace(/[\s()]/gm, '')}`,
           },
@@ -155,7 +96,7 @@ export class CurriculumVitaeDataService implements OnDestroy {
 
   private getEmailLink(email?: string): Link[] {
     return email
-      ? [{ icon: 'fa-envelope', label: email, url: `mailto:${email}` }]
+      ? [{ icon: 'mail', label: email, url: `mailto:${email}` }]
       : [];
   }
 
@@ -163,7 +104,7 @@ export class CurriculumVitaeDataService implements OnDestroy {
     return address
       ? [
           {
-            icon: 'fa-map-marker',
+            icon: 'home',
             label: address,
             url: `https://www.google.fr/maps/place/${encodeURI(address)}`,
           },

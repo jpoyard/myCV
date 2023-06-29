@@ -1,0 +1,10 @@
+<mcv-section i18n-title title="title.education">
+  <mat-list role="list">
+    <mat-list-item *ngFor="let degree of orderedDegrees" role="listitem">
+      <div matListItemTitle>{{ degree.name }}</div>
+      <div matListItemLine>
+        {{ degree.start }} - {{ degree.end }} {{ degree.school }}
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mcv-section>

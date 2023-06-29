@@ -1,0 +1,31 @@
+@use "@angular/material" as mat;
+@use "./styles/themes/light" as theme;
+@use "./styles/components";
+@use "./styles/typography/config" as typography;
+
+@include mat.core();
+
+@include mat.button-theme(theme.$custom-theme);
+@include mat.card-theme(theme.$custom-theme);
+@include mat.checkbox-theme(theme.$custom-theme);
+@include mat.chips-theme(theme.$custom-theme);
+@include mat.core-theme(theme.$custom-theme);
+@include mat.form-field-theme(theme.$custom-theme);
+@include mat.icon-theme(theme.$custom-theme);
+@include mat.input-theme(theme.$custom-theme);
+@include mat.list-theme(theme.$custom-theme);
+@include mat.progress-bar-theme(theme.$custom-theme);
+@include mat.select-theme(theme.$custom-theme);
+@include mat.slide-toggle-theme(theme.$custom-theme);
+
+@include components.theme(theme.$custom-theme, typography.$typography-config);
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

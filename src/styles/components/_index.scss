@@ -1,0 +1,24 @@
+@use "../../app/features/viewer/components/header/_header.component-theme.scss"
+  as header;
+@use "../../app/features/viewer/components/links-list/_links-list.component-theme.scss"
+  as links-list;
+@use "../../app/features/viewer/components/section/_section.component-theme.scss"
+  as section;
+@use "../../app/features/viewer/components/skill-with-level/_skill-with-level.component-theme"
+  as skill-with-level;
+@use "../../app/features/viewer/components/work-experience/_work-experience.component-theme.scss"
+  as work-experience;
+@use "../../app/shared/components/timeline-nav/timeline-nav.component-theme" as
+  timeline-nav;
+
+@mixin theme($theme, $typography-config) {
+  // features/view
+  @include header.theme($theme, $typography-config);
+  @include links-list.theme($theme, $typography-config);
+  @include section.theme($theme, $typography-config);
+  @include skill-with-level.theme($theme, $typography-config);
+  @include work-experience.theme($theme, $typography-config);
+
+  // shared
+  @include timeline-nav.theme($theme, $typography-config);
+}

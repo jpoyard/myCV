@@ -1,4 +1,10 @@
-<ng-container *ngFor="let workExperience of workExperiences; last as isLast">
-  <mcv-work-experience [class.mb-2]="!isLast" [workExperience]="workExperience">
+<div class="sidenav">
+  <mcv-timeline-nav [workExperiences]="workExperiences"> </mcv-timeline-nav>
+</div>
+<div class="content">
+  <mcv-work-experience
+    *ngFor="let workExperience of workExperiences"
+    [workExperience]="workExperience"
+  >
   </mcv-work-experience>
-</ng-container>
+</div>
